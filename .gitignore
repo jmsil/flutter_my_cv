@@ -1,0 +1,14 @@
+.dart_tool/
+.firebase/
+.idea/
+android/
+assets/
+build/
+web/
+
+*.iml
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+
+lib/generated_plugin_registrant.dart
