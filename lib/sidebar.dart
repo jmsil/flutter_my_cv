@@ -95,10 +95,10 @@ class CvSidebarWidget extends StatelessWidget {
             child: CvNormalText(CvStrings.powredByFlutter, true)
           ),
           CvSep.sep8,
-          CvButton(
+          AppButton(
             CvStrings.langIdx == 0 ? CvSidebarTitle('Pt') : CvNormalText('Pt', true), onPressedPt
           ),
-          CvButton(
+          AppButton(
             CvStrings.langIdx == 1 ? CvSidebarTitle('En') : CvNormalText('En', true), onPressedEn
           )
         ]
@@ -125,7 +125,7 @@ class CvSidebarWidget extends StatelessWidget {
                   backgroundColor: Colors.blueGrey[800],
                   leading: drawerKey == null
                     ? null
-                    : CvButton(
+                    : AppButton(
                         Icon(Icons.arrow_back, size: 24),
                         () => drawerKey?.currentState?.close()
                       ),
