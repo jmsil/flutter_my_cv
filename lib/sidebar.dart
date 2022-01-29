@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_cv/button.dart';
-import 'package:my_cv/container.dart';
-import 'package:my_cv/scroller.dart';
-import 'package:my_cv/separator.dart';
-import 'package:my_cv/strings.dart';
-import 'package:my_cv/text.dart';
+
+import 'button.dart';
+import 'container.dart';
+import 'scroller.dart';
+import 'separator.dart';
+import 'strings.dart';
+import 'text.dart';
 
 class CvSidebarWidget extends StatelessWidget {
   static const EdgeInsets headerPadding = EdgeInsets.fromLTRB(32, 32, 32, 40);
@@ -17,12 +18,22 @@ class CvSidebarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double headerExpandedHeight = 216;
     final bool isHeaderPinned = MediaQuery.of(context).size.height >= 480;
 
     final Widget headerWidget = Column(
       children: [
         Flexible(
-          child: CvContainer(4, 32, 'photo.jpg', null)
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: AppContainer(
+              borderSize: 4,
+              borderColor: Colors.blueGrey[100],
+              borderRadius: BorderRadius.circular(headerExpandedHeight / 6),
+              isClipped: true,
+              child: Image.asset('assets/photo.jpg', fit: BoxFit.cover)
+            )
+          )
         ),
         CvSep.sep16,
         CvSidebarTitle('João Marques da Silva'),
@@ -73,31 +84,28 @@ class CvSidebarWidget extends StatelessWidget {
       CvNormalText(CvStrings.aboutAndExpectationsText, true)
     ];
 
-    final Widget footerWidget = Container(
+    final Widget footerWidget = AppContainer(
       color: Colors.blueGrey[700],
       padding: CvSep.horEdgeInsets8,
-      child: Material(
-        type: MaterialType.transparency,
-        child: Row(
-          children: [
-            FlutterLogo(size: 32),
-            CvSep.sep8,
-            Expanded(
-              child: CvNormalText(CvStrings.powredByFlutter, true)
-            ),
-            CvSep.sep8,
-            CvButton(
-              CvStrings.langIdx == 0 ? CvSidebarTitle('Pt') : CvNormalText('Pt', true), onPressedPt
-            ),
-            CvButton(
-              CvStrings.langIdx == 1 ? CvSidebarTitle('En') : CvNormalText('En', true), onPressedEn
-            )
-          ]
-        )
+      child: Row(
+        children: [
+          FlutterLogo(size: 32),
+          CvSep.sep8,
+          Expanded(
+            child: CvNormalText(CvStrings.powredByFlutter, true)
+          ),
+          CvSep.sep8,
+          CvButton(
+            CvStrings.langIdx == 0 ? CvSidebarTitle('Pt') : CvNormalText('Pt', true), onPressedPt
+          ),
+          CvButton(
+            CvStrings.langIdx == 1 ? CvSidebarTitle('En') : CvNormalText('En', true), onPressedEn
+          )
+        ]
       )
     );
 
-    final rootWidget = Container(
+    final rootWidget = AppContainer(
       width: drawerKey == null ? null : 360,
       color: Colors.blueGrey[800],
       child: Column(
@@ -110,7 +118,7 @@ class CvSidebarWidget extends StatelessWidget {
                 SliverAppBar(
                   pinned: isHeaderPinned,
                   stretch: true,
-                  expandedHeight: 190 + headerPadding.vertical,
+                  expandedHeight: headerExpandedHeight + headerPadding.vertical,
                   collapsedHeight: 85 + headerPadding.vertical,
                   elevation: 0,
                   automaticallyImplyLeading: false,
@@ -129,7 +137,7 @@ class CvSidebarWidget extends StatelessWidget {
 
                 // Informations
                 SliverPadding(
-                  padding: CvSep.horEdgeInsets32,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   sliver: SliverList(
                     delegate: SliverChildListDelegate(
                       infosWidget,
@@ -143,7 +151,6 @@ class CvSidebarWidget extends StatelessWidget {
             )
           ),
 
-          // Footer
           CvSep.sep16,
           footerWidget
         ]
