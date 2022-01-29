@@ -8,7 +8,7 @@ class CvSep {
 
   static const EdgeInsets allEdgeInsets8 = EdgeInsets.all(8);
   static const EdgeInsets horEdgeInsets8 = EdgeInsets.symmetric(horizontal: 8);
-  static const EdgeInsets allEdgeInsets24 = EdgeInsets.all(24);
+  static const EdgeInsets allEdgeInsets16 = EdgeInsets.all(16);
   static const EdgeInsets horEdgeInsets32 = EdgeInsets.symmetric(horizontal: 32);
   static const EdgeInsets verEdgeInsets32 = EdgeInsets.symmetric(vertical: 32);
 
