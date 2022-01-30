@@ -69,11 +69,12 @@ class _ScaffoldState extends State {
         color: AppTheme.highDarkColor,
         child: SafeArea(
           child: Center(
-            child: AppContainer(
-              width: 1280,
-              color: AppTheme.midLightColor,
-              margin: const EdgeInsets.all(16),
-              child: widgetBuilder
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 1280),
+                child: widgetBuilder
+              )
             )
           )
         )
