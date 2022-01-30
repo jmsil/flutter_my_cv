@@ -37,9 +37,9 @@ class CvStrings {
     'Bastante auto-didata e sempre curioso para aprender algo sobre qualquer assunto. '
     'Sobre programação, prefiro fontes como livros, documentações oficiais, e artigos.\n\n'
 
-    'Sempre busco dar o meu melhor no que faço, sendo altamente comprometido com a qualidade do'
-    'produto final. Prezo por código legível e performático e, por isso, escolhi Flutter como meu '
-    'framework para multiplataforma.\n\n'
+    'Sempre busco dar o meu melhor no que faço, sendo altamente comprometido com a qualidade do '
+    'produto final. Prezo por código legível e performático e, por isso, escolhi Flutter como '
+    'meu framework para multiplataforma.\n\n'
 
     'Espero uma oportunidade de fazer parte de um grande projeto, robusto e bem estruturado, '
     'e de uma equipe na qual eu possa contribuir com minhas ideias e aprender mais com colegas '
