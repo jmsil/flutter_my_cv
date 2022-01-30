@@ -51,6 +51,7 @@ class _ScaffoldState extends State {
                   shape: BeveledRectangleBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(double.maxFinite))
                   ),
+                  mouseCursor: SystemMouseCursors.basic,
                   onPressed: () => drawerKey.currentState?.open()
                 )
               )

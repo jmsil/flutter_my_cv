@@ -15,6 +15,7 @@ class AppButton extends IconButton {
         borderRadius: BorderRadius.circular(AppTheme.largeIconSize),
         child: Center(child: child)
       ),
+      mouseCursor: SystemMouseCursors.basic,
       onPressed: onPressed
     );
 }
