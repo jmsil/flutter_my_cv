@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class AppListView extends StatelessWidget {
@@ -63,4 +64,12 @@ class AppScrollBehavior extends ScrollBehavior {
 
   @override
   ScrollPhysics getScrollPhysics(BuildContext context) => _physics;
+
+  @override
+  Set<PointerDeviceKind> get dragDevices {
+    Set<PointerDeviceKind> newSet = {};
+    newSet.addAll(super.dragDevices);
+    newSet.add(PointerDeviceKind.mouse);
+    return newSet;
+  }
 }
