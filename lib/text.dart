@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_cv/separator.dart';
 import 'package:url_launcher/url_launcher.dart' as urll;
 
-const double iconSize = 20;
-const double titleSize = 15.5;
+import 'const.dart';
+import 'divider.dart';
+import 'theme.dart';
+
 const double textSize = 13.5;
-final Color sidebarTitleColor = Colors.blue[200]!;
-final Color sidebarTextColor = Colors.blueGrey[100]!;
-final Color contentTitleColor = Colors.blue[900]!;
-final Color contentTextColor = Colors.black;
 
 class CvNormalText extends Text {
   CvNormalText(String text, bool isSidebar, [bool isLink = false])
@@ -19,145 +16,102 @@ class CvNormalText extends Text {
       style: TextStyle(
         fontSize: textSize,
         color: isSidebar
-          ? isLink ? sidebarTitleColor : sidebarTextColor
-          : isLink ? contentTitleColor : contentTextColor,
+          ? isLink ? AppTheme.lightBlue : AppTheme.highLightColor
+          : isLink ? AppTheme.darkBlue : AppTheme.darkColor,
         decorationThickness: isLink ? 2 : null,
         decoration: isLink ? TextDecoration.underline : null
       )
     );
 }
 
-class CvLink extends StatefulWidget {
+
+
+class AppIconText extends StatelessWidget {
+  final IconData icon;
   final String text;
   final bool isSidebar;
+  final bool isLink;
 
-  CvLink(this.text, this.isSidebar);
-
-  @override
-  _CvLinkState createState() => _CvLinkState();
-}
-
-class _CvLinkState extends State<CvLink> {
-  bool _hovered = false;
+  AppIconText(this.icon, this.text, this.isSidebar, [this.isLink = false]);
 
   @override
   Widget build(BuildContext context) {
-    return InkResponse(
-      onTap: _launch,
-      onHover: (value) => setState(() => _hovered = value),
-      child: widget.isSidebar
-        ? CvNormalText(widget.text, true, _hovered)
-        : CvNormalText(widget.text, false, _hovered)
+    return Row(
+      children: [
+        Icon(
+          icon,
+          size: AppTheme.smallIconSize,
+          color: isSidebar ? AppTheme.highLightColor : AppTheme.darkColor
+        ),
+        AppUiConst.hsep8,
+        Expanded(
+          child: isLink
+            ? AppLink(text, isSidebar)
+            : Text(
+                text,
+                style: isSidebar ? AppTheme.normalLightStyle : AppTheme.normalDarkStyle
+              )
+        )
+      ]
     );
-  }
-
-  void _launch() async {
-    if (await urll.canLaunch(widget.text))
-      urll.launch(widget.text);
   }
 }
 
-
-
-class CvSidebarTitle extends Text {
-  CvSidebarTitle(String text)
-    :
-    super(
-      text,
-      textScaleFactor: 1,
-      style: TextStyle(fontSize: titleSize, color: sidebarTitleColor)
-    );
-}
-
-class CvSidebarTitleWithDivider extends StatelessWidget {
+class AppSidebarTitleDivider extends StatelessWidget {
   final String text;
 
-  CvSidebarTitleWithDivider(this.text);
+  AppSidebarTitleDivider(this.text);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        CvSidebarTitle(text),
-        CvSep.sep8,
-        Expanded(child: CvSep.div)
-      ]
-    );
-  }
-}
-
-class CvSidebarTextWithIcon extends StatelessWidget {
-  final IconData icon;
-  final String text;
-  final bool isLink;
-
-  CvSidebarTextWithIcon(this.icon, this.text, [this.isLink = false]);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(icon, size: iconSize, color: sidebarTextColor),
-        CvSep.sep8,
-        Flexible(child: isLink ? CvLink(text, true) : CvNormalText(text, true))
-      ]
-    );
-  }
-}
-
-
-
-class CvContentTitleWithBkg extends StatelessWidget {
-  final String text;
-
-  CvContentTitleWithBkg(this.text);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blueGrey[200],
-      padding: EdgeInsets.fromLTRB(32, 2, 32, 2),
-      child: Text(
-        text,
-        textScaleFactor: 1,
-        style: TextStyle(
-          fontSize: titleSize,
-          color: contentTitleColor,
-          fontWeight: FontWeight.bold
+        Text(text, style: AppTheme.largeLightBlueStyle),
+        AppUiConst.hsep8,
+        Expanded(
+          child: AppDivider()
         )
-      )
+      ]
     );
   }
 }
 
-class CvContentTitle extends Text {
-  CvContentTitle(String text, bool isPeriod)
-    :
-    super(
-      text,
-      textScaleFactor: 1,
-      style: TextStyle(
-        fontSize: isPeriod ? textSize : titleSize,
-        color: contentTitleColor,
-        fontStyle: isPeriod ? FontStyle. italic : FontStyle.normal
-      )
-    );
+
+
+class AppLink extends StatefulWidget {
+  final String text;
+  final bool isSidebar;
+
+  AppLink(this.text, this.isSidebar);
+
+  @override
+  _AppLinkState createState() => _AppLinkState();
 }
 
-class CvContentTextWithIcon extends StatelessWidget {
-  final String text;
-
-  CvContentTextWithIcon(this.text);
+class _AppLinkState extends State<AppLink> {
+  bool _hovered = false;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(Icons.arrow_right, size: iconSize, color: contentTextColor),
-        CvSep.sep8,
-        Flexible(child: CvNormalText(text, false))
-      ]
+    return InkResponse(
+      focusColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      splashColor: Colors.transparent,
+      onTap: _launch,
+      onHover: (value) => setState(() => _hovered = value),
+      child: Text(
+        widget.text,
+        style: widget.isSidebar
+          ? _hovered ? AppTheme.normalLightBlueStyle : AppTheme.normalLightStyle
+          : _hovered ? AppTheme.normalDarkBlueStyle : AppTheme.normalDarkStyle
+      )
     );
+  }
+
+  void _launch() async {
+    if (await urll.canLaunch(widget.text))
+      urll.launch(widget.text);
   }
 }

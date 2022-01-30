@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'const.dart';
 import 'container.dart';
 import 'content.dart';
 import 'scroller.dart';
-import 'separator.dart';
 import 'sidebar.dart';
 import 'strings.dart';
+import 'theme.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -31,32 +32,30 @@ class _ScaffoldState extends State {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(child: CvSidebarWidget(null, onPressedPt, onPressedEn)),
-              Expanded(flex: 2, child: CvContentWidget())
+              Expanded(child: AppSidebar(null, onPressedPt, onPressedEn)),
+              Expanded(flex: 2, child: AppContent())
             ]
           );
         }
 
         return Stack(
           children: [
-            CvContentWidget(),
+            AppContent(),
             Align(
-              alignment: Alignment.bottomRight,
+              alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: CvSep.allEdgeInsets8,
+                padding: const EdgeInsets.all(16),
                 child: FloatingActionButton(
-                  child: Icon(
-                    Icons.account_circle_outlined,
-                    color: Colors.blueGrey[100]
-                  ),
+                  backgroundColor: AppTheme.midBlue,
+                  child: Icon(AppIcons.account, color: AppTheme.highLightColor),
                   shape: BeveledRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(double.maxFinite))
+                    borderRadius: const BorderRadius.all(Radius.circular(double.maxFinite))
                   ),
                   onPressed: () => drawerKey.currentState?.open()
                 )
               )
             ),
-            CvSidebarWidget(drawerKey, onPressedPt, onPressedEn)
+            AppSidebar(drawerKey, onPressedPt, onPressedEn)
           ]
         );
       }
@@ -64,20 +63,27 @@ class _ScaffoldState extends State {
 
     return MaterialApp(
       title: CvStrings.appName,
-      scrollBehavior: CvScrollBehavior(),
+      scrollBehavior: AppScrollBehavior(),
       home: Material(
-        color: Colors.blueGrey[900],
+        color: AppTheme.highDarkColor,
         child: SafeArea(
           child: Center(
             child: AppContainer(
               width: 1280,
-              color: Colors.blueGrey[100],
-              margin: CvSep.allEdgeInsets16,
+              color: AppTheme.midLightColor,
+              margin: const EdgeInsets.all(16),
               child: widgetBuilder
             )
           )
         )
       ),
+      builder: (context, homeChild) {
+        final MediaQueryData data = MediaQuery.of(context);
+        return MediaQuery(
+          data: data.copyWith(textScaleFactor: 1),
+          child: homeChild!
+        );
+      },
       debugShowCheckedModeBanner: false
     );
   }

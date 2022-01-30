@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
 import 'container.dart';
+import 'theme.dart';
 
 class AppButton extends IconButton {
-  static const double _iconSize = 36;
-
   AppButton(Widget child, Function() onPressed)
     :
     super(
-      iconSize: _iconSize,
+      iconSize: AppTheme.largeIconSize,
       hoverColor: Colors.blueGrey[600],
       icon: AppContainer(
         borderSize: 2,
         borderColor: Colors.blueGrey[100],
-        borderRadius: BorderRadius.circular(_iconSize),
+        borderRadius: BorderRadius.circular(AppTheme.largeIconSize),
         child: Center(child: child)
       ),
       onPressed: onPressed

@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 
 import 'button.dart';
+import 'const.dart';
 import 'container.dart';
+import 'divider.dart';
 import 'scroller.dart';
-import 'separator.dart';
 import 'strings.dart';
 import 'text.dart';
+import 'theme.dart';
 
-class CvSidebarWidget extends StatelessWidget {
-  static const EdgeInsets headerPadding = EdgeInsets.fromLTRB(32, 32, 32, 40);
+class AppSidebar extends StatelessWidget {
+  static const EdgeInsets _headerPadding = EdgeInsets.fromLTRB(32, 32, 32, 40);
 
   final GlobalKey<DrawerControllerState>? drawerKey;
   final Function() onPressedPt;
   final Function() onPressedEn;
 
-  CvSidebarWidget(this.drawerKey, this.onPressedPt, this.onPressedEn);
+  AppSidebar(this.drawerKey, this.onPressedPt, this.onPressedEn);
 
   @override
   Widget build(BuildContext context) {
@@ -28,109 +30,108 @@ class CvSidebarWidget extends StatelessWidget {
             aspectRatio: 1,
             child: AppContainer(
               borderSize: 4,
-              borderColor: Colors.blueGrey[100],
+              borderColor: AppTheme.highLightColor,
               borderRadius: BorderRadius.circular(headerExpandedHeight / 6),
               isClipped: true,
               child: Image.asset('assets/photo.jpg', fit: BoxFit.cover)
             )
           )
         ),
-        CvSep.sep16,
-        CvSidebarTitle('João Marques da Silva'),
-        CvSep.sep8,
-        SizedBox(width: 96, child: CvSep.div),
-        CvSep.sep8,
-        CvSidebarTitle(CvStrings.role)
+        AppUiConst.vsep16,
+        Text('João Marques da Silva', style: AppTheme.largeLightBlueStyle),
+        AppUiConst.vsep8,
+        SizedBox(width: 96, child: AppDivider(4)),
+        AppUiConst.vsep8,
+        Text(CvStrings.role, style: AppTheme.largeLightBlueStyle)
       ]
     );
 
     final List<Widget> infosWidget = [
-
       // Details
-      CvSidebarTitleWithDivider(CvStrings.details),
-      CvSep.sep16,
-      CvSidebarTextWithIcon(Icons.room_outlined, CvStrings.brazil),
-      CvSep.sep12,
-      CvSidebarTextWithIcon(Icons.phone_outlined, '+55 62 99497-1154'),
-      CvSep.sep12,
-      CvSidebarTextWithIcon(Icons.mail_outlined, 'jmsilva.inbox@gmail.com'),
-      CvSep.sep12,
-      CvSidebarTextWithIcon(Icons.code_outlined, 'https://github.com/Jmsil', true),
-      CvSep.sep40,
+      AppSidebarTitleDivider(CvStrings.details),
+      AppUiConst.vsep16,
+      AppIconText(AppIcons.local, CvStrings.brazil, true),
+      AppUiConst.vsep12,
+      AppIconText(AppIcons.phone, '+55 62 99497-1154', true),
+      AppUiConst.vsep12,
+      AppIconText(AppIcons.mail, 'jmsilva.inbox@gmail.com', true),
+      AppUiConst.vsep12,
+      AppIconText(AppIcons.code, 'https://github.com/Jmsil', true, true),
+      AppUiConst.vsep40,
 
       // Skills
-      CvSidebarTitleWithDivider(CvStrings.skills),
-      CvSep.sep16,
-      CvSidebarTextWithIcon(Icons.arrow_right, 'Dart/Flutter'),
-      CvSep.sep8,
-      CvSidebarTextWithIcon(Icons.arrow_right, 'Android SDK'),
-      CvSep.sep8,
-      CvSidebarTextWithIcon(Icons.arrow_right, 'Java'),
-      CvSep.sep8,
-      CvSidebarTextWithIcon(Icons.arrow_right, 'C/C++'),
-      CvSep.sep8,
-      CvSidebarTextWithIcon(Icons.arrow_right, 'Oracle Database'),
-      CvSep.sep8,
-      CvSidebarTextWithIcon(Icons.arrow_right, 'MySQL Database'),
-      CvSep.sep8,
-      CvSidebarTextWithIcon(Icons.arrow_right, 'SQL/PL SQL'),
-      CvSep.sep8,
-      CvSidebarTextWithIcon(Icons.arrow_right, 'Git'),
-      CvSep.sep40,
+      AppSidebarTitleDivider(CvStrings.skills),
+      AppUiConst.vsep16,
+      AppIconText(AppIcons.arrow, 'Dart/Flutter', true),
+      AppUiConst.vsep8,
+      AppIconText(AppIcons.arrow, 'Android SDK', true),
+      AppUiConst.vsep8,
+      AppIconText(AppIcons.arrow, 'Java', true),
+      AppUiConst.vsep8,
+      AppIconText(AppIcons.arrow, 'C/C++', true),
+      AppUiConst.vsep8,
+      AppIconText(AppIcons.arrow, 'Oracle Database', true),
+      AppUiConst.vsep8,
+      AppIconText(AppIcons.arrow, 'MySQL Database', true),
+      AppUiConst.vsep8,
+      AppIconText(AppIcons.arrow, 'SQL/PL SQL', true),
+      AppUiConst.vsep8,
+      AppIconText(AppIcons.arrow, 'Git', true),
+      AppUiConst.vsep40,
 
       // About Me & Expectations
-      CvSidebarTitleWithDivider(CvStrings.aboutAndExpectationsTitle),
-      CvSep.sep16,
-      CvNormalText(CvStrings.aboutAndExpectationsText, true)
+      AppSidebarTitleDivider(CvStrings.aboutAndExpectationsTitle),
+      AppUiConst.vsep16,
+      Text(CvStrings.aboutAndExpectationsText, style: AppTheme.normalLightStyle)
     ];
 
     final Widget footerWidget = AppContainer(
-      color: Colors.blueGrey[700],
-      padding: CvSep.horEdgeInsets8,
+      color: AppTheme.lowDarkColor,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Row(
         children: [
           FlutterLogo(size: 32),
-          CvSep.sep8,
+          AppUiConst.hsep8,
           Expanded(
-            child: CvNormalText(CvStrings.powredByFlutter, true)
+            child: Text(CvStrings.powredByFlutter, style: AppTheme.normalLightStyle)
           ),
-          CvSep.sep8,
+          AppUiConst.hsep8,
           AppButton(
-            CvStrings.langIdx == 0 ? CvSidebarTitle('Pt') : CvNormalText('Pt', true), onPressedPt
+            CvStrings.langIdx == 0 ? CvNormalText('Pt', true) : CvNormalText('Pt', true), onPressedPt
           ),
           AppButton(
-            CvStrings.langIdx == 1 ? CvSidebarTitle('En') : CvNormalText('En', true), onPressedEn
+            CvStrings.langIdx == 1 ? CvNormalText('En', true) : CvNormalText('En', true), onPressedEn
           )
         ]
       )
     );
 
     final rootWidget = AppContainer(
-      width: drawerKey == null ? null : 360,
-      color: Colors.blueGrey[800],
+      width: drawerKey == null ? null : 420,
+      color: AppTheme.midDarkColor,
       child: Column(
         children: [
           Expanded(
-            child: CvSliverScroller(
-              Colors.blue[200]!,
+            child: AppSliverScroller(
+              AppTheme.lightBlue,
               [
                 // Header
                 SliverAppBar(
                   pinned: isHeaderPinned,
                   stretch: true,
-                  expandedHeight: headerExpandedHeight + headerPadding.vertical,
-                  collapsedHeight: 85 + headerPadding.vertical,
+                  expandedHeight: headerExpandedHeight + _headerPadding.vertical,
+                  collapsedHeight: 85 + _headerPadding.vertical,
                   elevation: 0,
                   automaticallyImplyLeading: false,
-                  backgroundColor: Colors.blueGrey[800],
+                  backgroundColor: AppTheme.midDarkColor,
                   leading: drawerKey == null
                     ? null
                     : AppButton(
-                        Icon(Icons.arrow_back, size: 24),
+                        Icon(AppIcons.back, color: AppTheme.highLightColor),
                         () => drawerKey?.currentState?.close()
                       ),
                   flexibleSpace: Padding(
-                    padding: headerPadding,
+                    padding: _headerPadding,
                     child: headerWidget
                   )
                 ),
@@ -139,19 +140,14 @@ class CvSidebarWidget extends StatelessWidget {
                 SliverPadding(
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   sliver: SliverList(
-                    delegate: SliverChildListDelegate(
-                      infosWidget,
-                      addAutomaticKeepAlives: false,
-                      addRepaintBoundaries: false,
-                      addSemanticIndexes: false
-                    )
+                    delegate: SliverChildListDelegate(infosWidget)
                   )
                 )
               ]
             )
           ),
 
-          CvSep.sep16,
+          AppUiConst.vsep16,
           footerWidget
         ]
       )

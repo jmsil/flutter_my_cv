@@ -1,35 +1,38 @@
 import 'package:flutter/material.dart';
 
-class CvScroller extends StatelessWidget {
+class AppListView extends StatelessWidget {
   final Color scrollbarColor;
-  final Widget child;
+  final EdgeInsets padding;
+  final List<Widget> children;
 
-  CvScroller(this.scrollbarColor, this.child);
+  AppListView(this.scrollbarColor, this.padding, this.children);
 
   @override
   Widget build(BuildContext context) {
     ScrollController controller = ScrollController(keepScrollOffset: false);
-    return CvScrollbar(
+    return AppScrollbar(
       scrollbarColor,
       controller,
-      SingleChildScrollView(
+      ListView(
         controller: controller,
-        child: child
+        cacheExtent: double.infinity,
+        padding: padding,
+        children: children
       )
     );
   }
 }
 
-class CvSliverScroller extends StatelessWidget {
+class AppSliverScroller extends StatelessWidget {
   final Color scrollbarColor;
   final List<Widget> slivers;
 
-  CvSliverScroller(this.scrollbarColor, this.slivers);
+  AppSliverScroller(this.scrollbarColor, this.slivers);
 
   @override
   Widget build(BuildContext context) {
     ScrollController controller = ScrollController(keepScrollOffset: false);
-    return CvScrollbar(
+    return AppScrollbar(
       scrollbarColor,
       controller,
       CustomScrollView(
@@ -41,19 +44,18 @@ class CvSliverScroller extends StatelessWidget {
   }
 }
 
-class CvScrollbar extends RawScrollbar {
-  CvScrollbar(Color color, ScrollController controller, Widget child)
+class AppScrollbar extends RawScrollbar {
+  AppScrollbar(Color color, ScrollController controller, Widget child)
     :
     super(
       thickness: 4,
       thumbColor: color,
-      isAlwaysShown: true,
       controller: controller,
       child: child
     );
 }
 
-class CvScrollBehavior extends ScrollBehavior {
+class AppScrollBehavior extends ScrollBehavior {
   static const ScrollPhysics _physics = BouncingScrollPhysics();
 
   @override

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppContainer extends StatelessWidget {
-  static const BorderRadius defaultRadius = BorderRadius.all(Radius.circular(8));
-
   final double? width;
   final double? height;
   final Color? color;

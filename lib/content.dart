@@ -1,132 +1,106 @@
 import 'package:flutter/material.dart';
-import 'package:my_cv/scroller.dart';
-import 'package:my_cv/separator.dart';
-import 'package:my_cv/strings.dart';
-import 'package:my_cv/text.dart';
 
-class CvContentWidget extends StatelessWidget {
+import 'const.dart';
+import 'content_group.dart';
+import 'scroller.dart';
+import 'strings.dart';
+import 'text.dart';
+import 'theme.dart';
+
+class AppContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: CvSep.verEdgeInsets32,
-      child: CvScroller(
-        Colors.blue,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+    return AppListView(
+      AppTheme.darkBlue.withOpacity(0.5),
+      const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
+      [
+        // Professional Summary
+        ContentGroup(
+          AppIcons.summary,
+          CvStrings.professionalSummaryTitle,
+          [
+            Text(CvStrings.professionalSummaryText, style: AppTheme.normalDarkStyle)
+          ]
+        ),
 
-            // Professional Summary
-            CvContentTitleWithBkg(CvStrings.professionalSummaryTitle),
-            _ContentPadding(
-              [
-                CvSep.sep16,
-                CvNormalText(CvStrings.professionalSummaryText, false),
-                CvSep.sep40
-              ]
-            ),
+        // Professional Experience
+        ContentGroup(
+          AppIcons.experience,
+          CvStrings.professionalExperienceTitle,
+          [
+            Text(CvStrings.flutterExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
+            Text('2021', style: AppTheme.normalDarkBlueItalicStyle),
+            AppUiConst.vsep16,
+            Text(CvStrings.flutterExperienceText, style: AppTheme.normalDarkStyle),
+            AppUiConst.vsep40,
 
-            // Professional Experience
-            CvContentTitleWithBkg(CvStrings.professionalExperienceTitle),
-            _ContentPadding(
-              [
-                CvSep.sep16,
+            Text(CvStrings.mobileGameExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
+            Text('2013 - 2020', style: AppTheme.normalDarkBlueItalicStyle),
+            AppUiConst.vsep16,
+            Text(CvStrings.mobileGameExperienceText, style: AppTheme.normalDarkStyle),
+            AppUiConst.vsep40,
 
-                CvContentTitle(CvStrings.flutterExperienceTitle, false),
-                CvContentTitle('2021', true),
-                CvSep.sep16,
-                CvNormalText(CvStrings.flutterExperienceText, false),
-                CvSep.sep40,
+            Text(CvStrings.santriExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
+            Text(CvStrings.santriExperiencePeriod, style: AppTheme.normalDarkBlueItalicStyle),
+            AppUiConst.vsep16,
+            AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
+            AppUiConst.vsep16,
+            Text(CvStrings.santriExperienceText, style: AppTheme.normalDarkStyle),
+            AppUiConst.vsep40,
 
-                CvContentTitle(CvStrings.mobileGameExperienceTitle, false),
-                CvContentTitle('2013 - 2020', true),
-                CvSep.sep16,
-                CvNormalText(CvStrings.mobileGameExperienceText, false),
-                CvSep.sep40,
+            Text(CvStrings.smallERPTitle, style: AppTheme.largeDarkBlueBoldStyle),
+            Text('2006/2007', style: AppTheme.normalDarkBlueItalicStyle),
+            AppUiConst.vsep16,
+            Text(CvStrings.smallERPText, style: AppTheme.normalDarkStyle)
+          ]
+        ),
 
-                CvContentTitle(CvStrings.santriExperienceTitle, false),
-                CvContentTitle(CvStrings.santriExperiencePeriod, true),
-                CvSep.sep16,
-                CvLink('https://www.santri.com.br', false),
-                CvSep.sep16,
-                CvNormalText(CvStrings.santriExperienceText, false),
-                CvSep.sep40,
+        // Education
+        ContentGroup(
+          AppIcons.education,
+          CvStrings.educationTitle,
+          [
+            Text(CvStrings.educationUniversityTitle, style: AppTheme.largeDarkBlueBoldStyle),
+            Text('2006 - 2008', style: AppTheme.normalDarkBlueItalicStyle),
+            AppUiConst.vsep16,
+            Text(CvStrings.educationUniversityText, style: AppTheme.normalDarkStyle)
+          ]
+        ),
 
-                CvContentTitle(CvStrings.smallERPTitle, false),
-                CvContentTitle('2006/2007', true),
-                CvSep.sep16,
-                CvNormalText(CvStrings.smallERPText, false),
-                CvSep.sep40
-              ]
-            ),
+        // Courses
+        ContentGroup(
+          AppIcons.course,
+          CvStrings.coursesTitle,
+          [
+            Text(CvStrings.coursesOracleTitle, style: AppTheme.largeDarkBlueBoldStyle),
+            Text('2010', style: AppTheme.normalDarkBlueItalicStyle),
+            AppUiConst.vsep16,
+            Text(CvStrings.coursesOracleText, style: AppTheme.normalDarkStyle)
+          ]
+        ),
 
-            // Education
-            CvContentTitleWithBkg(CvStrings.educationTitle),
-            _ContentPadding(
-              [
-                CvSep.sep16,
-                CvContentTitle(CvStrings.educationUniversityTitle, false),
-                CvContentTitle('2006 - 2008', true),
-                CvSep.sep16,
-                CvNormalText(CvStrings.educationUniversityText, false),
-                CvSep.sep40
-              ]
-            ),
+        // Languages
+        ContentGroup(
+          AppIcons.language,
+          CvStrings.languagesTitle,
+          [
+            AppIconText(AppIcons.arrow, CvStrings.languagePtText, false),
+            AppUiConst.vsep8,
+            AppIconText(AppIcons.arrow, CvStrings.languageEnText, false)
+          ]
+        ),
 
-            // Courses
-            CvContentTitleWithBkg(CvStrings.coursesTitle),
-            _ContentPadding(
-              [
-                CvSep.sep16,
-                CvContentTitle(CvStrings.coursesOracleTitle, false),
-                CvContentTitle('2010', true),
-                CvSep.sep16,
-                CvNormalText(CvStrings.coursesOracleText, false),
-                CvSep.sep40
-              ]
-            ),
-
-            // Languages
-            CvContentTitleWithBkg(CvStrings.languagesTitle),
-            _ContentPadding(
-              [
-                CvSep.sep16,
-                CvContentTextWithIcon(CvStrings.languagePtText),
-                CvSep.sep8,
-                CvContentTextWithIcon(CvStrings.languageEnText),
-                CvSep.sep40
-              ]
-            ),
-
-            // Availability
-            CvContentTitleWithBkg(CvStrings.availabilityTitle),
-            _ContentPadding(
-              [
-                CvSep.sep16,
-                CvContentTextWithIcon(CvStrings.availabilityContractText),
-                CvSep.sep8,
-                CvContentTextWithIcon(CvStrings.availabilityFreelanceText)
-              ]
-            )
+        // Availability
+        ContentGroup(
+          AppIcons.availability,
+          CvStrings.availabilityTitle,
+          [
+            AppIconText(AppIcons.arrow, CvStrings.availabilityContractText, false),
+            AppUiConst.vsep8,
+            AppIconText(AppIcons.arrow, CvStrings.availabilityFreelanceText, false)
           ]
         )
-      )
-    );
-  }
-}
-
-class _ContentPadding extends StatelessWidget {
-  final List<Widget> children;
-
-  _ContentPadding(this.children);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: CvSep.horEdgeInsets32,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: children
-      )
+      ]
     );
   }
 }
