@@ -3,19 +3,41 @@ import 'package:flutter/material.dart';
 import 'container.dart';
 import 'theme.dart';
 
-class AppButton extends IconButton {
-  AppButton(Widget child, Function() onPressed)
+class AppButton extends StatelessWidget {
+  final bool isActive;
+  final Widget child;
+  final Function() onPressed;
+
+  AppButton.label(this.isActive, String label, this.onPressed)
     :
-    super(
+    child = Text(
+      label,
+      style: isActive ? AppTheme.normalLightStyle : AppTheme.normalLowLightStyle
+    );
+
+  AppButton.icon(IconData icon, this.onPressed)
+    :
+    isActive = true,
+    child = Icon(icon, color: AppTheme.highLightColor);
+
+  @override
+  Widget build(BuildContext context) {
+    final effectsColor = AppTheme.lowLightColor.withOpacity(0.32);
+    return IconButton(
       iconSize: AppTheme.largeIconSize,
-      hoverColor: Colors.blueGrey[600],
+      splashColor: effectsColor,
+      hoverColor: effectsColor,
+      highlightColor: effectsColor,
       icon: AppContainer(
         borderSize: 2,
-        borderColor: Colors.blueGrey[100],
+        borderColor: isActive ? AppTheme.highLightColor : AppTheme.lowLightColor,
         borderRadius: BorderRadius.circular(AppTheme.largeIconSize),
-        child: Center(child: child)
+        child: Center(
+          child: child
+        )
       ),
       mouseCursor: SystemMouseCursors.basic,
       onPressed: onPressed
     );
+  }
 }

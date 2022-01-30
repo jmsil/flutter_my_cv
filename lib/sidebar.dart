@@ -96,12 +96,8 @@ class AppSidebar extends StatelessWidget {
             child: Text(CvStrings.powredByFlutter, style: AppTheme.normalLightStyle)
           ),
           AppUiConst.hsep8,
-          AppButton(
-            CvStrings.langIdx == 0 ? CvNormalText('Pt', true) : CvNormalText('Pt', true), onPressedPt
-          ),
-          AppButton(
-            CvStrings.langIdx == 1 ? CvNormalText('En', true) : CvNormalText('En', true), onPressedEn
-          )
+          AppButton.label(CvStrings.langIdx == 0, 'Pt', onPressedPt),
+          AppButton.label(CvStrings.langIdx == 1, 'En', onPressedEn)
         ]
       )
     );
@@ -126,8 +122,8 @@ class AppSidebar extends StatelessWidget {
                   backgroundColor: AppTheme.midDarkColor,
                   leading: drawerKey == null
                     ? null
-                    : AppButton(
-                        Icon(AppIcons.back, color: AppTheme.highLightColor),
+                    : AppButton.icon(
+                        AppIcons.back,
                         () => drawerKey?.currentState?.close()
                       ),
                   flexibleSpace: Padding(

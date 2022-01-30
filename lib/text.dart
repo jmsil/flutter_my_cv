@@ -5,27 +5,6 @@ import 'const.dart';
 import 'divider.dart';
 import 'theme.dart';
 
-const double textSize = 13.5;
-
-class CvNormalText extends Text {
-  CvNormalText(String text, bool isSidebar, [bool isLink = false])
-    :
-    super(
-      text,
-      textScaleFactor: 1,
-      style: TextStyle(
-        fontSize: textSize,
-        color: isSidebar
-          ? isLink ? AppTheme.lightBlue : AppTheme.highLightColor
-          : isLink ? AppTheme.darkBlue : AppTheme.darkColor,
-        decorationThickness: isLink ? 2 : null,
-        decoration: isLink ? TextDecoration.underline : null
-      )
-    );
-}
-
-
-
 class AppIconText extends StatelessWidget {
   final IconData icon;
   final String text;

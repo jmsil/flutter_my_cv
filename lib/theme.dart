@@ -22,6 +22,8 @@ class AppTheme {
 
   static final TextStyle normalLightStyle =
     TextStyle(fontSize: _normalFontSize, color: highLightColor);
+  static final TextStyle normalLowLightStyle =
+    TextStyle(fontSize: _normalFontSize, color: lowLightColor);
   static final TextStyle normalLightBlueStyle =
     TextStyle(fontSize: _normalFontSize, color: lightBlue);
   static final TextStyle normalDarkBlueStyle =
