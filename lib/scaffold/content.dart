@@ -37,7 +37,7 @@ class AppContent extends StatelessWidget {
               headerContent: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(CvStrings.flutterExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
+                  Text(CvStrings.flutterExperienceTitle, style: AppTheme.normalDarkBlueBoldStyle),
                   Text('2021', style: AppTheme.normalDarkBlueItalicStyle)
                 ]
               ),
@@ -51,7 +51,7 @@ class AppContent extends StatelessWidget {
               headerContent: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(CvStrings.mobileGameExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
+                  Text(CvStrings.mobileGameExperienceTitle, style: AppTheme.normalDarkBlueBoldStyle),
                   Text('2013 - 2020', style: AppTheme.normalDarkBlueItalicStyle)
                 ]
               ),
@@ -65,7 +65,7 @@ class AppContent extends StatelessWidget {
               headerContent: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(CvStrings.santriExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
+                  Text(CvStrings.santriExperienceTitle, style: AppTheme.normalDarkBlueBoldStyle),
                   Text(CvStrings.santriExperiencePeriod, style: AppTheme.normalDarkBlueItalicStyle)
                 ]
               ),
@@ -80,7 +80,7 @@ class AppContent extends StatelessWidget {
               headerContent: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(CvStrings.smallERPTitle, style: AppTheme.largeDarkBlueBoldStyle),
+                  Text(CvStrings.smallERPTitle, style: AppTheme.normalDarkBlueBoldStyle),
                   Text('2006/2007', style: AppTheme.normalDarkBlueItalicStyle)
                 ]
               ),
@@ -95,7 +95,7 @@ class AppContent extends StatelessWidget {
           AppIcons.education,
           CvStrings.educationTitle,
           [
-            Text(CvStrings.educationUniversityTitle, style: AppTheme.largeDarkBlueBoldStyle),
+            Text(CvStrings.educationUniversityTitle, style: AppTheme.normalDarkBlueBoldStyle),
             Text('2006 - 2008', style: AppTheme.normalDarkBlueItalicStyle),
             AppUiConst.vsep16,
             Text(CvStrings.educationUniversityText, style: AppTheme.normalDarkStyle)
@@ -107,7 +107,7 @@ class AppContent extends StatelessWidget {
           AppIcons.course,
           CvStrings.coursesTitle,
           [
-            Text(CvStrings.coursesOracleTitle, style: AppTheme.largeDarkBlueBoldStyle),
+            Text(CvStrings.coursesOracleTitle, style: AppTheme.normalDarkBlueBoldStyle),
             Text('2010', style: AppTheme.normalDarkBlueItalicStyle),
             AppUiConst.vsep16,
             Text(CvStrings.coursesOracleText, style: AppTheme.normalDarkStyle)

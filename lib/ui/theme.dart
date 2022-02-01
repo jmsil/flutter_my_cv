@@ -26,6 +26,8 @@ class AppTheme {
     TextStyle(fontSize: _normalFontSize, color: lightBlue);
   static final TextStyle normalDarkBlueStyle =
     TextStyle(fontSize: _normalFontSize, color: darkBlue);
+  static final TextStyle normalDarkBlueBoldStyle =
+    TextStyle(fontSize: _normalFontSize, color: darkBlue, fontWeight: FontWeight.bold);
   static final TextStyle normalDarkBlueItalicStyle =
     TextStyle(fontSize: _normalFontSize, color: darkBlue, fontStyle: FontStyle.italic);
   static final TextStyle normalDarkStyle = TextStyle(fontSize: _normalFontSize, color: darkColor);
@@ -34,8 +36,6 @@ class AppTheme {
     TextStyle(fontSize: _largeFontSize, color: highLightColor);
   static final TextStyle largeLightBlueStyle =
     TextStyle(fontSize: _largeFontSize, color: lightBlue);
-  static final TextStyle largeDarkBlueBoldStyle =
-    TextStyle(fontSize: _largeFontSize, color: darkBlue, fontWeight: FontWeight.bold);
   static final TextStyle largeDarkBoldStyle =
     TextStyle(fontSize: _largeFontSize, color: darkColor, fontWeight: FontWeight.bold);
 
