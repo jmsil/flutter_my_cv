@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../content.dart';
-import '../sidebar.dart';
+import 'sidebar.dart';
 
 class SidebarScaffold extends StatelessWidget {
   static const double maxWidth = 1280;
