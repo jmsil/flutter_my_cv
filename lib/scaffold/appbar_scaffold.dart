@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/button.dart';
 import '../ui/const.dart';
-import '../ui/container.dart';
+import '../ui/container/container.dart';
 import '../ui/strings.dart';
 import '../ui/theme.dart';
 import 'content.dart';

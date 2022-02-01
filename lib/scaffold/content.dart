@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
-import '../ui/content_group.dart';
+import '../ui/container/content_group.dart';
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
 import '../ui/text.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'const.dart';
+import '../const.dart';
+import '../theme.dart';
 import 'container.dart';
-import 'theme.dart';
 
 class ContentGroup extends StatelessWidget {
   static const double _headerHeight = 40;
