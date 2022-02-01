@@ -9,9 +9,15 @@ class ContentGroup extends StatelessWidget {
 
   final IconData icon;
   final String title;
+  final bool hasPadding;
   final List<Widget> children;
 
-  ContentGroup(this.icon, this.title, this.children);
+  ContentGroup(
+    this.icon, this.title, this.children,
+    [
+      this.hasPadding = true
+    ]
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +26,12 @@ class ContentGroup extends StatelessWidget {
         AppContainer(
           color: AppTheme.highLightColor,
           margin: const EdgeInsets.only(top: _headerHeight / 2, bottom: 32),
-          padding: const EdgeInsets.fromLTRB(12, _headerHeight / 2 + 16, 12, 16),
+          padding: EdgeInsets.fromLTRB(
+            hasPadding ? 12 : 0,
+            _headerHeight / 2 + (hasPadding ? 16 : 8),
+            hasPadding ? 12 : 0,
+            hasPadding ? 16 : 8
+          ),
           borderRadius: AppTheme.defaultRadius,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

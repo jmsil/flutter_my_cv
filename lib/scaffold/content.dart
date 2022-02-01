@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
 import '../ui/container/content_group.dart';
+import '../ui/container/header_expandable.dart';
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
 import '../ui/text.dart';
@@ -32,31 +33,61 @@ class AppContent extends StatelessWidget {
           AppIcons.experience,
           CvStrings.professionalExperienceTitle,
           [
-            Text(CvStrings.flutterExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
-            Text('2021', style: AppTheme.normalDarkBlueItalicStyle),
+            AppHeaderExpandable(
+              headerContent: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(CvStrings.flutterExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
+                  Text('2021', style: AppTheme.normalDarkBlueItalicStyle)
+                ]
+              ),
+              expandableContent: Text(
+                CvStrings.flutterExperienceText, style: AppTheme.normalDarkStyle
+              )
+            ),
             AppUiConst.vsep16,
-            Text(CvStrings.flutterExperienceText, style: AppTheme.normalDarkStyle),
-            AppUiConst.vsep40,
 
-            Text(CvStrings.mobileGameExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
-            Text('2013 - 2020', style: AppTheme.normalDarkBlueItalicStyle),
+            AppHeaderExpandable(
+              headerContent: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(CvStrings.mobileGameExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
+                  Text('2013 - 2020', style: AppTheme.normalDarkBlueItalicStyle)
+                ]
+              ),
+              expandableContent: Text(
+                CvStrings.mobileGameExperienceText, style: AppTheme.normalDarkStyle
+              )
+            ),
             AppUiConst.vsep16,
-            Text(CvStrings.mobileGameExperienceText, style: AppTheme.normalDarkStyle),
-            AppUiConst.vsep40,
 
-            Text(CvStrings.santriExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
-            Text(CvStrings.santriExperiencePeriod, style: AppTheme.normalDarkBlueItalicStyle),
+            AppHeaderExpandable(
+              headerContent: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(CvStrings.santriExperienceTitle, style: AppTheme.largeDarkBlueBoldStyle),
+                  Text(CvStrings.santriExperiencePeriod, style: AppTheme.normalDarkBlueItalicStyle)
+                ]
+              ),
+              fixedContent: AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
+              expandableContent: Text(
+                CvStrings.santriExperienceText, style: AppTheme.normalDarkStyle
+              )
+            ),
             AppUiConst.vsep16,
-            AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
-            AppUiConst.vsep16,
-            Text(CvStrings.santriExperienceText, style: AppTheme.normalDarkStyle),
-            AppUiConst.vsep40,
 
-            Text(CvStrings.smallERPTitle, style: AppTheme.largeDarkBlueBoldStyle),
-            Text('2006/2007', style: AppTheme.normalDarkBlueItalicStyle),
-            AppUiConst.vsep16,
-            Text(CvStrings.smallERPText, style: AppTheme.normalDarkStyle)
-          ]
+            AppHeaderExpandable(
+              headerContent: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(CvStrings.smallERPTitle, style: AppTheme.largeDarkBlueBoldStyle),
+                  Text('2006/2007', style: AppTheme.normalDarkBlueItalicStyle)
+                ]
+              ),
+              expandableContent: Text(CvStrings.smallERPText, style: AppTheme.normalDarkStyle)
+            )
+          ],
+          false
         ),
 
         // Education
