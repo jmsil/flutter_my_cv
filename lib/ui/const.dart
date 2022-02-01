@@ -7,6 +7,7 @@ class AppUiConst {
   static const SizedBox hsep8 = SizedBox(width: 8);
   static const SizedBox vsep8 = SizedBox(height: 8);
   static const SizedBox vsep12 = SizedBox(height: 12);
+  static const SizedBox hsep16 = SizedBox(width: 16);
   static const SizedBox vsep16 = SizedBox(height: 16);
   static const SizedBox vsep40 = SizedBox(height: 40);
 }
@@ -15,7 +16,9 @@ class AppIcons {
   AppIcons._();
 
   static const IconData account = Icons.account_circle_outlined;
-  static const IconData arrow = Icons.arrow_right;
+  static const IconData arrow_down = Icons.keyboard_arrow_down;
+  static const IconData arrow_right = Icons.arrow_right;
+  static const IconData arrow_up = Icons.keyboard_arrow_up;
   static const IconData availability = Icons.how_to_reg_outlined;
   static const IconData back = Icons.arrow_back;
   static const IconData code = Icons.code;

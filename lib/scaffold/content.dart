@@ -88,9 +88,9 @@ class AppContent extends StatelessWidget {
           AppIcons.language,
           CvStrings.languagesTitle,
           [
-            AppIconText(AppIcons.arrow, CvStrings.languagePtText, false),
+            AppIconText(AppIcons.arrow_right, CvStrings.languagePtText, false),
             AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow, CvStrings.languageEnText, false)
+            AppIconText(AppIcons.arrow_right, CvStrings.languageEnText, false)
           ]
         ),
 
@@ -99,9 +99,9 @@ class AppContent extends StatelessWidget {
           AppIcons.availability,
           CvStrings.availabilityTitle,
           [
-            AppIconText(AppIcons.arrow, CvStrings.availabilityContractText, false),
+            AppIconText(AppIcons.arrow_right, CvStrings.availabilityContractText, false),
             AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow, CvStrings.availabilityFreelanceText, false)
+            AppIconText(AppIcons.arrow_right, CvStrings.availabilityFreelanceText, false)
           ]
         )
       ]
