@@ -2,9 +2,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import '../scroller.dart';
-import '../strings.dart';
-import '../theme.dart';
+import '../ui/scroller.dart';
+import '../ui/strings.dart';
+import '../ui/theme.dart';
 import 'appbar_scaffold.dart';
 import 'sidebar_scaffold.dart';
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../button.dart';
-import '../const.dart';
-import '../container.dart';
-import '../strings.dart';
-import '../theme.dart';
+import '../ui/button.dart';
+import '../ui/const.dart';
+import '../ui/container.dart';
+import '../ui/strings.dart';
+import '../ui/theme.dart';
 import 'content.dart';
 import 'sidebar.dart';
 

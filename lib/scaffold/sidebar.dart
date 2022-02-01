@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../button.dart';
-import '../const.dart';
-import '../container.dart';
-import '../divider.dart';
-import '../scroller.dart';
-import '../strings.dart';
-import '../text.dart';
-import '../theme.dart';
+import '../ui/button.dart';
+import '../ui/const.dart';
+import '../ui/container.dart';
+import '../ui/divider.dart';
+import '../ui/scroller.dart';
+import '../ui/strings.dart';
+import '../ui/text.dart';
+import '../ui/theme.dart';
 
 class AppSidebar extends StatelessWidget {
   static const EdgeInsets _headerPadding = EdgeInsets.fromLTRB(32, 32, 32, 40);
