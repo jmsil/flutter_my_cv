@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'const.dart';
-import 'content_group.dart';
-import 'scroller.dart';
-import 'strings.dart';
-import 'text.dart';
-import 'theme.dart';
+import '../const.dart';
+import '../content_group.dart';
+import '../scroller.dart';
+import '../strings.dart';
+import '../text.dart';
+import '../theme.dart';
 
 class AppContent extends StatelessWidget {
   final bool isOverlayStyle;

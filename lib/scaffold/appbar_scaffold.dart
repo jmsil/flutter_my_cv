@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../button.dart';
 import '../const.dart';
 import '../container.dart';
-import '../content.dart';
 import '../strings.dart';
 import '../theme.dart';
+import 'content.dart';
 import 'sidebar.dart';
 
 class AppbarScaffold extends StatelessWidget {
