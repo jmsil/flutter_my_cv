@@ -4,6 +4,8 @@ import 'container.dart';
 import 'theme.dart';
 
 class AppButton extends StatelessWidget {
+  static const double _containerSize = 36;
+
   final bool isActive;
   final Widget child;
   final Function() onPressed;
@@ -18,20 +20,20 @@ class AppButton extends StatelessWidget {
   AppButton.icon(IconData icon, this.onPressed)
     :
     isActive = true,
-    child = Icon(icon, color: AppTheme.highLightColor);
+    child = Icon(icon, size: 24, color: AppTheme.highLightColor);
 
   @override
   Widget build(BuildContext context) {
     final effectsColor = AppTheme.lowLightColor.withOpacity(0.32);
     return IconButton(
-      iconSize: AppTheme.largeIconSize,
+      iconSize: _containerSize,
       splashColor: effectsColor,
       hoverColor: effectsColor,
       highlightColor: effectsColor,
       icon: AppContainer(
         borderSize: 2,
         borderColor: isActive ? AppTheme.highLightColor : AppTheme.lowLightColor,
-        borderRadius: BorderRadius.circular(AppTheme.largeIconSize),
+        borderRadius: BorderRadius.circular(_containerSize),
         child: Center(
           child: child
         )

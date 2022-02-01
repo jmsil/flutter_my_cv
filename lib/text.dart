@@ -19,7 +19,6 @@ class AppIconText extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: AppTheme.smallIconSize,
           color: isSidebar ? AppTheme.highLightColor : AppTheme.darkColor
         ),
         AppUiConst.hsep8,

@@ -52,6 +52,7 @@ class AppScrollbar extends RawScrollbar {
       thickness: 4,
       thumbColor: color,
       controller: controller,
+      interactive: false,
       child: child
     );
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppUiConst {
   AppUiConst._();
 
+  static const SizedBox vsep4 = SizedBox(height: 4);
   static const SizedBox hsep8 = SizedBox(width: 8);
   static const SizedBox vsep8 = SizedBox(height: 8);
   static const SizedBox vsep12 = SizedBox(height: 12);

@@ -21,7 +21,7 @@ class AppSidebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double headerExpandedHeight = 216;
-    final bool isHeaderPinned = MediaQuery.of(context).size.height >= 480;
+    final bool isHeaderPinned = MediaQuery.of(context).size.height > 480;
 
     final Widget headerWidget = Column(
       children: [
@@ -87,7 +87,7 @@ class AppSidebar extends StatelessWidget {
 
     final Widget footerWidget = AppContainer(
       color: AppTheme.lowDarkColor,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Row(
         children: [
           FlutterLogo(size: 32),
@@ -102,60 +102,61 @@ class AppSidebar extends StatelessWidget {
       )
     );
 
-    final rootWidget = AppContainer(
+    final containerWidget = AppContainer(
       width: drawerKey == null ? null : 420,
       color: AppTheme.midDarkColor,
-      child: Column(
-        children: [
-          Expanded(
-            child: AppSliverScroller(
-              AppTheme.lightBlue,
-              [
-                // Header
-                SliverAppBar(
-                  pinned: isHeaderPinned,
-                  stretch: true,
-                  expandedHeight: headerExpandedHeight + _headerPadding.vertical,
-                  collapsedHeight: 85 + _headerPadding.vertical,
-                  elevation: 0,
-                  automaticallyImplyLeading: false,
-                  backgroundColor: AppTheme.midDarkColor,
-                  leading: drawerKey == null
-                    ? null
-                    : AppButton.icon(
-                        AppIcons.back,
-                        () => drawerKey?.currentState?.close()
-                      ),
-                  flexibleSpace: Padding(
-                    padding: _headerPadding,
-                    child: headerWidget
-                  )
-                ),
+      child: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: AppSliverScroller(
+                AppTheme.lightBlue,
+                [
+                  // Header
+                  SliverAppBar(
+                    pinned: isHeaderPinned,
+                    stretch: true,
+                    expandedHeight: headerExpandedHeight + _headerPadding.vertical,
+                    collapsedHeight: 85 + _headerPadding.vertical,
+                    elevation: 0,
+                    automaticallyImplyLeading: false,
+                    backgroundColor: AppTheme.midDarkColor,
+                    leading: drawerKey == null
+                      ? null
+                      : AppButton.icon(
+                          AppIcons.back,
+                          () => drawerKey?.currentState?.close()
+                        ),
+                    flexibleSpace: Padding(
+                      padding: _headerPadding,
+                      child: headerWidget
+                    )
+                  ),
 
-                // Informations
-                SliverPadding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  sliver: SliverList(
-                    delegate: SliverChildListDelegate(infosWidget)
+                  // Informations
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    sliver: SliverList(
+                      delegate: SliverChildListDelegate(infosWidget)
+                    )
                   )
-                )
-              ]
-            )
-          ),
+                ]
+              )
+            ),
 
-          AppUiConst.vsep16,
-          footerWidget
-        ]
+            AppUiConst.vsep16,
+            footerWidget
+          ]
+        )
       )
     );
 
-    if (drawerKey == null)
-      return rootWidget;
-
-    return DrawerController(
-      key: drawerKey,
-      alignment: DrawerAlignment.start,
-      child: rootWidget
-    );
+    return drawerKey == null
+      ? containerWidget
+      : DrawerController(
+          key: drawerKey,
+          alignment: DrawerAlignment.start,
+          child: containerWidget
+        );
   }
 }

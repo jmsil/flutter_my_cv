@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 class AppTheme {
   AppTheme._();
 
-  static const double smallIconSize = 20;
-  static const double largeIconSize = 36;
   static const double _normalFontSize = 13.5;
   static const double _largeFontSize = 15.5;
 
@@ -32,6 +30,8 @@ class AppTheme {
     TextStyle(fontSize: _normalFontSize, color: darkBlue, fontStyle: FontStyle.italic);
   static final TextStyle normalDarkStyle = TextStyle(fontSize: _normalFontSize, color: darkColor);
 
+  static final TextStyle largeLightStyle =
+    TextStyle(fontSize: _largeFontSize, color: highLightColor);
   static final TextStyle largeLightBlueStyle =
     TextStyle(fontSize: _largeFontSize, color: lightBlue);
   static final TextStyle largeDarkBlueBoldStyle =
