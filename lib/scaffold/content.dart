@@ -116,6 +116,18 @@ class _ProfessionalExperienceGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     addSubgroupToChildren(
+      CvStrings.fortlevExperienceTitle, CvStrings.fortlevExperiencePeriod,
+      Column(
+        children: [
+          AppIconText(AppIcons.link, 'https://www.bci-consulting.com', false, true),
+          AppUiConst.vsep8,
+          AppIconText(AppIcons.link, 'https://www.fortlev.com.br', false, true)
+        ]
+      ),
+      CvStrings.fortlevExperienceText, true
+    );
+
+    addSubgroupToChildren(
       CvStrings.flutterExperienceTitle, '2021', null,
       CvStrings.flutterExperienceText, true
     );

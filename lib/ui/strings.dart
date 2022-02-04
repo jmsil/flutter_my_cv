@@ -84,10 +84,67 @@ class CvStrings {
     'casual games, and multiplatform applications using the Flutter framework.'
   );
 
+
   static String get professionalExperienceTitle => _select(
     'Experiência Profissional',
     'Professional Experience'
   );
+
+
+  static String get fortlevExperienceTitle => _select(
+    'Aplicativo Flutter Mobile - BCI/Fortlev',
+    'Flutter Mobile Application - BCI/Fortlev'
+  );
+
+  static String get fortlevExperiencePeriod => _select(
+    'Junho de 2021 - Janeiro de 2022',
+    'June 2021 - January 2022'
+  );
+
+  static String get fortlevExperienceText => _select(
+    'Atuei no desenvolvimento do aplicativo "Mão Dupla" para gestão de Ordens de Frete para o '
+    'cliente Fortlev.\n'
+    'O objetivo é agilizar a interação entre os gestores do setor de cargas e transporte da '
+    'Fortlev junto às Transportadoras e motoristas parceiros.\n\n'
+
+    'Como Analista Desenvolvedor, também contribuí com levantamentos funcionais e técnicos junto '
+    'aos gestores e usuários.\n\n'
+
+    'O aplicativo conta com funcionalidades como:\n'
+    '▪ Autenticação de usuários;\n'
+    '▪ Gestão de Ordens de Frete;\n'
+    '▪ Gestão das Notas Fiscais das OFs;\n'
+    '▪ Inclusão de sinistros durante execução das OFs;\n'
+    '▪ Push Notifications para operações de status;\n'
+    '▪ Off-line First para informações inseridas pelo motorista durante execução das OFs;\n'
+    '▪ Recursos de ajuda como Contatos, Dicas e FAQ.\n\n'
+
+    'Conforme solicitado pelo cliente Fortlev, o desenvolvimento está paralizado para implantação '
+    'do módulo SAP-TM e será retomado em breve.',
+
+
+
+    'I worked on the development of the "Mão Dupla" mobile application for Freight Orders '
+    'management for the customer Fortlev.\n'
+    'The goal is to expedite the interaction between the cargo and transport sector\'s managers '
+    'of Fortlev along with Shipping Companies and partners drivers.\n\n'
+
+    'As a Developer Analyst, I also contributed to identifying functional and technical '
+    'prerequisites along with managers and users.\n\n'
+
+    'The application has the main features:\n'
+    '▪ User authentication;\n'
+    '▪ Freight Orders management;\n'
+    '▪ Freight Orders\' invoices management;\n'
+    '▪ Inclusion of troubles during FOs execution;\n'
+    '▪ Push Notifications for status operations;\n'
+    '▪ Off-line First for informations inserted by drivers during FOs execution;\n'
+    '▪ Help features like Contacts, Tips, and FAQ.\n\n'
+
+    'As requested by the customer Fortlev, the development is paused due to the SAP-TM module '
+    'integration and will be resumed soon.'
+  );
+
 
   static String get flutterExperienceTitle => _select(
     'Desenvolvimento de Aplicação ERP',
@@ -103,6 +160,7 @@ class CvStrings {
     'business of service supplying for mining companies. The prototype of the application '
     '(Flutter) is available in my portfolio on GitHub.'
   );
+
 
   static String get mobileGameExperienceTitle => _select(
     'Design/Desenvolvimento de Jogos Casuais',
@@ -134,6 +192,7 @@ class CvStrings {
     'To make the game multiplatform, I converted the code to C++. I also did some experiments '
     'with Unity/C#.'
   );
+
 
   static String get santriExperienceTitle => _select(
     'Desenvolvimento de Aplicação ERP - Santri Sistemas',
@@ -169,6 +228,7 @@ class CvStrings {
     'the company.'
   );
 
+
   static String get smallERPTitle => _select(
     'Desenvolvimento de Aplicação ERP',
     'ERP Application Development'
@@ -181,6 +241,7 @@ class CvStrings {
     'I developed a small client/server application using RAD Studio (Delphi) and MySQL database '
     'with a small client in mind (the contract was not closed).'
   );
+
 
   static String get educationTitle => _select(
     'Formação',
