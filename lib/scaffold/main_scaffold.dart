@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 import '../ui/scroller.dart';
@@ -24,7 +22,6 @@ class _State extends State {
       home: Builder(
         builder: (context) {
           final Size screenSize = MediaQuery.of(context).size;
-          final bool isFloating = math.min(screenSize.width, screenSize.height) > 480;
 
           Widget rWidget = screenSize.width > 1024
             ? SidebarScaffold(onPressedPt, onPressedEn)
@@ -34,16 +31,7 @@ class _State extends State {
                 onPressedPt, onPressedEn
               );
 
-          if (isFloating) {
-            rWidget = SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: rWidget
-              )
-            );
-          }
-
-          if (isFloating || screenSize.width > SidebarScaffold.maxWidth) {
+          if (screenSize.width > SidebarScaffold.maxWidth) {
             rWidget = Material(
               color: AppTheme.highDarkColor,
               child: rWidget
