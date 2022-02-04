@@ -10,6 +10,7 @@ import '../ui/text.dart';
 import '../ui/theme.dart';
 
 class AppSidebar extends StatelessWidget {
+  static const double _headerExpandedHeight = 216;
   static const EdgeInsets _headerPadding = EdgeInsets.fromLTRB(32, 32, 32, 40);
 
   final GlobalKey<DrawerControllerState>? drawerKey;
@@ -20,9 +21,6 @@ class AppSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double headerExpandedHeight = 216;
-    final bool isHeaderPinned = MediaQuery.of(context).size.height > 480;
-
     final Widget headerWidget = Column(
       children: [
         Flexible(
@@ -31,7 +29,7 @@ class AppSidebar extends StatelessWidget {
             child: AppContainer(
               borderSize: 4,
               borderColor: AppTheme.highLightColor,
-              borderRadius: BorderRadius.circular(headerExpandedHeight / 6),
+              borderRadius: BorderRadius.circular(_headerExpandedHeight / 6),
               isClipped: true,
               child: Image.asset('assets/photo.jpg', fit: BoxFit.cover)
             )
@@ -103,49 +101,54 @@ class AppSidebar extends StatelessWidget {
     );
 
     final containerWidget = AppContainer(
-      width: drawerKey == null ? null : 420,
+      width: 420,
       color: AppTheme.midDarkColor,
       child: SafeArea(
-        child: Column(
+        child: Stack(
+          fit: StackFit.expand,
           children: [
-            Expanded(
-              child: AppSliverScroller(
-                AppTheme.lightBlue,
-                [
-                  // Header
-                  SliverAppBar(
-                    pinned: isHeaderPinned,
-                    stretch: true,
-                    expandedHeight: headerExpandedHeight + _headerPadding.vertical,
-                    collapsedHeight: 85 + _headerPadding.vertical,
-                    elevation: 0,
-                    automaticallyImplyLeading: false,
-                    backgroundColor: AppTheme.midDarkColor,
-                    leading: drawerKey == null
-                      ? null
-                      : AppButton.icon(
-                          AppIcons.back,
-                          () => drawerKey?.currentState?.close()
-                        ),
-                    flexibleSpace: Padding(
-                      padding: _headerPadding,
-                      child: headerWidget
-                    )
-                  ),
+            Image.asset('assets/background.png', fit: BoxFit.cover),
+            Column(
+              children: [
+                Expanded(
+                  child: AppSliverScroller(
+                    AppTheme.lightBlue,
+                    [
+                      // Header
+                      SliverAppBar(
+                        stretch: true,
+                        elevation: 0,
+                        automaticallyImplyLeading: false,
+                        backgroundColor: Colors.transparent,
+                        expandedHeight: _headerExpandedHeight + _headerPadding.vertical,
+                        collapsedHeight: 85 + _headerPadding.vertical,
+                        leading: drawerKey == null
+                          ? null
+                          : AppButton.icon(
+                              AppIcons.back,
+                              () => drawerKey?.currentState?.close()
+                            ),
+                        flexibleSpace: Padding(
+                          padding: _headerPadding,
+                          child: headerWidget
+                        )
+                      ),
 
-                  // Informations
-                  SliverPadding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                    sliver: SliverList(
-                      delegate: SliverChildListDelegate(infosWidget)
-                    )
+                      // Informations
+                      SliverPadding(
+                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                        sliver: SliverList(
+                          delegate: SliverChildListDelegate(infosWidget)
+                        )
+                      )
+                    ]
                   )
-                ]
-              )
-            ),
+                ),
 
-            AppUiConst.vsep16,
-            footerWidget
+                AppUiConst.vsep16,
+                footerWidget
+              ]
+            )
           ]
         )
       )
