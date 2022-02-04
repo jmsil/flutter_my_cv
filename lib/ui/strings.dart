@@ -147,18 +147,18 @@ class CvStrings {
 
 
   static String get flutterExperienceTitle => _select(
-    'Desenvolvimento de Aplicação ERP',
-    'ERP Application Development'
+    'Desenvolvimento de Aplicação Flutter Mobile/Web',
+    'Flutter Mobile/Web Application Development'
   );
 
   static String get flutterExperienceText => _select(
-    'Atualmente estou negociando o desenvolvimento de uma aplicação para um cliente atuando no '
-    'ramo de prestação de serviço para empresas de mineração. O protótipo da aplicação (Flutter) '
-    'está disponível no meu portfólio no GitHub.',
+    'Nos primeiros meses do ano, negociei o desenvolvimento de uma aplicação para um cliente '
+    'que atua no ramo de prestação de serviço para empresas de mineração. O protótipo da '
+    'aplicação está disponível no meu portfólio no GitHub.',
 
-    'At the moment, I am negotiating to develop an ERP application for a client who acts in the '
-    'business of service supplying for mining companies. The prototype of the application '
-    '(Flutter) is available in my portfolio on GitHub.'
+    'At the beginning of the year, I negotiated the development of an application for a customer '
+    'who acts in the business of service supplying for mining companies. The prototype of the '
+    'application is available in my portfolio on GitHub.'
   );
 
 
@@ -220,7 +220,7 @@ class CvStrings {
     'At Santri Systems, I contributed to the development of the client/server application ADM '
     'using RAD Studio (Delphi) and Oracle database with SQL/PL SQL.\n\n'
 
-    'My role consisted of analyzing and implementing the client\'s requisitions along with the '
+    'My role consisted of analyzing and implementing the customer\'s requisitions along with the '
     'Senior Systems Analyst.\n\n'
 
     'As the main developer, my attributions also included introducing and assisting new teammates '
@@ -239,7 +239,7 @@ class CvStrings {
     'dados MySQL com um pequeno cliente em mente (Nenhum contrato foi fechado).',
 
     'I developed a small client/server application using RAD Studio (Delphi) and MySQL database '
-    'with a small client in mind (the contract was not closed).'
+    'with a small customer in mind (the contract was not closed).'
   );
 
 
