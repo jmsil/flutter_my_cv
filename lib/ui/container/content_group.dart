@@ -5,7 +5,9 @@ import '../theme.dart';
 import 'container.dart';
 
 class ContentGroup extends StatelessWidget {
+  static const double _pinSize = 32;
   static const double _headerHeight = 40;
+  static const double _topExtraMargin = 10;
 
   final IconData icon;
   final String title;
@@ -22,10 +24,14 @@ class ContentGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: Alignment.topRight,
       children: [
         AppContainer(
           color: AppTheme.highLightColor,
-          margin: const EdgeInsets.only(top: _headerHeight / 2, bottom: 32),
+          margin: const EdgeInsets.only(
+            top: _headerHeight / 2 + _topExtraMargin,
+            bottom: 32 - _topExtraMargin
+          ),
           padding: EdgeInsets.fromLTRB(
             hasPadding ? 12 : 0,
             _headerHeight / 2 + (hasPadding ? 16 : 8),
@@ -41,7 +47,7 @@ class ContentGroup extends StatelessWidget {
         AppContainer(
           height: _headerHeight,
           color: AppTheme.lowLightColor,
-          margin: const EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.fromLTRB(20, _topExtraMargin, 20, 0),
           padding: const EdgeInsets.symmetric(horizontal: 16),
           borderColor: AppTheme.darkBlue.withOpacity(0.36),
           borderRadius: AppTheme.defaultRadius,
@@ -54,6 +60,15 @@ class ContentGroup extends StatelessWidget {
               Flexible(
                 child: Text(title, style: AppTheme.largeDarkBoldStyle)
               )
+            ]
+          )
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 24),
+          child: Stack(
+            children: [
+              Icon(AppIcons.pin, size: _pinSize, color: AppTheme.highLightColor),
+              Icon(AppIcons.pin_outlined, size: _pinSize, color: AppTheme.lowDarkColor)
             ]
           )
         )
