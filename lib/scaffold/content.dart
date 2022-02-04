@@ -15,136 +15,157 @@ class AppContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget rWidget = AppListView(
+    final Widget listView = AppListView(
       AppTheme.darkBlue.withOpacity(0.5),
       EdgeInsets.fromLTRB(12, isOverlayStyle ? 0 : 24, 12, 12),
       [
-        // Professional Summary
-        ContentGroup(
-          AppIcons.summary,
-          CvStrings.professionalSummaryTitle,
-          [
-            Text(CvStrings.professionalSummaryText, style: AppTheme.normalDarkStyle)
-          ]
-        ),
-
-        // Professional Experience
-        ContentGroup(
-          AppIcons.experience,
-          CvStrings.professionalExperienceTitle,
-          [
-            AppHeaderExpandable(
-              headerContent: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(CvStrings.flutterExperienceTitle, style: AppTheme.normalDarkBlueBoldStyle),
-                  Text('2021', style: AppTheme.normalDarkBlueItalicStyle)
-                ]
-              ),
-              expandableContent: Text(
-                CvStrings.flutterExperienceText, style: AppTheme.normalDarkStyle
-              )
-            ),
-            AppUiConst.vsep16,
-
-            AppHeaderExpandable(
-              headerContent: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(CvStrings.mobileGameExperienceTitle, style: AppTheme.normalDarkBlueBoldStyle),
-                  Text('2013 - 2020', style: AppTheme.normalDarkBlueItalicStyle)
-                ]
-              ),
-              expandableContent: Text(
-                CvStrings.mobileGameExperienceText, style: AppTheme.normalDarkStyle
-              )
-            ),
-            AppUiConst.vsep16,
-
-            AppHeaderExpandable(
-              headerContent: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(CvStrings.santriExperienceTitle, style: AppTheme.normalDarkBlueBoldStyle),
-                  Text(CvStrings.santriExperiencePeriod, style: AppTheme.normalDarkBlueItalicStyle)
-                ]
-              ),
-              fixedContent: AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
-              expandableContent: Text(
-                CvStrings.santriExperienceText, style: AppTheme.normalDarkStyle
-              )
-            ),
-            AppUiConst.vsep16,
-
-            AppHeaderExpandable(
-              headerContent: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(CvStrings.smallERPTitle, style: AppTheme.normalDarkBlueBoldStyle),
-                  Text('2006/2007', style: AppTheme.normalDarkBlueItalicStyle)
-                ]
-              ),
-              expandableContent: Text(CvStrings.smallERPText, style: AppTheme.normalDarkStyle)
-            )
-          ],
-          false
-        ),
-
-        // Education
-        ContentGroup(
-          AppIcons.education,
-          CvStrings.educationTitle,
-          [
-            Text(CvStrings.educationUniversityTitle, style: AppTheme.normalDarkBlueBoldStyle),
-            Text('2006 - 2008', style: AppTheme.normalDarkBlueItalicStyle),
-            AppUiConst.vsep16,
-            Text(CvStrings.educationUniversityText, style: AppTheme.normalDarkStyle)
-          ]
-        ),
-
-        // Courses
-        ContentGroup(
-          AppIcons.course,
-          CvStrings.coursesTitle,
-          [
-            Text(CvStrings.coursesOracleTitle, style: AppTheme.normalDarkBlueBoldStyle),
-            Text('2010', style: AppTheme.normalDarkBlueItalicStyle),
-            AppUiConst.vsep16,
-            Text(CvStrings.coursesOracleText, style: AppTheme.normalDarkStyle)
-          ]
-        ),
+        _ProfessionalSummaryGroup(),
+        _ProfessionalExperienceGroup(),
+        _EducationGroup(),
+        _CoursesGroup(),
 
         // Languages
-        ContentGroup(
+        _ItemsGroup(
           AppIcons.language,
           CvStrings.languagesTitle,
-          [
-            AppIconText(AppIcons.arrow_right, CvStrings.languagePtText, false),
-            AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow_right, CvStrings.languageEnText, false)
-          ]
+          CvStrings.languagePtText,
+          CvStrings.languageEnText
         ),
 
         // Availability
-        ContentGroup(
+        _ItemsGroup(
           AppIcons.availability,
           CvStrings.availabilityTitle,
-          [
-            AppIconText(AppIcons.arrow_right, CvStrings.availabilityContractText, false),
-            AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow_right, CvStrings.availabilityFreelanceText, false)
-          ]
+          CvStrings.availabilityContractText,
+          CvStrings.availabilityFreelanceText
         )
       ]
     );
 
     return isOverlayStyle
-      ? rWidget
+      ? listView
       : Material(
           color: AppTheme.midLightColor,
           child: SafeArea(
-            child: rWidget
+            child: listView
           )
         );
+  }
+}
+
+
+
+class _ProfessionalSummaryGroup extends ContentGroup {
+  _ProfessionalSummaryGroup()
+    :
+    super(
+      AppIcons.summary,
+      CvStrings.professionalSummaryTitle,
+      [
+        Text(CvStrings.professionalSummaryText, style: AppTheme.normalDarkStyle)
+      ]
+    );
+}
+
+class _EducationGroup extends ContentGroup {
+  _EducationGroup()
+    :
+    super(
+      AppIcons.education,
+      CvStrings.educationTitle,
+      [
+        Text(CvStrings.educationUniversityTitle, style: AppTheme.normalDarkBlueBoldStyle),
+        Text('2006 - 2008', style: AppTheme.normalDarkBlueItalicStyle),
+        AppUiConst.vsep16,
+        Text(CvStrings.educationUniversityText, style: AppTheme.normalDarkStyle)
+      ]
+    );
+}
+
+class _CoursesGroup extends ContentGroup {
+  _CoursesGroup()
+    :
+    super(
+      AppIcons.course,
+      CvStrings.coursesTitle,
+      [
+        Text(CvStrings.coursesOracleTitle, style: AppTheme.normalDarkBlueBoldStyle),
+        Text('2010', style: AppTheme.normalDarkBlueItalicStyle),
+        AppUiConst.vsep16,
+        Text(CvStrings.coursesOracleText, style: AppTheme.normalDarkStyle)
+      ]
+    );
+}
+
+class _ItemsGroup extends ContentGroup {
+  _ItemsGroup(IconData icon, String title, String item1, String item2)
+    :
+    super(
+      icon, title,
+      [
+        AppIconText(AppIcons.arrow_right, item1, false),
+        AppUiConst.vsep8,
+        AppIconText(AppIcons.arrow_right, item2, false)
+      ]
+    );
+}
+
+class _ProfessionalExperienceGroup extends StatelessWidget {
+  final List<Widget> children = [];
+
+  @override
+  Widget build(BuildContext context) {
+    addSubgroupToChildren(
+      CvStrings.flutterExperienceTitle, '2021', null,
+      CvStrings.flutterExperienceText, true
+    );
+
+    addSubgroupToChildren(
+      CvStrings.mobileGameExperienceTitle, '2013 - 2020', null,
+      CvStrings.mobileGameExperienceText, true
+    );
+
+    addSubgroupToChildren(
+      CvStrings.santriExperienceTitle, CvStrings.santriExperiencePeriod,
+      AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
+      CvStrings.santriExperienceText, true
+    );
+
+    addSubgroupToChildren(
+      CvStrings.smallERPTitle, '2006/2007', null,
+      CvStrings.smallERPText, false
+    );
+
+    return ContentGroup(
+      AppIcons.experience,
+      CvStrings.professionalExperienceTitle,
+      children,
+      false
+    );
+  }
+
+  void addSubgroupToChildren(
+      String title,
+      String period,
+      Widget? fixedContent,
+      String expandableContent,
+      bool addSeparator
+    )
+  {
+    final Widget child = AppHeaderExpandable(
+      headerContent: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title, style: AppTheme.normalDarkBlueBoldStyle),
+          Text(period, style: AppTheme.normalDarkBlueItalicStyle)
+        ]
+      ),
+      fixedContent: fixedContent,
+      expandableContent: Text(expandableContent, style: AppTheme.normalDarkStyle)
+    );
+    children.add(child);
+
+    if (addSeparator)
+      children.add(AppUiConst.vsep16);
   }
 }
