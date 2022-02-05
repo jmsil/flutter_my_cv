@@ -1,11 +1,9 @@
-class CvStrings {
+class AppStrings {
   static String get appName => _select(
     'Meu CV',
     'My CV'
   );
 
-
-  // Header content
   static String get role => _select(
     'Desenvolvedor Flutter',
     'Flutter Developer'
@@ -66,9 +64,6 @@ class CvStrings {
     'Powered by Flutter'
   );
 
-
-
-  // Page content
   static String get professionalSummaryTitle => _select(
     'Resumo Profissional',
     'Professional Summary'
@@ -84,12 +79,10 @@ class CvStrings {
     'casual games, and multiplatform applications using the Flutter framework.'
   );
 
-
   static String get professionalExperienceTitle => _select(
     'Experiência Profissional',
     'Professional Experience'
   );
-
 
   static String get fortlevExperienceTitle => _select(
     'Aplicativo Flutter Mobile - BCI/Fortlev',
@@ -145,7 +138,6 @@ class CvStrings {
     'integration and will be resumed soon.'
   );
 
-
   static String get flutterExperienceTitle => _select(
     'Desenvolvimento de Aplicação Flutter Mobile/Web',
     'Flutter Mobile/Web Application Development'
@@ -160,7 +152,6 @@ class CvStrings {
     'who acts in the business of service supplying for mining companies. The prototype of the '
     'application is available in my portfolio on GitHub.'
   );
-
 
   static String get mobileGameExperienceTitle => _select(
     'Design/Desenvolvimento de Jogos Casuais',
@@ -192,7 +183,6 @@ class CvStrings {
     'To make the game multiplatform, I converted the code to C++. I also did some experiments '
     'with Unity/C#.'
   );
-
 
   static String get santriExperienceTitle => _select(
     'Desenvolvimento de Aplicação ERP - Santri Sistemas',
@@ -228,7 +218,6 @@ class CvStrings {
     'the company.'
   );
 
-
   static String get smallERPTitle => _select(
     'Desenvolvimento de Aplicação ERP',
     'ERP Application Development'
@@ -241,7 +230,6 @@ class CvStrings {
     'I developed a small client/server application using RAD Studio (Delphi) and MySQL database '
     'with a small customer in mind (the contract was not closed).'
   );
-
 
   static String get educationTitle => _select(
     'Formação',
@@ -265,7 +253,6 @@ class CvStrings {
     'introduced us to programming languages like C and Java.'
   );
 
-
   static String get coursesAndBooksTitle => _select(
     'Cursos e Livros',
     'Courses and Books'
@@ -275,7 +262,6 @@ class CvStrings {
     'Guia Para os Exames de Certificação OCA/OCP Oracle',
     'Oracle OCA/OCP Certification Exams Guide'
   );
-
 
   static String get languagesTitle => _select(
     'Idiomas',

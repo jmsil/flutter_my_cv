@@ -40,15 +40,15 @@ class AppSidebar extends StatelessWidget {
         AppUiConst.vsep8,
         SizedBox(width: 96, child: AppDivider(4)),
         AppUiConst.vsep8,
-        Text(CvStrings.role, style: AppTheme.largeLightBlueStyle)
+        Text(AppStrings.role, style: AppTheme.largeLightBlueStyle)
       ]
     );
 
     final List<Widget> infosWidget = [
       // Details
-      AppSidebarTitleDivider(CvStrings.details),
+      AppSidebarTitleDivider(AppStrings.details),
       AppUiConst.vsep16,
-      AppIconText(AppIcons.local, CvStrings.brazil, true),
+      AppIconText(AppIcons.local, AppStrings.brazil, true),
       AppUiConst.vsep12,
       AppIconText(AppIcons.phone, '+55 62 99497-1154', true),
       AppUiConst.vsep12,
@@ -58,7 +58,7 @@ class AppSidebar extends StatelessWidget {
       AppUiConst.vsep40,
 
       // Skills
-      AppSidebarTitleDivider(CvStrings.skills),
+      AppSidebarTitleDivider(AppStrings.skills),
       AppUiConst.vsep16,
       AppIconText(AppIcons.arrow_right, 'Dart/Flutter', true),
       AppUiConst.vsep8,
@@ -78,9 +78,9 @@ class AppSidebar extends StatelessWidget {
       AppUiConst.vsep40,
 
       // About Me & Expectations
-      AppSidebarTitleDivider(CvStrings.aboutAndExpectationsTitle),
+      AppSidebarTitleDivider(AppStrings.aboutAndExpectationsTitle),
       AppUiConst.vsep16,
-      Text(CvStrings.aboutAndExpectationsText, style: AppTheme.normalLightStyle)
+      Text(AppStrings.aboutAndExpectationsText, style: AppTheme.normalLightStyle)
     ];
 
     final Widget footerWidget = AppContainer(
@@ -91,11 +91,11 @@ class AppSidebar extends StatelessWidget {
           FlutterLogo(size: 32),
           AppUiConst.hsep8,
           Expanded(
-            child: Text(CvStrings.powredByFlutter, style: AppTheme.normalLightStyle)
+            child: Text(AppStrings.powredByFlutter, style: AppTheme.normalLightStyle)
           ),
           AppUiConst.hsep8,
-          AppButton.label(CvStrings.langIdx == 0, 'Pt', onPressedPt),
-          AppButton.label(CvStrings.langIdx == 1, 'En', onPressedEn)
+          AppButton.label(AppStrings.langIdx == 0, 'Pt', onPressedPt),
+          AppButton.label(AppStrings.langIdx == 1, 'En', onPressedEn)
         ]
       )
     );

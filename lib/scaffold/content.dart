@@ -27,17 +27,17 @@ class AppContent extends StatelessWidget {
         // Languages
         _ItemsGroup(
           AppIcons.language,
-          CvStrings.languagesTitle,
-          CvStrings.languagePtText,
-          CvStrings.languageEnText
+          AppStrings.languagesTitle,
+          AppStrings.languagePtText,
+          AppStrings.languageEnText
         ),
 
         // Availability
         _ItemsGroup(
           AppIcons.availability,
-          CvStrings.availabilityTitle,
-          CvStrings.availabilityContractText,
-          CvStrings.availabilityFreelanceText
+          AppStrings.availabilityTitle,
+          AppStrings.availabilityContractText,
+          AppStrings.availabilityFreelanceText
         )
       ]
     );
@@ -60,9 +60,9 @@ class _ProfessionalSummaryGroup extends ContentGroup {
     :
     super(
       AppIcons.summary,
-      CvStrings.professionalSummaryTitle,
+      AppStrings.professionalSummaryTitle,
       [
-        Text(CvStrings.professionalSummaryText, style: AppTheme.normalDarkStyle)
+        Text(AppStrings.professionalSummaryText, style: AppTheme.normalDarkStyle)
       ]
     );
 }
@@ -72,12 +72,12 @@ class _EducationGroup extends ContentGroup {
     :
     super(
       AppIcons.education,
-      CvStrings.educationTitle,
+      AppStrings.educationTitle,
       [
-        Text(CvStrings.educationUniversityTitle, style: AppTheme.normalDarkBlueBoldStyle),
+        Text(AppStrings.educationUniversityTitle, style: AppTheme.normalDarkBlueBoldStyle),
         Text('2006 - 2008', style: AppTheme.normalDarkBlueItalicStyle),
         AppUiConst.vsep16,
-        Text(CvStrings.educationUniversityText, style: AppTheme.normalDarkStyle)
+        Text(AppStrings.educationUniversityText, style: AppTheme.normalDarkStyle)
       ]
     );
 }
@@ -100,7 +100,7 @@ class _CoursesAndBooksGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    addChild(CvStrings.courseOracleOcaOcpTitle, '2010', true, true);
+    addChild(AppStrings.courseOracleOcaOcpTitle, '2010', true, true);
 
     addChild(
       'Clean Code - A Handbook of Agile Sortware Craftsmanship',
@@ -110,7 +110,7 @@ class _CoursesAndBooksGroup extends StatelessWidget {
 
     return ContentGroup(
       AppIcons.studying,
-      CvStrings.coursesAndBooksTitle,
+      AppStrings.coursesAndBooksTitle,
       children
     );
   }
@@ -148,7 +148,7 @@ class _ProfessionalExperienceGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     addChild(
-      CvStrings.fortlevExperienceTitle, CvStrings.fortlevExperiencePeriod,
+      AppStrings.fortlevExperienceTitle, AppStrings.fortlevExperiencePeriod,
       Column(
         children: [
           AppIconText(AppIcons.link, 'https://www.bci-consulting.com', false, true),
@@ -156,33 +156,33 @@ class _ProfessionalExperienceGroup extends StatelessWidget {
           AppIconText(AppIcons.link, 'https://www.fortlev.com.br', false, true)
         ]
       ),
-      CvStrings.fortlevExperienceText, true
+      AppStrings.fortlevExperienceText, true
     );
 
     addChild(
-      CvStrings.flutterExperienceTitle, '2021', null,
-      CvStrings.flutterExperienceText, true
+      AppStrings.flutterExperienceTitle, '2021', null,
+      AppStrings.flutterExperienceText, true
     );
 
     addChild(
-      CvStrings.mobileGameExperienceTitle, '2013 - 2020', null,
-      CvStrings.mobileGameExperienceText, true
+      AppStrings.mobileGameExperienceTitle, '2013 - 2020', null,
+      AppStrings.mobileGameExperienceText, true
     );
 
     addChild(
-      CvStrings.santriExperienceTitle, CvStrings.santriExperiencePeriod,
+      AppStrings.santriExperienceTitle, AppStrings.santriExperiencePeriod,
       AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
-      CvStrings.santriExperienceText, true
+      AppStrings.santriExperienceText, true
     );
 
     addChild(
-      CvStrings.smallERPTitle, '2006/2007', null,
-      CvStrings.smallERPText, false
+      AppStrings.smallERPTitle, '2006/2007', null,
+      AppStrings.smallERPText, false
     );
 
     return ContentGroup(
       AppIcons.experience,
-      CvStrings.professionalExperienceTitle,
+      AppStrings.professionalExperienceTitle,
       children,
       false
     );

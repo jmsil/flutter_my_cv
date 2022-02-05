@@ -17,7 +17,7 @@ class _State extends State {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: CvStrings.appName,
+      title: AppStrings.appName,
       scrollBehavior: AppScrollBehavior(),
       home: Builder(
         builder: (context) {
@@ -53,12 +53,12 @@ class _State extends State {
   }
 
   void onPressedPt() {
-    if (CvStrings.setLanguage(0))
+    if (AppStrings.setLanguage(0))
       setState(() {});
   }
 
   void onPressedEn() {
-    if (CvStrings.setLanguage(1))
+    if (AppStrings.setLanguage(1))
       setState(() {});
   }
 }

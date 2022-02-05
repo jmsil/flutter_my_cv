@@ -30,7 +30,7 @@ class AppbarScaffold extends StatelessWidget {
       children: [
         Text('João Marques da Silva', style: AppTheme.largeLightStyle),
         AppUiConst.vsep4,
-        Text(CvStrings.role, style: AppTheme.normalLowLightStyle)
+        Text(AppStrings.role, style: AppTheme.normalLowLightStyle)
       ]
     );
 
