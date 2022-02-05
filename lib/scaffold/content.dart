@@ -100,7 +100,14 @@ class _CoursesAndBooksGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    addChild(CvStrings.courseOracleOcaOcpTitle, '2010', true);
+    addChild(CvStrings.courseOracleOcaOcpTitle, '2010', true, true);
+
+    addChild(
+      'Clean Code - A Handbook of Agile Sortware Craftsmanship',
+      'Robert C. Martin',
+      false, false
+    );
+
     return ContentGroup(
       AppIcons.studying,
       CvStrings.coursesAndBooksTitle,
@@ -108,21 +115,30 @@ class _CoursesAndBooksGroup extends StatelessWidget {
     );
   }
 
-  addChild(String title, String detail, bool isCourse) {
+  addChild(String title, String detail, bool isCourse, bool addSeparator) {
     final Widget child = Row(
       children: [
         Icon(isCourse ? AppIcons.course : AppIcons.book, color: AppTheme.darkBlue),
         AppUiConst.hsep8,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(title, style: AppTheme.normalDarkBlueBoldStyle),
-            Text(detail, style: AppTheme.normalDarkBlueItalicStyle)
-          ]
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title, style: AppTheme.normalDarkBlueBoldStyle,
+                softWrap: false,
+                overflow: TextOverflow.fade,
+              ),
+              Text(detail, style: AppTheme.normalDarkBlueItalicStyle)
+            ]
+          )
         )
       ]
     );
     children.add(child);
+
+    if (addSeparator)
+      children.add(AppUiConst.vsep16);
   }
 }
 
