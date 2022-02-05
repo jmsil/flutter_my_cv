@@ -21,6 +21,7 @@ class AppIcons {
   static const IconData arrow_up = Icons.keyboard_arrow_up;
   static const IconData availability = Icons.how_to_reg_outlined;
   static const IconData back = Icons.arrow_back;
+  static const IconData book = Icons.auto_stories_outlined;
   static const IconData code = Icons.code;
   static const IconData course = Icons.card_membership_outlined;
   static const IconData education = Icons.school_outlined;
@@ -32,5 +33,6 @@ class AppIcons {
   static const IconData phone = Icons.phone_outlined;
   static const IconData pin = Icons.push_pin;
   static const IconData pin_outlined = Icons.push_pin_outlined;
+  static const IconData studying = Icons.local_library_outlined;
   static const IconData summary = Icons.summarize_outlined;
 }

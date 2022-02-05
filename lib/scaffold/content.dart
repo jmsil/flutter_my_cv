@@ -22,7 +22,7 @@ class AppContent extends StatelessWidget {
         _ProfessionalSummaryGroup(),
         _ProfessionalExperienceGroup(),
         _EducationGroup(),
-        _CoursesGroup(),
+        _CoursesAndBooksGroup(),
 
         // Languages
         _ItemsGroup(
@@ -82,21 +82,6 @@ class _EducationGroup extends ContentGroup {
     );
 }
 
-class _CoursesGroup extends ContentGroup {
-  _CoursesGroup()
-    :
-    super(
-      AppIcons.course,
-      CvStrings.coursesTitle,
-      [
-        Text(CvStrings.coursesOracleTitle, style: AppTheme.normalDarkBlueBoldStyle),
-        Text('2010', style: AppTheme.normalDarkBlueItalicStyle),
-        AppUiConst.vsep16,
-        Text(CvStrings.coursesOracleText, style: AppTheme.normalDarkStyle)
-      ]
-    );
-}
-
 class _ItemsGroup extends ContentGroup {
   _ItemsGroup(IconData icon, String title, String item1, String item2)
     :
@@ -110,12 +95,43 @@ class _ItemsGroup extends ContentGroup {
     );
 }
 
+class _CoursesAndBooksGroup extends StatelessWidget {
+  final List<Widget> children = [];
+
+  @override
+  Widget build(BuildContext context) {
+    addChild(CvStrings.courseOracleOcaOcpTitle, '2010', true);
+    return ContentGroup(
+      AppIcons.studying,
+      CvStrings.coursesAndBooksTitle,
+      children
+    );
+  }
+
+  addChild(String title, String detail, bool isCourse) {
+    final Widget child = Row(
+      children: [
+        Icon(isCourse ? AppIcons.course : AppIcons.book, color: AppTheme.darkBlue),
+        AppUiConst.hsep8,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title, style: AppTheme.normalDarkBlueBoldStyle),
+            Text(detail, style: AppTheme.normalDarkBlueItalicStyle)
+          ]
+        )
+      ]
+    );
+    children.add(child);
+  }
+}
+
 class _ProfessionalExperienceGroup extends StatelessWidget {
   final List<Widget> children = [];
 
   @override
   Widget build(BuildContext context) {
-    addSubgroupToChildren(
+    addChild(
       CvStrings.fortlevExperienceTitle, CvStrings.fortlevExperiencePeriod,
       Column(
         children: [
@@ -127,23 +143,23 @@ class _ProfessionalExperienceGroup extends StatelessWidget {
       CvStrings.fortlevExperienceText, true
     );
 
-    addSubgroupToChildren(
+    addChild(
       CvStrings.flutterExperienceTitle, '2021', null,
       CvStrings.flutterExperienceText, true
     );
 
-    addSubgroupToChildren(
+    addChild(
       CvStrings.mobileGameExperienceTitle, '2013 - 2020', null,
       CvStrings.mobileGameExperienceText, true
     );
 
-    addSubgroupToChildren(
+    addChild(
       CvStrings.santriExperienceTitle, CvStrings.santriExperiencePeriod,
       AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
       CvStrings.santriExperienceText, true
     );
 
-    addSubgroupToChildren(
+    addChild(
       CvStrings.smallERPTitle, '2006/2007', null,
       CvStrings.smallERPText, false
     );
@@ -156,7 +172,7 @@ class _ProfessionalExperienceGroup extends StatelessWidget {
     );
   }
 
-  void addSubgroupToChildren(
+  void addChild(
       String title,
       String period,
       Widget? fixedContent,

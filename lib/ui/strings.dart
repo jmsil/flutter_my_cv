@@ -265,20 +265,17 @@ class CvStrings {
     'introduced us to programming languages like C and Java.'
   );
 
-  static String get coursesTitle => _select(
-    'Cursos',
-    'Courses'
+
+  static String get coursesAndBooksTitle => _select(
+    'Cursos e Livros',
+    'Courses and Books'
   );
 
-  static String get coursesOracleTitle => _select(
-    'Guia Para os Exames de Certificação OCA/OCP',
-    'OCA/OCP Certification Exams Guide'
+  static String get courseOracleOcaOcpTitle => _select(
+    'Guia Para os Exames de Certificação OCA/OCP Oracle',
+    'Oracle OCA/OCP Certification Exams Guide'
   );
 
-  static String get coursesOracleText => _select(
-    'Um curso preparatório intensivo para os exames OCA/OCP da Oracle.',
-    'A preparatory intensive course for Oracle\'s OCA/OCP exams.'
-  );
 
   static String get languagesTitle => _select(
     'Idiomas',
