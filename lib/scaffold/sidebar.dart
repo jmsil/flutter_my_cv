@@ -27,9 +27,9 @@ class AppSidebar extends StatelessWidget {
           child: AspectRatio(
             aspectRatio: 1,
             child: AppContainer(
-              borderSize: 4,
+              borderSize: 2,
               borderColor: AppTheme.highLightColor,
-              borderRadius: BorderRadius.circular(_headerExpandedHeight / 6),
+              borderRadius: BorderRadius.circular(1000),
               isClipped: true,
               child: Image.asset('assets/photo.jpg', fit: BoxFit.cover)
             )

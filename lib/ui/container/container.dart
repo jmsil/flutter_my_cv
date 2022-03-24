@@ -30,14 +30,13 @@ class AppContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget rWidget = child;
-    final double newBorderSize = borderSize / 2;
-    final bool hasBorder = borderColor != null && newBorderSize > 0;
+    final bool hasBorder = borderColor != null && borderSize > 0;
 
     if (padding != null || hasBorder) {
       rWidget = Padding(
         padding:
           (padding == null ? EdgeInsets.zero : padding!) +
-          (hasBorder ? EdgeInsets.all(newBorderSize) : EdgeInsets.zero),
+          (hasBorder ? EdgeInsets.all(borderSize) : EdgeInsets.zero),
         child: rWidget
       );
     }
@@ -45,11 +44,11 @@ class AppContainer extends StatelessWidget {
     rWidget = Material(
       color: color,
       type: color == null ? MaterialType.transparency : MaterialType.canvas,
-      shape: BeveledRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
         side: hasBorder
           ? BorderSide(
-              width: newBorderSize,
+              width: borderSize,
               color: borderColor!
             )
           : BorderSide.none
