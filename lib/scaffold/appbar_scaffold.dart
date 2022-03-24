@@ -21,7 +21,7 @@ class AppbarScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget drawerButton = AppButton.icon(
-      AppIcons.account,
+      AppIcons.menu,
       () => drawerKey.currentState?.open()
     );
 

@@ -15,7 +15,6 @@ class AppUiConst {
 class AppIcons {
   AppIcons._();
 
-  static const IconData account = Icons.account_circle_outlined;
   static const IconData arrow_down = Icons.keyboard_arrow_down;
   static const IconData arrow_right = Icons.arrow_right;
   static const IconData arrow_up = Icons.keyboard_arrow_up;
@@ -30,6 +29,7 @@ class AppIcons {
   static const IconData link = Icons.link;
   static const IconData local = Icons.room_outlined;
   static const IconData mail = Icons.mail_outlined;
+  static const IconData menu = Icons.menu;
   static const IconData phone = Icons.phone_outlined;
   static const IconData pin = Icons.push_pin;
   static const IconData pin_outlined = Icons.push_pin_outlined;
