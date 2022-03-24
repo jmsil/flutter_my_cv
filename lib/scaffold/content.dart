@@ -100,13 +100,19 @@ class _CoursesAndBooksGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    addChild(AppStrings.courseOracleOcaOcpTitle, '2010', true, true);
+    addChild(
+      "Clean Architecture - A Craftsman's Guide to Software structure and Design",
+      'Robert C. Martin',
+      false, true
+    );
 
     addChild(
       'Clean Code - A Handbook of Agile Sortware Craftsmanship',
       'Robert C. Martin',
-      false, false
+      false, true
     );
+
+    addChild(AppStrings.courseOracleOcaOcpTitle, '2010', true, false);
 
     return ContentGroup(
       AppIcons.studying,
