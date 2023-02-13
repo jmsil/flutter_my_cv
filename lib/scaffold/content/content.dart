@@ -7,6 +7,7 @@ import '../../ui/strings.dart';
 import '../../ui/text.dart';
 import '../../ui/theme.dart';
 import 'content_group.dart';
+import 'education.dart';
 import 'professional_summary.dart';
 
 class AppContent extends StatelessWidget {
@@ -27,7 +28,7 @@ class AppContent extends StatelessWidget {
           AppUiConst.vsep16
         ],
 
-      _EducationGroup(),
+      EducationGroup(),
       AppUiConst.vsep16,
       _CoursesAndBooksGroup(),
       AppUiConst.vsep16,
@@ -81,21 +82,6 @@ class AppContent extends StatelessWidget {
           )
         );
   }
-}
-
-class _EducationGroup extends ContentGroup {
-  _EducationGroup()
-    :
-    super(
-      icon: AppIcons.education,
-      title: AppStrings.educationTitle,
-      children: [
-        Text(AppStrings.educationUniversityTitle, style: AppTheme.normalDarkBlueBoldStyle),
-        Text('2006 - 2008', style: AppTheme.normalDarkBlueItalicStyle),
-        AppUiConst.vsep16,
-        Text(AppStrings.educationUniversityText, style: AppTheme.normalDarkStyle)
-      ]
-    );
 }
 
 class _ItemsGroup extends ContentGroup {
