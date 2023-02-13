@@ -7,6 +7,7 @@ import '../../ui/strings.dart';
 import '../../ui/text.dart';
 import '../../ui/theme.dart';
 import 'content_group.dart';
+import 'professional_summary.dart';
 
 class AppContent extends StatelessWidget {
   final bool isDoubleContent;
@@ -17,7 +18,7 @@ class AppContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> contentItems = [
-      _ProfessionalSummaryGroup(),
+      ProfessionalSummaryGroup(),
       AppUiConst.vsep16,
 
       if (!isDoubleContent)
@@ -80,20 +81,6 @@ class AppContent extends StatelessWidget {
           )
         );
   }
-}
-
-
-
-class _ProfessionalSummaryGroup extends ContentGroup {
-  _ProfessionalSummaryGroup()
-    :
-    super(
-      icon: AppIcons.summary,
-      title: AppStrings.professionalSummaryTitle,
-      children: [
-        Text(AppStrings.professionalSummaryText, style: AppTheme.normalDarkStyle)
-      ]
-    );
 }
 
 class _EducationGroup extends ContentGroup {
