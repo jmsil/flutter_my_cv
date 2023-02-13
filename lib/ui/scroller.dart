@@ -2,59 +2,35 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class AppListView extends StatelessWidget {
-  final Color scrollbarColor;
   final EdgeInsets padding;
   final List<Widget> children;
 
-  AppListView(this.scrollbarColor, this.padding, this.children);
+  AppListView(this.padding, this.children);
 
   @override
   Widget build(BuildContext context) {
-    ScrollController controller = ScrollController(keepScrollOffset: false);
-    return AppScrollbar(
-      scrollbarColor,
-      controller,
-      ListView(
-        controller: controller,
-        cacheExtent: double.infinity,
-        padding: padding,
-        children: children
-      )
+    return ListView(
+      primary: false,
+      cacheExtent: double.infinity,
+      padding: padding,
+      children: children
     );
   }
 }
 
 class AppSliverScroller extends StatelessWidget {
-  final Color scrollbarColor;
   final List<Widget> slivers;
 
-  AppSliverScroller(this.scrollbarColor, this.slivers);
+  AppSliverScroller(this.slivers);
 
   @override
   Widget build(BuildContext context) {
-    ScrollController controller = ScrollController(keepScrollOffset: false);
-    return AppScrollbar(
-      scrollbarColor,
-      controller,
-      CustomScrollView(
-        controller: controller,
-        cacheExtent: double.infinity,
-        slivers: slivers
-      )
+    return CustomScrollView(
+      primary: false,
+      cacheExtent: double.infinity,
+      slivers: slivers
     );
   }
-}
-
-class AppScrollbar extends RawScrollbar {
-  AppScrollbar(Color color, ScrollController controller, Widget child)
-    :
-    super(
-      thickness: 4,
-      thumbColor: color,
-      controller: controller,
-      interactive: false,
-      child: child
-    );
 }
 
 class AppScrollBehavior extends ScrollBehavior {

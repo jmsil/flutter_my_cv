@@ -43,7 +43,6 @@ class AppContent extends StatelessWidget {
             Expanded(
               flex: 2,
               child: AppListView(
-                AppTheme.darkBlue.withOpacity(0.5),
                 const EdgeInsets.all(12),
                 [
                   _ProfessionalSummaryGroup(),
@@ -61,7 +60,6 @@ class AppContent extends StatelessWidget {
           ]
         )
       : AppListView(
-          AppTheme.darkBlue.withOpacity(0.5),
           EdgeInsets.fromLTRB(12, isOverlayStyle ? 0 : 24, 12, 12),
           [
             _ProfessionalSummaryGroup(),

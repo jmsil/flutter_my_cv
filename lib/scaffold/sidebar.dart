@@ -112,9 +112,7 @@ class AppSidebar extends StatelessWidget {
               children: [
                 Expanded(
                   child: AppSliverScroller(
-                    AppTheme.lightBlue,
                     [
-                      // Header
                       SliverAppBar(
                         stretch: true,
                         elevation: 0,
@@ -134,7 +132,6 @@ class AppSidebar extends StatelessWidget {
                         )
                       ),
 
-                      // Informations
                       SliverPadding(
                         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                         sliver: SliverList(

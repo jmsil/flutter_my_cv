@@ -44,7 +44,6 @@ class ContentGroup extends StatelessWidget {
           isClipped: hasListView,
           child: hasListView
             ? AppListView(
-                AppTheme.darkBlue.withOpacity(0.5),
                 contentPadding,
                 children
               )
