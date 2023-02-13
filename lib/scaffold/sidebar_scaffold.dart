@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../content/content.dart';
-import 'sidebar.dart';
+import '../content/sidebar.dart';
 
 class SidebarScaffold extends StatelessWidget {
   final bool isDoubleContent;

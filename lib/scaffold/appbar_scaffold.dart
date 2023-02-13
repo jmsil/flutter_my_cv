@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../content/content.dart';
+import '../content/sidebar.dart';
 import '../ui/button.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
 import '../ui/strings.dart';
 import '../ui/theme.dart';
-import 'sidebar.dart';
 
 class AppbarScaffold extends StatelessWidget {
   static final GlobalKey<DrawerControllerState> _drawerKey = GlobalKey();
