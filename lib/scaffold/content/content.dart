@@ -7,6 +7,7 @@ import '../../ui/strings.dart';
 import '../../ui/text.dart';
 import '../../ui/theme.dart';
 import 'content_group.dart';
+import 'courses_books.dart';
 import 'education.dart';
 import 'items.dart';
 import 'professional_summary.dart';
@@ -31,7 +32,7 @@ class AppContent extends StatelessWidget {
 
       EducationGroup(),
       AppUiConst.vsep16,
-      _CoursesAndBooksGroup(),
+      CoursesAndBooksGroup(),
       AppUiConst.vsep16,
 
       ItemsGroup(
@@ -82,59 +83,6 @@ class AppContent extends StatelessWidget {
             child: contentWidget
           )
         );
-  }
-}
-
-class _CoursesAndBooksGroup extends StatelessWidget {
-  final List<Widget> children = [];
-
-  @override
-  Widget build(BuildContext context) {
-    addChild(
-      "Clean Architecture - A Craftsman's Guide to Software structure and Design",
-      'Robert C. Martin',
-      false, true
-    );
-
-    addChild(
-      'Clean Code - A Handbook of Agile Sortware Craftsmanship',
-      'Robert C. Martin',
-      false, true
-    );
-
-    addChild(AppStrings.courseOracleOcaOcpTitle, '2010', true, false);
-
-    return ContentGroup(
-      icon: AppIcons.studying,
-      title: AppStrings.coursesAndBooksTitle,
-      children: children
-    );
-  }
-
-  addChild(String title, String detail, bool isCourse, bool addSeparator) {
-    final Widget child = Row(
-      children: [
-        Icon(isCourse ? AppIcons.course : AppIcons.book, color: AppTheme.darkColor),
-        AppUiConst.hsep8,
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title, style: AppTheme.normalDarkBoldStyle,
-                softWrap: false,
-                overflow: TextOverflow.fade,
-              ),
-              Text(detail, style: AppTheme.normalDarkItalicStyle)
-            ]
-          )
-        )
-      ]
-    );
-    children.add(child);
-
-    if (addSeparator)
-      children.add(AppUiConst.vsep16);
   }
 }
 
