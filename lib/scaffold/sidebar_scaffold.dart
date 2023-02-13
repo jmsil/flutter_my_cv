@@ -4,31 +4,25 @@ import 'content.dart';
 import 'sidebar.dart';
 
 class SidebarScaffold extends StatelessWidget {
-  static const double maxWidth = 1280;
-
+  final bool isDoubleContent;
   final Function() onPressedPt;
   final Function() onPressedEn;
 
-  SidebarScaffold(this.onPressedPt, this.onPressedEn);
+  SidebarScaffold(this.isDoubleContent, this.onPressedPt, this.onPressedEn);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: maxWidth),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: AppSidebar(null, onPressedPt, onPressedEn)
-            ),
-            Expanded(
-              flex: 2,
-              child: AppContent(false)
-            )
-          ]
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: AppSidebar(null, onPressedPt, onPressedEn)
+        ),
+        Expanded(
+          flex: isDoubleContent ? 3 : 2,
+          child: AppContent(isDoubleContent, false)
         )
-      )
+      ]
     );
   }
 }

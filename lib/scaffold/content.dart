@@ -9,45 +9,81 @@ import '../ui/text.dart';
 import '../ui/theme.dart';
 
 class AppContent extends StatelessWidget {
+  final bool isDoubleContent;
   final bool isOverlayStyle;
 
-  AppContent(this.isOverlayStyle);
+  AppContent(this.isDoubleContent, this.isOverlayStyle);
 
   @override
   Widget build(BuildContext context) {
-    final Widget listView = AppListView(
-      AppTheme.darkBlue.withOpacity(0.5),
-      EdgeInsets.fromLTRB(12, isOverlayStyle ? 0 : 24, 12, 12),
-      [
-        _ProfessionalSummaryGroup(),
-        _ProfessionalExperienceGroup(),
-        _EducationGroup(),
-        _CoursesAndBooksGroup(),
-
-        // Languages
-        _ItemsGroup(
-          AppIcons.language,
-          AppStrings.languagesTitle,
-          AppStrings.languagePtText,
-          AppStrings.languageEnText
-        ),
-
-        // Availability
-        _ItemsGroup(
-          AppIcons.availability,
-          AppStrings.availabilityTitle,
-          AppStrings.availabilityContractText,
-          AppStrings.availabilityFreelanceText
-        )
-      ]
+    final Widget languagesWidget = _ItemsGroup(
+      AppIcons.language,
+      AppStrings.languagesTitle,
+      AppStrings.languagePtText,
+      AppStrings.languageEnText
     );
 
+    final Widget availabilityWidget = _ItemsGroup(
+      AppIcons.availability,
+      AppStrings.availabilityTitle,
+      AppStrings.availabilityContractText,
+      AppStrings.availabilityFreelanceText
+    );
+
+    final Widget contentWidget = isDoubleContent
+      ? Row(
+          children: [
+            Expanded(
+              flex: 3,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(12, 12, 0, 12),
+                child: _ProfessionalExperienceGroup(true)
+              )
+            ),
+            Expanded(
+              flex: 2,
+              child: AppListView(
+                AppTheme.darkBlue.withOpacity(0.5),
+                const EdgeInsets.all(12),
+                [
+                  _ProfessionalSummaryGroup(),
+                  AppUiConst.vsep16,
+                  _EducationGroup(),
+                  AppUiConst.vsep16,
+                  _CoursesAndBooksGroup(),
+                  AppUiConst.vsep16,
+                  languagesWidget,
+                  AppUiConst.vsep16,
+                  availabilityWidget
+                ]
+              )
+            )
+          ]
+        )
+      : AppListView(
+          AppTheme.darkBlue.withOpacity(0.5),
+          EdgeInsets.fromLTRB(12, isOverlayStyle ? 0 : 24, 12, 12),
+          [
+            _ProfessionalSummaryGroup(),
+            AppUiConst.vsep16,
+            _ProfessionalExperienceGroup(false),
+            AppUiConst.vsep16,
+            _EducationGroup(),
+            AppUiConst.vsep16,
+            _CoursesAndBooksGroup(),
+            AppUiConst.vsep16,
+            languagesWidget,
+            AppUiConst.vsep16,
+            availabilityWidget
+          ]
+        );
+
     return isOverlayStyle
-      ? listView
+      ? contentWidget
       : Material(
           color: AppTheme.midLightColor,
           child: SafeArea(
-            child: listView
+            child: contentWidget
           )
         );
   }
@@ -59,9 +95,9 @@ class _ProfessionalSummaryGroup extends ContentGroup {
   _ProfessionalSummaryGroup()
     :
     super(
-      AppIcons.summary,
-      AppStrings.professionalSummaryTitle,
-      [
+      icon: AppIcons.summary,
+      title: AppStrings.professionalSummaryTitle,
+      children: [
         Text(AppStrings.professionalSummaryText, style: AppTheme.normalDarkStyle)
       ]
     );
@@ -71,9 +107,9 @@ class _EducationGroup extends ContentGroup {
   _EducationGroup()
     :
     super(
-      AppIcons.education,
-      AppStrings.educationTitle,
-      [
+      icon: AppIcons.education,
+      title: AppStrings.educationTitle,
+      children: [
         Text(AppStrings.educationUniversityTitle, style: AppTheme.normalDarkBlueBoldStyle),
         Text('2006 - 2008', style: AppTheme.normalDarkBlueItalicStyle),
         AppUiConst.vsep16,
@@ -86,8 +122,9 @@ class _ItemsGroup extends ContentGroup {
   _ItemsGroup(IconData icon, String title, String item1, String item2)
     :
     super(
-      icon, title,
-      [
+      icon: icon,
+      title: title,
+      children: [
         AppIconText(AppIcons.arrow_right, item1, false),
         AppUiConst.vsep8,
         AppIconText(AppIcons.arrow_right, item2, false)
@@ -115,9 +152,9 @@ class _CoursesAndBooksGroup extends StatelessWidget {
     addChild(AppStrings.courseOracleOcaOcpTitle, '2010', true, false);
 
     return ContentGroup(
-      AppIcons.studying,
-      AppStrings.coursesAndBooksTitle,
-      children
+      icon: AppIcons.studying,
+      title: AppStrings.coursesAndBooksTitle,
+      children: children
     );
   }
 
@@ -149,7 +186,10 @@ class _CoursesAndBooksGroup extends StatelessWidget {
 }
 
 class _ProfessionalExperienceGroup extends StatelessWidget {
+  final bool hasListView;
   final List<Widget> children = [];
+
+  _ProfessionalExperienceGroup(this.hasListView);
 
   @override
   Widget build(BuildContext context) {
@@ -187,10 +227,11 @@ class _ProfessionalExperienceGroup extends StatelessWidget {
     );
 
     return ContentGroup(
-      AppIcons.experience,
-      AppStrings.professionalExperienceTitle,
-      children,
-      false
+      icon: AppIcons.experience,
+      title: AppStrings.professionalExperienceTitle,
+      hasPadding: false,
+      hasListView: hasListView,
+      children: children
     );
   }
 

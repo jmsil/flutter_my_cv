@@ -10,7 +10,7 @@ import '../ui/text.dart';
 import '../ui/theme.dart';
 
 class AppSidebar extends StatelessWidget {
-  static const double _headerExpandedHeight = 216;
+  static const double _headerExpandedHeight = 220;
   static const EdgeInsets _headerPadding = EdgeInsets.fromLTRB(32, 32, 32, 40);
 
   final GlobalKey<DrawerControllerState>? drawerKey;

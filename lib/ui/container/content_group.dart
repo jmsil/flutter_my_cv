@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../const.dart';
+import '../scroller.dart';
 import '../theme.dart';
 import 'container.dart';
 
@@ -12,37 +13,45 @@ class ContentGroup extends StatelessWidget {
   final IconData icon;
   final String title;
   final bool hasPadding;
+  final bool hasListView;
   final List<Widget> children;
 
-  ContentGroup(
-    this.icon, this.title, this.children,
-    [
-      this.hasPadding = true
-    ]
-  );
+  ContentGroup({
+    required this.icon,
+    required this.title,
+    this.hasPadding = true,
+    this.hasListView = false,
+    required this.children,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final EdgeInsets contentPadding = EdgeInsets.fromLTRB(
+      hasPadding ? 12 : 0,
+      _headerHeight / 2 + (hasPadding ? 16 : 8),
+      hasPadding ? 12 : 0,
+      hasPadding ? 16 : 8
+    );
+
     return Stack(
       alignment: Alignment.topRight,
       children: [
         AppContainer(
           color: AppTheme.highLightColor,
-          margin: const EdgeInsets.only(
-            top: _headerHeight / 2 + _topExtraMargin,
-            bottom: 32 - _topExtraMargin
-          ),
-          padding: EdgeInsets.fromLTRB(
-            hasPadding ? 12 : 0,
-            _headerHeight / 2 + (hasPadding ? 16 : 8),
-            hasPadding ? 12 : 0,
-            hasPadding ? 16 : 8
-          ),
+          margin: const EdgeInsets.only(top: _headerHeight / 2 + _topExtraMargin),
+          padding: hasListView ? EdgeInsets.zero : contentPadding,
           borderRadius: AppTheme.defaultRadius,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: children
-          )
+          isClipped: hasListView,
+          child: hasListView
+            ? AppListView(
+                AppTheme.darkBlue.withOpacity(0.5),
+                contentPadding,
+                children
+              )
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: children
+              )
         ),
         AppContainer(
           height: _headerHeight,

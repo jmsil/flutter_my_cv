@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
-import '../ui/theme.dart';
 import 'appbar_scaffold.dart';
 import 'sidebar_scaffold.dart';
 
@@ -12,8 +11,6 @@ class MainScaffold extends StatefulWidget {
 }
 
 class _State extends State {
-  final GlobalKey<DrawerControllerState> drawerKey = GlobalKey();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,23 +19,15 @@ class _State extends State {
       home: Builder(
         builder: (context) {
           final Size screenSize = MediaQuery.of(context).size;
-
-          Widget rWidget = screenSize.width > 1024
-            ? SidebarScaffold(onPressedPt, onPressedEn)
+          return screenSize.width > 1024
+            ? SidebarScaffold(
+                screenSize.width > 1400,
+                onPressedPt, onPressedEn
+              )
             : AppbarScaffold(
-                drawerKey,
                 screenSize.width <= screenSize.height,
                 onPressedPt, onPressedEn
               );
-
-          if (screenSize.width > SidebarScaffold.maxWidth) {
-            rWidget = Material(
-              color: AppTheme.highDarkColor,
-              child: rWidget
-            );
-          }
-
-          return rWidget;
         }
       ),
       builder: (context, homeChild) {
