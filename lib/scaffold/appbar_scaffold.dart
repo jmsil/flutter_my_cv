@@ -39,7 +39,7 @@ class AppbarScaffold extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Material(
-                color: AppTheme.midDarkColor,
+                color: AppTheme.highDarkColor,
                 child: SafeArea(
                   bottom: false,
                   child: const SizedBox(height: 144)
@@ -87,7 +87,7 @@ class AppbarScaffold extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             AppContainer(
-              color: AppTheme.midDarkColor,
+              color: AppTheme.highDarkColor,
               padding: const EdgeInsets.all(8),
               child: SafeArea(
                 child: Column(

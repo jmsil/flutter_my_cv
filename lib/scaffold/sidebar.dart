@@ -102,7 +102,7 @@ class AppSidebar extends StatelessWidget {
 
     final containerWidget = AppContainer(
       width: 420,
-      color: AppTheme.midDarkColor,
+      color: AppTheme.highDarkColor,
       child: SafeArea(
         child: Stack(
           fit: StackFit.expand,
