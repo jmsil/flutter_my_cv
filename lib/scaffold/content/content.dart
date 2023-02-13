@@ -8,6 +8,7 @@ import '../../ui/text.dart';
 import '../../ui/theme.dart';
 import 'content_group.dart';
 import 'education.dart';
+import 'items.dart';
 import 'professional_summary.dart';
 
 class AppContent extends StatelessWidget {
@@ -33,7 +34,7 @@ class AppContent extends StatelessWidget {
       _CoursesAndBooksGroup(),
       AppUiConst.vsep16,
 
-      _ItemsGroup(
+      ItemsGroup(
         AppIcons.language,
         AppStrings.languagesTitle,
         AppStrings.languagePtText,
@@ -41,7 +42,7 @@ class AppContent extends StatelessWidget {
       ),
       AppUiConst.vsep16,
 
-      _ItemsGroup(
+      ItemsGroup(
         AppIcons.availability,
         AppStrings.availabilityTitle,
         AppStrings.availabilityContractText,
@@ -82,20 +83,6 @@ class AppContent extends StatelessWidget {
           )
         );
   }
-}
-
-class _ItemsGroup extends ContentGroup {
-  _ItemsGroup(IconData icon, String title, String item1, String item2)
-    :
-    super(
-      icon: icon,
-      title: title,
-      children: [
-        AppIconText(AppIcons.arrow_right, item1, false),
-        AppUiConst.vsep8,
-        AppIconText(AppIcons.arrow_right, item2, false)
-      ]
-    );
 }
 
 class _CoursesAndBooksGroup extends StatelessWidget {
