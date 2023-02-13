@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'content.dart';
+import 'content/content.dart';
 import 'sidebar.dart';
 
 class SidebarScaffold extends StatelessWidget {
