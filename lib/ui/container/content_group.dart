@@ -55,7 +55,7 @@ class ContentGroup extends StatelessWidget {
         AppContainer(
           height: _headerHeight,
           color: AppTheme.lowLightColor,
-          margin: const EdgeInsets.fromLTRB(20, _topExtraMargin, 20, 0),
+          margin: const EdgeInsets.fromLTRB(16, _topExtraMargin, 16, 0),
           padding: const EdgeInsets.symmetric(horizontal: 16),
           borderColor: AppTheme.darkBlue.withOpacity(0.36),
           borderRadius: AppTheme.defaultRadius,
@@ -72,7 +72,7 @@ class ContentGroup extends StatelessWidget {
           )
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 24),
+          padding: const EdgeInsets.only(right: 20),
           child: Stack(
             children: [
               Icon(AppIcons.pin, size: _pinSize, color: AppTheme.highLightColor),

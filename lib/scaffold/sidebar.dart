@@ -84,7 +84,7 @@ class AppSidebar extends StatelessWidget {
     ];
 
     final Widget footerWidget = AppContainer(
-      color: AppTheme.lowDarkColor,
+      color: AppTheme.midDarkColor,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Row(
         children: [

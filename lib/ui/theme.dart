@@ -10,7 +10,8 @@ class AppTheme {
   static final Color midLightColor = Colors.blueGrey[100]!;
   static final Color lowLightColor = Colors.blueGrey[200]!;
   static final Color highDarkColor = Colors.blueGrey[800]!;
-  static final Color lowDarkColor = Colors.blueGrey[700]!;
+  static final Color midDarkColor = Colors.blueGrey[700]!;
+  static final Color lowDarkColor = Colors.blueGrey[500]!;
   static final Color lightBlue = Colors.blue[200]!;
   static final Color darkBlue = Colors.blue[900]!;
   static final Color darkColor = Colors.black;
