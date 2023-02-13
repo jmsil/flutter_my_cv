@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/const.dart';
-import '../../ui/container/header_expandable.dart';
-import '../../ui/strings.dart';
-import '../../ui/text.dart';
-import '../../ui/theme.dart';
+import '../ui/const.dart';
+import '../ui/container/header_expandable.dart';
+import '../ui/strings.dart';
+import '../ui/text.dart';
+import '../ui/theme.dart';
 import 'content_group.dart';
 
 class ProfessionalExperienceGroup extends StatelessWidget {

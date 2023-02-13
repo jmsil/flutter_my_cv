@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/const.dart';
-import '../../ui/text.dart';
+import '../ui/const.dart';
+import '../ui/text.dart';
 import 'content_group.dart';
 
 class ItemsGroup extends ContentGroup {

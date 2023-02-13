@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/const.dart';
-import '../../ui/scroller.dart';
-import '../../ui/strings.dart';
-import '../../ui/theme.dart';
+import '../ui/const.dart';
+import '../ui/scroller.dart';
+import '../ui/strings.dart';
+import '../ui/theme.dart';
 import 'courses_books.dart';
 import 'education.dart';
 import 'items.dart';

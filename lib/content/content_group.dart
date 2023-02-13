@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/const.dart';
-import '../../ui/container/container.dart';
-import '../../ui/scroller.dart';
-import '../../ui/theme.dart';
+import '../ui/const.dart';
+import '../ui/container/container.dart';
+import '../ui/scroller.dart';
+import '../ui/theme.dart';
 
 class ContentGroup extends StatelessWidget {
   static const double _pinSize = 32;
