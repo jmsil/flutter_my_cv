@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../ui/const.dart';
-import '../../ui/container/content_group.dart';
 import '../../ui/container/header_expandable.dart';
 import '../../ui/scroller.dart';
 import '../../ui/strings.dart';
 import '../../ui/text.dart';
 import '../../ui/theme.dart';
+import 'content_group.dart';
 
 class AppContent extends StatelessWidget {
   final bool isDoubleContent;
