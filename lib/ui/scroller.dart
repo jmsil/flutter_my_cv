@@ -1,36 +1,26 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class AppListView extends StatelessWidget {
-  final EdgeInsets padding;
-  final List<Widget> children;
-
-  AppListView(this.padding, this.children);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      primary: false,
-      cacheExtent: double.infinity,
-      padding: padding,
-      children: children
-    );
-  }
+class AppListView extends ListView {
+  AppListView({
+    EdgeInsets padding = EdgeInsets.zero,
+    required List<Widget> children
+  })
+    : super(
+        primary: false,
+        cacheExtent: double.infinity,
+        padding: padding,
+        children: children
+      );
 }
 
-class AppSliverScroller extends StatelessWidget {
-  final List<Widget> slivers;
-
-  AppSliverScroller(this.slivers);
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomScrollView(
-      primary: false,
-      cacheExtent: double.infinity,
-      slivers: slivers
-    );
-  }
+class AppSliverScroller extends CustomScrollView {
+  AppSliverScroller(List<Widget> slivers)
+    : super(
+        primary: false,
+        cacheExtent: double.infinity,
+        slivers: slivers
+      );
 }
 
 class AppScrollBehavior extends ScrollBehavior {

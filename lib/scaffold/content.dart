@@ -16,19 +16,36 @@ class AppContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget languagesWidget = _ItemsGroup(
-      AppIcons.language,
-      AppStrings.languagesTitle,
-      AppStrings.languagePtText,
-      AppStrings.languageEnText
-    );
+    final List<Widget> contentItems = [
+      _ProfessionalSummaryGroup(),
+      AppUiConst.vsep16,
 
-    final Widget availabilityWidget = _ItemsGroup(
-      AppIcons.availability,
-      AppStrings.availabilityTitle,
-      AppStrings.availabilityContractText,
-      AppStrings.availabilityFreelanceText
-    );
+      if (!isDoubleContent)
+        ...[
+          _ProfessionalExperienceGroup(false),
+          AppUiConst.vsep16
+        ],
+
+      _EducationGroup(),
+      AppUiConst.vsep16,
+      _CoursesAndBooksGroup(),
+      AppUiConst.vsep16,
+
+      _ItemsGroup(
+        AppIcons.language,
+        AppStrings.languagesTitle,
+        AppStrings.languagePtText,
+        AppStrings.languageEnText
+      ),
+      AppUiConst.vsep16,
+
+      _ItemsGroup(
+        AppIcons.availability,
+        AppStrings.availabilityTitle,
+        AppStrings.availabilityContractText,
+        AppStrings.availabilityFreelanceText
+      )
+    ];
 
     final Widget contentWidget = isDoubleContent
       ? Row(
@@ -42,38 +59,16 @@ class AppContent extends StatelessWidget {
             ),
             Expanded(
               flex: 2,
-              child: AppListView(
-                const EdgeInsets.all(12),
-                [
-                  _ProfessionalSummaryGroup(),
-                  AppUiConst.vsep16,
-                  _EducationGroup(),
-                  AppUiConst.vsep16,
-                  _CoursesAndBooksGroup(),
-                  AppUiConst.vsep16,
-                  languagesWidget,
-                  AppUiConst.vsep16,
-                  availabilityWidget
-                ]
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: AppListView(children: contentItems)
               )
             )
           ]
         )
       : AppListView(
-          EdgeInsets.fromLTRB(12, isOverlayStyle ? 0 : 24, 12, 12),
-          [
-            _ProfessionalSummaryGroup(),
-            AppUiConst.vsep16,
-            _ProfessionalExperienceGroup(false),
-            AppUiConst.vsep16,
-            _EducationGroup(),
-            AppUiConst.vsep16,
-            _CoursesAndBooksGroup(),
-            AppUiConst.vsep16,
-            languagesWidget,
-            AppUiConst.vsep16,
-            availabilityWidget
-          ]
+          padding: EdgeInsets.fromLTRB(12, isOverlayStyle ? 0 : 24, 12, 12),
+          children: contentItems
         );
 
     return isOverlayStyle

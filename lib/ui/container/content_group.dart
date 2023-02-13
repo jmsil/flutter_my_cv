@@ -44,8 +44,8 @@ class ContentGroup extends StatelessWidget {
           isClipped: hasListView,
           child: hasListView
             ? AppListView(
-                contentPadding,
-                children
+                padding: contentPadding,
+                children: children
               )
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
