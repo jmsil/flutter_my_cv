@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../ui/const.dart';
-import '../../ui/container/header_expandable.dart';
 import '../../ui/scroller.dart';
 import '../../ui/strings.dart';
-import '../../ui/text.dart';
 import '../../ui/theme.dart';
-import 'content_group.dart';
 import 'courses_books.dart';
 import 'education.dart';
 import 'items.dart';
+import 'professional_experience.dart';
 import 'professional_summary.dart';
 
 class AppContent extends StatelessWidget {
@@ -26,7 +24,7 @@ class AppContent extends StatelessWidget {
 
       if (!isDoubleContent)
         ...[
-          _ProfessionalExperienceGroup(false),
+          ProfessionalExperienceGroup(false),
           AppUiConst.vsep16
         ],
 
@@ -58,7 +56,7 @@ class AppContent extends StatelessWidget {
               flex: 3,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(12, 12, 0, 12),
-                child: _ProfessionalExperienceGroup(true)
+                child: ProfessionalExperienceGroup(true)
               )
             ),
             Expanded(
@@ -83,81 +81,5 @@ class AppContent extends StatelessWidget {
             child: contentWidget
           )
         );
-  }
-}
-
-class _ProfessionalExperienceGroup extends StatelessWidget {
-  final bool hasListView;
-  final List<Widget> children = [];
-
-  _ProfessionalExperienceGroup(this.hasListView);
-
-  @override
-  Widget build(BuildContext context) {
-    addChild(
-      AppStrings.fortlevExperienceTitle, AppStrings.fortlevExperiencePeriod,
-      Column(
-        children: [
-          AppIconText(AppIcons.link, 'https://www.bci-consulting.com', false, true),
-          AppUiConst.vsep8,
-          AppIconText(AppIcons.link, 'https://www.fortlev.com.br', false, true)
-        ]
-      ),
-      AppStrings.fortlevExperienceText, true
-    );
-
-    addChild(
-      AppStrings.flutterExperienceTitle, '2021', null,
-      AppStrings.flutterExperienceText, true
-    );
-
-    addChild(
-      AppStrings.mobileGameExperienceTitle, '2013 - 2020', null,
-      AppStrings.mobileGameExperienceText, true
-    );
-
-    addChild(
-      AppStrings.santriExperienceTitle, AppStrings.santriExperiencePeriod,
-      AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
-      AppStrings.santriExperienceText, true
-    );
-
-    addChild(
-      AppStrings.smallERPTitle, '2006/2007', null,
-      AppStrings.smallERPText, false
-    );
-
-    return ContentGroup(
-      icon: AppIcons.experience,
-      title: AppStrings.professionalExperienceTitle,
-      hasPadding: false,
-      hasListView: hasListView,
-      children: children
-    );
-  }
-
-  void addChild(
-      String title,
-      String period,
-      Widget? fixedContent,
-      String expandableContent,
-      bool addSeparator
-    )
-  {
-    final Widget child = AppHeaderExpandable(
-      headerContent: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title, style: AppTheme.normalDarkBlueBoldStyle),
-          Text(period, style: AppTheme.normalDarkBlueItalicStyle)
-        ]
-      ),
-      fixedContent: fixedContent,
-      expandableContent: Text(expandableContent, style: AppTheme.normalDarkStyle)
-    );
-    children.add(child);
-
-    if (addSeparator)
-      children.add(AppUiConst.vsep16);
   }
 }
