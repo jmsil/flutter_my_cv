@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
 import '../ui/text.dart';
-import 'content_group.dart';
+import 'group.dart';
 
 class ItemsGroup extends ContentGroup {
   ItemsGroup(IconData icon, String title, String item1, String item2)

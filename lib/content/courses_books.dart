@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../ui/const.dart';
 import '../ui/strings.dart';
 import '../ui/theme.dart';
-import 'content_group.dart';
+import 'group.dart';
 
 class CoursesAndBooksGroup extends StatelessWidget {
   final List<Widget> _children = [];

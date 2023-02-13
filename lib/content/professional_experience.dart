@@ -5,7 +5,7 @@ import '../ui/container/header_expandable.dart';
 import '../ui/strings.dart';
 import '../ui/text.dart';
 import '../ui/theme.dart';
-import 'content_group.dart';
+import 'group.dart';
 
 class ProfessionalExperienceGroup extends StatelessWidget {
   final bool hasListView;
