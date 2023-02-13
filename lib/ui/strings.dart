@@ -269,13 +269,13 @@ class AppStrings {
   );
 
   static String get languagePtText => _select(
-    'Português - (Nativo)',
-    'Portuguese - (Native)'
+    'Português - Nativo',
+    'Portuguese - Native'
   );
 
   static String get languageEnText => _select(
-    'Inglês - (Intermediário)',
-    'English - (Intermediate)'
+    'Inglês - Intermediário',
+    'English - Intermediate'
   );
 
   static String get availabilityTitle => _select(
@@ -284,8 +284,8 @@ class AppStrings {
   );
 
   static String get availabilityContractText => _select(
-    'Contrato - preferência por home-office. Aberto a negociar in-office',
-    'Contract - home-office preferable. Open to negotiate in-office'
+    'Contrato - preferência por remoto. Aberto a negociar presencial',
+    'Contract - remote preferable. Open to negotiate in-office'
   );
 
   static String get availabilityFreelanceText => _select(
