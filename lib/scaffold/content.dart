@@ -159,18 +159,18 @@ class _CoursesAndBooksGroup extends StatelessWidget {
   addChild(String title, String detail, bool isCourse, bool addSeparator) {
     final Widget child = Row(
       children: [
-        Icon(isCourse ? AppIcons.course : AppIcons.book, color: AppTheme.darkBlue),
+        Icon(isCourse ? AppIcons.course : AppIcons.book, color: AppTheme.darkColor),
         AppUiConst.hsep8,
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title, style: AppTheme.normalDarkBlueBoldStyle,
+                title, style: AppTheme.normalDarkBoldStyle,
                 softWrap: false,
                 overflow: TextOverflow.fade,
               ),
-              Text(detail, style: AppTheme.normalDarkBlueItalicStyle)
+              Text(detail, style: AppTheme.normalDarkItalicStyle)
             ]
           )
         )
