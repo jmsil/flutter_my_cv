@@ -89,7 +89,8 @@ class _AppLinkState extends State<AppLink> {
   }
 
   void _launch() async {
-    if (await urll.canLaunch(widget.text))
-      urll.launch(widget.text);
+    Uri uri = Uri.parse(widget.text);
+    if (await urll.canLaunchUrl(uri))
+      urll.launchUrl(uri);
   }
 }
