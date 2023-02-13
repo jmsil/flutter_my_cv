@@ -9,7 +9,8 @@ import 'content/content.dart';
 import 'sidebar.dart';
 
 class AppbarScaffold extends StatelessWidget {
-  final GlobalKey<DrawerControllerState> drawerKey = GlobalKey();
+  static final GlobalKey<DrawerControllerState> _drawerKey = GlobalKey();
+
   final bool isPortrait;
   final Function() onPressedPt;
   final Function() onPressedEn;
@@ -20,7 +21,7 @@ class AppbarScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget drawerButton = AppButton.icon(
       AppIcons.menu,
-      () => drawerKey.currentState?.open()
+      () => _drawerKey.currentState?.open()
     );
 
     final Widget infosWidget = Column(
@@ -76,7 +77,7 @@ class AppbarScaffold extends StatelessWidget {
               ]
             )
           ),
-          AppSidebar(drawerKey, onPressedPt, onPressedEn)
+          AppSidebar(_drawerKey, onPressedPt, onPressedEn)
         ]
       );
     }
@@ -110,7 +111,7 @@ class AppbarScaffold extends StatelessWidget {
             )
           ]
         ),
-        AppSidebar(drawerKey, onPressedPt, onPressedEn)
+        AppSidebar(_drawerKey, onPressedPt, onPressedEn)
       ]
     );
   }
