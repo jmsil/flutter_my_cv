@@ -2,14 +2,16 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:my_cv/ui/button/ink_response.dart';
 import 'package:re_editor/re_editor.dart';
 import 'package:re_highlight/languages/groovy.dart';
 import 'package:re_highlight/languages/json.dart';
 import 'package:re_highlight/languages/xml.dart';
 import 'package:re_highlight/styles/vs2015.dart';
 
+import '../../scaffold/device.dart';
+import '../../scaffold/main_scaffold.dart';
 import '../assets.dart';
-import '../button/button.dart';
 import '../container/container.dart';
 import '../hover.dart';
 import '../layout/edge_insets.dart';
@@ -18,95 +20,65 @@ import '../layout/layout_provider.dart';
 import 'viewer.dart';
 
 class ProjectCodeWidget extends StatelessWidget {
+  static const double editorHeight = 326;
+
   final AssetsArchive assets;
   final List<int> assetsIds;
-  final List<int> flexes;
+  final List<int> horizonalFlexes;
 
-  ProjectCodeWidget(this.assets, this.assetsIds, [this.flexes = const []]);
+  ProjectCodeWidget(this.assets, this.assetsIds, [this.horizonalFlexes = const []]);
 
   @override
   Widget build(BuildContext context) {
-    AppTheme theme = context.appLayout.theme;
+    final AppTheme theme = context.appLayout.theme;
+    final double screenWidth = context.screenSize.width;
     final List<Widget> children = [];
 
+    final bool isHorizontalDirection =
+      screenWidth / assetsIds.length >= 400 ||
+      assetsIds.length == 1;
+
     for (int id in assetsIds) {
-      Widget editorWidget = Expanded(
-        flex: flexes.isEmpty ? 1 : flexes[assetsIds.indexOf(id)],
-        child: _Editor(theme, assets.getFile(id))
-      );
-      Widget dividerWidget = VerticalDivider(
-        thickness: 48, width: 48,
-        color: theme.elementColor3.withValues(alpha: 0.06)
-      );
-      children.add(editorWidget);
-      children.add(dividerWidget);
+      Widget editorWidget = _CodeEditor(theme, assets.getFile(id));
+      Widget widget = isHorizontalDirection
+        ? Expanded(
+            flex: horizonalFlexes.isEmpty ? 1 : horizonalFlexes[assetsIds.indexOf(id)],
+            child: editorWidget
+          )
+        : SizedBox(
+            height: editorHeight,
+            child: _Expandable(editorWidget)
+          );
+      children.add(widget);
     }
 
-    children.removeLast();
-
-    final Widget child = AppContainer(
-      color: theme.elementColor1,
-      borderRadius: AppTheme.allBorderRadius,
-      child: Row(children: children)
-    );
-
-    return SizedBox(
-      height: 326,
-      child: AppHoverWidget(
-        child: child,
-        builder: _hoverBuilder
-      )
-    );
-  }
-
-  Widget _hoverBuilder(BuildContext context, bool hovered, Widget? child) {
-    final AppTheme theme = context.appLayout.theme;
-    final isInFullScreenMode = AppViewer.isInFullScreenOf(context);
-    final List<Widget> children = [ child! ];
-
-    if (hovered) {
-      Widget fullscreenButton = Padding(
-        padding: const AppEdgeInsets.normal(),
-        child: AppButton.icon(
-          icon: isInFullScreenMode ? AppIcons.fullScreenExit : AppIcons.fullscreen,
-          color: theme.overElement1Color1,
-          onPressed: () => _fullScreenPressed(context, isInFullScreenMode, child)
-        )
-      );
-      children.add(fullscreenButton);
-    }
-
-    return Stack(
-      clipBehavior: Clip.none,
-      alignment: Alignment.topRight,
+    final Widget builtWidget = Flex(
+      direction: isHorizontalDirection ? Axis.horizontal : Axis.vertical,
+      spacing: AppLayout.normalSpacing,
       children: children
     );
-  }
 
-  void _fullScreenPressed(BuildContext context, bool isInFullScreenMode, Widget child) {
-    Widget? widget = isInFullScreenMode
-      ? null
-      : AppHoverWidget(
-          child: child,
-          builder: _hoverBuilder
-        );
-    AppViewer.setFullScreenOf(context, widget);
+    return isHorizontalDirection
+      ? SizedBox(
+          height: editorHeight,
+          child: _Expandable(builtWidget)
+        )
+      : builtWidget;
   }
 }
 
-class _Editor extends CodeEditor {
-  _Editor(AppTheme theme, Uint8List code)
+class _CodeEditor extends CodeEditor {
+  _CodeEditor(AppTheme theme, Uint8List code)
     : super(
         readOnly: true,
-
-        controller: CodeLineEditingController.fromText(
-          utf8.decode(code)
-        ),
-
+        wordWrap: false,
+        borderRadius: AppTheme.allBorderRadius,
+        controller: CodeLineEditingController.fromText(utf8.decode(code)),
         style: CodeEditorStyle(
           fontSize: theme.text1FontSize,
           textColor: theme.backgroundColor,
           cursorColor: theme.backgroundColor,
+          backgroundColor: theme.elementColor1,
           selectionColor: theme.elementColor3.withValues(alpha: 0.25),
           codeTheme: CodeHighlightTheme(
             languages: {
@@ -117,20 +89,75 @@ class _Editor extends CodeEditor {
             theme: vs2015Theme
           )
         ),
-
         indicatorBuilder: (context, editingController, chunkController, notifier) {
           return Padding(
-            padding: const AppEdgeInsets.normal(vertical: 0),
+            padding: const EdgeInsets.only(
+              left: AppEdgeInsets.smallValue,
+              right: AppEdgeInsets.normalValue
+            ),
             child: DefaultCodeLineNumber(
               controller: editingController,
-              notifier: notifier,
+              notifier: notifier
             )
           );
         },
-
         leadingDivider: VerticalDivider(
           width: 1,
           color: theme.elementColor3.withValues(alpha: 0.32)
         )
       );
+}
+
+class _Expandable extends StatelessWidget {
+  final Widget child;
+
+  _Expandable(this.child);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppDevice.isMobileDevice()
+      ? overlayBuilder(context, true, child)
+      : AppHoverWidget(
+          child: child,
+          builder: overlayBuilder
+        );
+  }
+
+  Widget overlayBuilder(BuildContext context, bool hovered, Widget? child) {
+    final AppTheme theme = context.appLayout.theme;
+    final isInFullScreenMode = AppViewer.isInFullScreenOf(context);
+    final List<Widget> children = [ child! ];
+
+    if (hovered) {
+      Widget button = Align(
+        alignment: Alignment.topRight,
+        child: AppContainer(
+          borderRadius: const BorderRadius.only(
+            topRight: AppTheme.radius,
+            bottomLeft: AppTheme.radius
+          ),
+          isClipped: true,
+          child: AppInkResponse(
+            padding: const AppEdgeInsets.normal(),
+            effectsColor: theme.inkEffectsColor,
+            child: Icon(
+              isInFullScreenMode ? AppIcons.fullScreenExit : AppIcons.fullscreen,
+              color: theme.overElement1Color1
+            ),
+            onPressed: () => onPressed(context, isInFullScreenMode)
+          )
+        )
+      );
+      children.add(button);
+    }
+
+    return Stack(
+      clipBehavior: Clip.none,
+      children: children
+    );
+  }
+
+  void onPressed(BuildContext context, bool isInFullScreenMode) {
+    AppViewer.setFullScreenOf(context, isInFullScreenMode ? null : this);
+  }
 }
