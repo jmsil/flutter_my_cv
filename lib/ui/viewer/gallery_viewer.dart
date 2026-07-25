@@ -1,3 +1,5 @@
+import 'dart:math' as Math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,8 +18,8 @@ class AppGallery extends AppViewer {
 
   AppGallery(this.assets)
     : super(
-        direction: Axis.horizontal,
-        windowWidth: assets.isPortraitThumbnail ? 1400 : 1800,
+        windowDirection: Axis.horizontal,
+        windowWidth: assets.aspectRatio < 1 ? 1400 : 1800,
         windowHeight: 980,
         barSize:
           assets.thumbnailWidth +
@@ -25,6 +27,7 @@ class AppGallery extends AppViewer {
           _State.unselectedThumbnailMargin.horizontal +
           _State.thumbnailsContainerPadding.horizontal,
         barPadding: _State.thumbnailsContainerPadding,
+        bodyAspectRatio: assets.aspectRatio,
         isTransparentBody: true
       );
 
@@ -42,7 +45,9 @@ class _State extends AppViewerState<AppGallery> {
   );
 
   final List<GlobalKey> thumbnailKeys = [];
-  final ScrollController scrollController = ScrollController();
+  final ScrollController scrollController = ScrollController(
+    debugLabel: 'gallery_viewer_thumbnails'
+  );
 
   int index = 0;
 
@@ -63,7 +68,7 @@ class _State extends AppViewerState<AppGallery> {
   }
 
   @override
-  Widget buildBarWidget(BuildContext context, bool showBarBackground) {
+  Widget buildBar(bool showBackground) {
     final AppTheme theme = context.appLayout.theme;
     final List<Widget> thumbnails = [];
 
@@ -76,7 +81,7 @@ class _State extends AppViewerState<AppGallery> {
         curve: AppTheme.animationCurve,
         child: AppContainer(
           borderSize: isSelected ? selectedThumbnailBorderSize : unselectedThumbnailBorderSize,
-          borderColor: showBarBackground ? theme.overElement1Color1 : theme.overBackgroundColor1,
+          borderColor: showBackground ? theme.overElement1Color1 : theme.overBackgroundColor1,
           borderRadius: isSelected
             ? const BorderRadius.all(Radius.circular(12))
             : const BorderRadius.all(Radius.circular(8)),
@@ -98,71 +103,97 @@ class _State extends AppViewerState<AppGallery> {
   }
 
   @override
-  Widget buildBodyWidget(BuildContext context) {
+  Widget buildBody(double width, double height) {
     final AppTheme theme = context.appLayout.theme;
+    final double borderSize = Math.min(Math.min(width, height) * 0.025, 12);
 
-    final Widget imageWidget = Expanded(
+    return GestureDetector(
+      onHorizontalDragEnd: _onDrag,
+      onVerticalDragEnd: _onDrag,
       child: Center(
         child: AppContainer(
-          margin: const AppEdgeInsets.xLarge(),
-          borderSize: 12,
+          margin: isCompactMode
+            ? const AppEdgeInsets.normal()
+            : const AppEdgeInsets.xLarge(),
+          borderSize: borderSize,
           borderColor: theme.overBackgroundColor1,
-          borderRadius: const BorderRadius.all(Radius.circular(32)),
+          borderRadius: BorderRadius.circular(borderSize * 2.67),
           child: Image.memory(widget.assets.getFile(index + 1), gaplessPlayback: true)
         )
       )
     );
+  }
 
-    final Widget closeButton = AppButton.icon(
-      icon: AppIcons.close,
-      color: theme.overBackgroundColor1,
-      onPressed: () => Navigator.pop(context)
-    );
+  @override
+  Widget? buildBodyRightToolbar(double width) {
+    return _buildBodyToolbarWidget(Axis.vertical, width);
+  }
 
-    final previousButton = Expanded(
-      child: Align(
-        alignment: Alignment.bottomRight,
-        child: AppButton.icon(
-          icon: AppIcons.arrowUp,
-          color: theme.overBackgroundColor1,
-          onPressed: onPrevious
-        )
+  @override
+  Widget? buildBodyBottomToolbar(double height) {
+    return _buildBodyToolbarWidget(Axis.horizontal, height);
+  }
+
+  Widget _buildBodyToolbarWidget(Axis direction, double size) {
+    final AppTheme theme = context.appLayout.theme;
+    final bool isHorizontalDirection = direction == Axis.horizontal;
+    final List<Widget> buttons = [];
+
+    buttons.add(
+      AppButton.icon(
+        icon: isHorizontalDirection
+          ? AppIcons.back
+          : AppIcons.close,
+        color: theme.overBackgroundColor1,
+        onPressed: () => Navigator.pop(context)
       )
     );
 
-    final Widget nextButton = Expanded(
-      child: Align(
-        alignment: Alignment.topRight,
-        child: AppButton.icon(
-          icon: AppIcons.arrowDown,
-          color: theme.overBackgroundColor1,
-          onPressed: onNext
+    if (size >= 380) {
+      buttons.add(
+        Flex(
+          direction: direction,
+          spacing: isCompactMode
+            ? AppLayout.normalSpacing
+            : AppLayout.xLargeSpacing,
+          children: [
+            AppButton.icon(
+              icon: isHorizontalDirection
+                ? AppIcons.arrowLeft
+                : AppIcons.arrowUp,
+              color: theme.overBackgroundColor1,
+              onPressed: onPrevious
+            ),
+            AppButton.icon(
+              icon: isHorizontalDirection
+                ? AppIcons.arrowRight
+                : AppIcons.arrowDown,
+              color: theme.overBackgroundColor1,
+              onPressed: onNext
+            )
+          ]
         )
+      );
+    }
+
+    buttons.add(
+      Text(
+        '${index + 1}/${ widget.assets.count }',
+        style: theme.text1OverBackgroundColor1BoldStyle
       )
     );
 
-    final Widget label = Text(
-      '${index + 1}/${ widget.assets.count }',
-      style: theme.text1OverBackgroundColor1BoldStyle
-    );
-
-    return Row(
-      children: [
-        imageWidget,
-        Padding(
-          padding: const AppEdgeInsets.large(),
-          child: Column(
-            spacing: AppLayout.xLargeSpacing,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              closeButton,
-              previousButton,
-              nextButton,
-              label
-            ]
-          )
-        )
-      ]
+    return Padding(
+      padding: isCompactMode
+        ? AppEdgeInsets.normal(
+            right: isHorizontalDirection ? AppEdgeInsets.normalValue * 1.75 : null)
+        : AppEdgeInsets.large(
+            right: isHorizontalDirection ? AppEdgeInsets.largeValue * 1.75 : null),
+      child: Flex(
+        direction: direction,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: buttons
+      )
     );
   }
 
@@ -174,6 +205,13 @@ class _State extends AppViewerState<AppGallery> {
   void onNext() {
     if (index < widget.assets.count - 1)
       setIndex(index + 1);
+  }
+
+  void _onDrag(DragEndDetails details) {
+    if (details.primaryVelocity! > 0)
+      onPrevious();
+    else if (details.primaryVelocity! < 0)
+      onNext();
   }
 
   KeyEventResult onKeyEvent(FocusNode node, KeyEvent event) {

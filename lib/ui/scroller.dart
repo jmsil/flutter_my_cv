@@ -20,6 +20,7 @@ class AppListView extends ListView {
     super.children
   })
     : super(
+        key: controller != null ? PageStorageKey(controller.debugLabel) : null,
         primary: false,
         cacheExtent: double.infinity,
         physics: AlwaysScrollableScrollPhysics()

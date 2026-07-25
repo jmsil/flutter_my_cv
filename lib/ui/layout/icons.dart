@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppIcons {
   static const IconData arrowDown = Icons.keyboard_arrow_down;
+  static const IconData arrowLeft = Icons.keyboard_arrow_left;
+  static const IconData arrowRight = Icons.keyboard_arrow_right;
   static const IconData arrowUp = Icons.keyboard_arrow_up;
   static const IconData availability = Icons.how_to_reg_outlined;
   static const IconData back = Icons.arrow_back;

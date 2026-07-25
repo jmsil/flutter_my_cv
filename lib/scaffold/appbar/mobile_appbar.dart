@@ -25,7 +25,7 @@ class MobileAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
-    final double screenWidth = context.screenWidth;
+    final double screenWidth = context.screenSize.width;
     final bool isSmallMobileScreen = context.isSmallMobileScreen;
 
     final Text summaryTextWidget = Text(

@@ -41,7 +41,6 @@ class AppAssets {
   }
 }
 
-
 class AssetsArchive {
   AssetsArchive(String assetName)
     : this._assetName = assetName;
@@ -77,7 +76,6 @@ class AssetsArchive {
   Uint8List getFile(int id) => _files[id - 1];
 }
 
-
 class GalleryAssets extends AssetsArchive {
   GalleryAssets(super.assetName);
 
@@ -89,7 +87,7 @@ class GalleryAssets extends AssetsArchive {
   int _thumbnailHeight = 0;
   int get thumbnailHeight => _thumbnailHeight;
 
-  bool get isPortraitThumbnail => _thumbnailWidth < _thumbnailHeight;
+  double get aspectRatio => _thumbnailWidth / _thumbnailHeight;
 
   @override
   Future<void> load() async {

@@ -14,7 +14,7 @@ class AppProjectViewer extends AppViewer {
 
   AppProjectViewer(this.project)
     : super(
-        direction: Axis.vertical,
+        windowDirection: Axis.vertical,
         windowWidth: 1680,
         barPadding: const AppEdgeInsets.large(vertical: AppEdgeInsets.xLargeValue),
         isTransparentBody: false
@@ -26,14 +26,14 @@ class AppProjectViewer extends AppViewer {
 
 class _State extends AppViewerState<AppProjectViewer> {
   @override
-  Widget buildBarWidget(BuildContext context, bool showBarBackground) {
+  Widget buildBar(bool showBackground) {
     final AppTheme theme = context.appLayout.theme;
 
-    final TextStyle titleStyle = showBarBackground
+    final TextStyle titleStyle = showBackground
       ? theme.header1OverElement1Color1BoldStyle
       : theme.header1OverBackgroundColor1BoldStyle;
 
-    final TextStyle descriptionStyle = showBarBackground
+    final TextStyle descriptionStyle = showBackground
       ? theme.text1OverElement1Color1Style
       : theme.text1OverBackgroundColor1Style;
 
@@ -61,7 +61,7 @@ class _State extends AppViewerState<AppProjectViewer> {
   }
 
   @override
-  Widget buildBodyWidget(BuildContext context) {
+  Widget buildBody(double width, double height) {
     final AppTheme theme = context.appLayout.theme;
     int widgetPlaceholderIndex = 0;
     final List<Widget> children = [];
