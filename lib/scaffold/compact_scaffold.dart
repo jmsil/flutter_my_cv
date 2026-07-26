@@ -5,15 +5,15 @@ import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/items.dart';
 import '../ui/scroller.dart';
-import 'appbar/mobile_appbar.dart';
+import 'appbar/compact_appbar.dart';
 import 'sidebar/sidebar.dart';
 
-class MobileScaffold extends StatefulWidget {
+class CompactScaffold extends StatefulWidget {
   @override
   _State createState() => _State();
 }
 
-class _State extends State<MobileScaffold> {
+class _State extends State<CompactScaffold> {
   static final GlobalKey<DrawerControllerState> drawerKey = GlobalKey();
 
   @override
@@ -29,7 +29,7 @@ class _State extends State<MobileScaffold> {
       children: [
         AppSliverScroller(
           [
-            MobileAppbar(openDrawer),
+            CompactAppbar(openDrawer),
             ExperienceGroup(),
             EducationGroup(),
             CoursesAndBooksGroup(),

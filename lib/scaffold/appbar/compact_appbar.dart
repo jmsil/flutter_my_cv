@@ -5,10 +5,10 @@ import '../../ui/divider.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings_provider.dart';
+import '../device.dart';
 import '../main_profile_info.dart';
-import '../main_scaffold.dart';
 
-class MobileAppbar extends StatelessWidget {
+class CompactAppbar extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal();
   static const double _photoSize = 110;
   static const double _dividerSize = 2;
@@ -20,13 +20,12 @@ class MobileAppbar extends StatelessWidget {
 
   final void Function() onPressed;
 
-  MobileAppbar(this.onPressed);
+  CompactAppbar(this.onPressed);
 
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
     final double screenWidth = context.screenSize.width;
-    final bool isSmallMobileScreen = context.isSmallMobileScreen;
 
     final Text summaryTextWidget = Text(
       StringsProvider.strings.professionalSummaryInfo,
@@ -48,7 +47,7 @@ class MobileAppbar extends StatelessWidget {
         MainProfileInfo.nameAndRoles(
           style: MainProfileInfoStyle.compact,
           isOverBackground: false,
-          isShortRoles: isSmallMobileScreen
+          isShortRoles: screenWidth <= 430
         )
       ]
     );

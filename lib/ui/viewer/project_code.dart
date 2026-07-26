@@ -10,7 +10,6 @@ import 'package:re_highlight/languages/xml.dart';
 import 'package:re_highlight/styles/vs2015.dart';
 
 import '../../scaffold/device.dart';
-import '../../scaffold/main_scaffold.dart';
 import '../assets.dart';
 import '../container/container.dart';
 import '../hover.dart';

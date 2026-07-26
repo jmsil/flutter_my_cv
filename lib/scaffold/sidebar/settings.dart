@@ -5,20 +5,20 @@ import '../../ui/button/popup_menu_button.dart';
 import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings_provider.dart';
-import '../main_scaffold.dart';
+import '../device.dart';
 
 class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
-    final bool isDesktopScreen = context.isDesktopScreen;
+    final bool isExtendedScreen = context.isExtendedScreen;
 
-    final TextStyle selectedStyle = isDesktopScreen
+    final TextStyle selectedStyle = isExtendedScreen
       ? theme.text1OverBackgroundColor2BoldStyle
       : theme.text1OverElement1Color1BoldStyle;
 
-    final TextStyle unselectedStyle = isDesktopScreen
+    final TextStyle unselectedStyle = isExtendedScreen
       ? theme.text1OverBackgroundColor2Style
       : theme.text1OverElement1Color1Style;
 
@@ -30,19 +30,19 @@ class Settings extends StatelessWidget {
           selectedStyle: selectedStyle,
           unselectedStyle: unselectedStyle,
           isSelected: StringsProvider.languageCode == 'pt',
-          onPressed: () => setLanguage(context, 'pt', isDesktopScreen)
+          onPressed: () => setLanguage(context, 'pt', isExtendedScreen)
         ),
         AppButton.label(
           label: Strings.languageEn,
           selectedStyle: selectedStyle,
           unselectedStyle: unselectedStyle,
           isSelected: StringsProvider.languageCode != 'pt',
-          onPressed: () => setLanguage(context, 'en', isDesktopScreen)
+          onPressed: () => setLanguage(context, 'en', isExtendedScreen)
         )
       ]
     );
 
-    if ( ! isDesktopScreen)
+    if ( ! isExtendedScreen)
       return languagesWidget;
 
     Widget layoutsWidget = Row(
@@ -52,25 +52,25 @@ class Settings extends StatelessWidget {
           icon: AppIcons.flatLayout,
           color: theme.overBackgroundColor2,
           isSelected: layout == AppLayout.flat,
-          onPressed: () => setLayout(context, AppLayout.flat, isDesktopScreen)
+          onPressed: () => setLayout(context, AppLayout.flat, isExtendedScreen)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
           color: theme.overBackgroundColor2,
           isSelected: layout == AppLayout.left,
-          onPressed: () => setLayout(context, AppLayout.left, isDesktopScreen)
+          onPressed: () => setLayout(context, AppLayout.left, isExtendedScreen)
         ),
         AppButton.icon(
           icon: AppIcons.topLayout,
           color: theme.overBackgroundColor2,
           isSelected: layout == AppLayout.top,
-          onPressed: () => setLayout(context, AppLayout.top, isDesktopScreen)
+          onPressed: () => setLayout(context, AppLayout.top, isExtendedScreen)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
           color: theme.overBackgroundColor2,
           isSelected: layout == AppLayout.full,
-          onPressed: () => setLayout(context, AppLayout.full, isDesktopScreen)
+          onPressed: () => setLayout(context, AppLayout.full, isExtendedScreen)
         )
       ]
     );
@@ -87,14 +87,14 @@ class Settings extends StatelessWidget {
     );
   }
 
-  void setLanguage(BuildContext context, String language, bool isDesktopScreen) {
-    if (isDesktopScreen)
+  void setLanguage(BuildContext context, String language, bool isExtendedScreen) {
+    if (isExtendedScreen)
       Navigator.of(context).pop();
     StringsProvider.instance.setLanguage(language);
   }
 
-  void setLayout(BuildContext context, AppLayout layout, bool isDesktopScreen) {
-    if (isDesktopScreen)
+  void setLayout(BuildContext context, AppLayout layout, bool isExtendedScreen) {
+    if (isExtendedScreen)
       Navigator.of(context).pop();
     LayoutProvider.instance.setLayout(layout);
   }

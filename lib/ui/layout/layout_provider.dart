@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../scaffold/main_scaffold.dart';
+import '../../scaffold/device.dart';
 import 'layout.dart';
 
 export 'layout.dart';
@@ -23,6 +23,6 @@ class LayoutProvider extends ChangeNotifier {
 
 extension BuildContextExtension on BuildContext {
   AppLayout get appLayout {
-    return this.isDesktopScreen ? LayoutProvider.instance._layout : AppLayout.full;
+    return this.isExtendedScreen ? LayoutProvider.instance._layout : AppLayout.full;
   }
 }

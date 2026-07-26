@@ -9,10 +9,10 @@ import '../../ui/scroller.dart';
 import '../appbar/appbar_provider.dart';
 import '../main_profile_info.dart';
 
-class DesktopList extends StatelessWidget {
+class ExtendedList extends StatelessWidget {
   final List<Widget> children;
 
-  DesktopList(this.children);
+  ExtendedList(this.children);
 
   @override
   Widget build(BuildContext context) {

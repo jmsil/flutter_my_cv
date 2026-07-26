@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../scaffold/main_scaffold.dart';
+import '../scaffold/device.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_provider.dart';
 import '../ui/strings/strings_provider.dart';
@@ -14,7 +14,7 @@ class ExperienceGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
-    final bool isDesktopScreen = context.isDesktopScreen;
+    final bool isExtendedScreen = context.isExtendedScreen;
 
     List<Widget> children = [
       IntegrationLearningExperience(theme),
@@ -56,7 +56,7 @@ class ExperienceGroup extends StatelessWidget {
     return ContentGroup(
       icon: AppIcons.experience,
       title: StringsProvider.strings.experienceTitle,
-      headerBackgroundColor: isDesktopScreen
+      headerBackgroundColor: isExtendedScreen
         ? null
         : theme.elementColor1,
       hasHorizontalPadding: false,

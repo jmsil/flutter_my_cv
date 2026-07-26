@@ -7,7 +7,7 @@ import '../main_profile_info.dart';
 import 'appbar_provider.dart';
 import 'profile_photo.dart';
 
-class DesktopAppbar extends StatelessWidget {
+class ExtendedAppbar extends StatelessWidget {
   static const double _neededSummaryHeight = 154;
   static const double _profileAndSummaryPaddingValue =
     (AppbarProvider.collapsedHeight - _neededSummaryHeight) / 2;

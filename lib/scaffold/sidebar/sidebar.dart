@@ -4,11 +4,11 @@ import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings_provider.dart';
-import '../main_scaffold.dart';
+import '../device.dart';
 import 'about_section.dart';
-import 'desktop_list.dart';
+import 'compact_list.dart';
 import 'details_section.dart';
-import 'mobile_list.dart';
+import 'extended_list.dart';
 import 'settings.dart';
 import 'skills_section.dart';
 
@@ -17,10 +17,10 @@ class AppSidebar extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
-    final bool isDesktopScreen = context.isDesktopScreen;
+    final bool isExtendedScreen = context.isExtendedScreen;
 
     final List<Widget> children = [
-      if ( ! isDesktopScreen)
+      if ( ! isExtendedScreen)
         AppLayout.normalVerticalSpacer,
 
       DetailsSection(theme),
@@ -64,9 +64,9 @@ class AppSidebar extends StatelessWidget {
     final Widget builtChild = Column(
       children: [
         Expanded(
-          child: isDesktopScreen
-            ? DesktopList(children)
-            : MobileList(theme, children)
+          child: isExtendedScreen
+            ? ExtendedList(children)
+            : CompactList(theme, children)
         ),
         footerWidget
       ]
@@ -76,10 +76,10 @@ class AppSidebar extends StatelessWidget {
       ? AppContainer(
           width: AppLayout.sidebarWidth,
           color: theme.elementColor2,
-          borderRadius: isDesktopScreen
+          borderRadius: isExtendedScreen
             ? AppTheme.allBorderRadius
             : BorderRadius.zero,
-          isClipped: isDesktopScreen,
+          isClipped: isExtendedScreen,
           child: builtChild
         )
       : AppContainer(

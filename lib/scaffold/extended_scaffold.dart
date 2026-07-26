@@ -10,17 +10,17 @@ import '../ui/layout/layout_provider.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import 'appbar/appbar_provider.dart';
-import 'appbar/desktop_appbar.dart';
+import 'appbar/extended_appbar.dart';
+import 'device.dart';
 import 'main_profile_info.dart';
-import 'main_scaffold.dart';
 import 'sidebar/sidebar.dart';
 
-class DesktopScaffold extends StatelessWidget {
+class ExtendedScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
-    final bool isDoublePane = context.isLargeDesktopScreen;
+    final bool isDoublePane = context.screenSize.width >= 1640;
     final double totalCollapsedHeight = AppbarProvider.totalCollapsedHeightOf(context);
 
     Widget builtWidget = OverlayBar(
@@ -91,7 +91,7 @@ class DesktopScaffold extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           builtWidget,
-          DesktopAppbar()
+          ExtendedAppbar()
         ]
       );
     }

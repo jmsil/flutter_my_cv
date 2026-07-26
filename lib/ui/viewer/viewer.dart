@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../scaffold/main_scaffold.dart';
+import '../../scaffold/device.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/layout_provider.dart';

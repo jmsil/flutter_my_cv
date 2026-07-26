@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../scaffold/main_scaffold.dart';
+import '../scaffold/device.dart';
 import '../ui/container/container.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout_provider.dart';
@@ -28,17 +28,17 @@ class ContentGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
-    final bool isDesktopScreen = context.isDesktopScreen;
+    final bool isExtendedScreen = context.isExtendedScreen;
 
     final EdgeInsets headerMargin = AppEdgeInsets.normal(
-      top: isDesktopScreen ? 0 : null,
-      bottom: isDesktopScreen ? null : 0,
-      horizontal: isDesktopScreen ? 0 : null
+      top: isExtendedScreen ? 0 : null,
+      bottom: isExtendedScreen ? null : 0,
+      horizontal: isExtendedScreen ? 0 : null
     );
 
     final EdgeInsets childrenPadding = AppEdgeInsets.normal(
-      top: isDesktopScreen ? 0 : null,
-      bottom: isDesktopScreen ? AppEdgeInsets.xLargeValue : null,
+      top: isExtendedScreen ? 0 : null,
+      bottom: isExtendedScreen ? AppEdgeInsets.xLargeValue : null,
       horizontal: hasHorizontalPadding ? null : 0
     );
 
