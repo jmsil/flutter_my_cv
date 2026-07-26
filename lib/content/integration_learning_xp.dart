@@ -38,9 +38,9 @@ class _ApimProxy extends Project {
       );
 
   @override
-  List<Widget> buildPlaceholderWidgets(AppTheme theme) {
+  List<Widget> buildPlaceholderWidgets() {
     return [
-      ProjectImageWidget(theme, assets.getFile(1))
+      ProjectImageWidget(assets.getFile(1))
     ];
   }
 }
@@ -55,10 +55,10 @@ class _Calculator extends Project {
       );
 
   @override
-  List<Widget> buildPlaceholderWidgets(AppTheme theme) {
+  List<Widget> buildPlaceholderWidgets() {
     return [
-      ProjectImageWidget(theme, assets.getFile(1)),
-      ProjectImageWidget(theme, assets.getFile(2)),
+      ProjectImageWidget(assets.getFile(1)),
+      ProjectImageWidget(assets.getFile(2)),
       ProjectCodeWidget(assets, [3])
     ];
   }
@@ -74,12 +74,12 @@ class _ConversionsAndFtp extends Project {
       );
 
   @override
-  List<Widget> buildPlaceholderWidgets(AppTheme theme) {
+  List<Widget> buildPlaceholderWidgets() {
     return [
-      ProjectImageWidget(theme, assets.getFile(1)),
-      ProjectImageWidget(theme, assets.getFile(2)),
+      ProjectImageWidget(assets.getFile(1)),
+      ProjectImageWidget(assets.getFile(2)),
       ProjectCodeWidget(assets, [3, 4]),
-      ProjectImageWidget(theme, assets.getFile(5)),
+      ProjectImageWidget(assets.getFile(5)),
       ProjectCodeWidget(assets, [6, 7])
     ];
   }
@@ -95,11 +95,11 @@ class _ExceptionHandler extends Project {
       );
 
   @override
-  List<Widget> buildPlaceholderWidgets(AppTheme theme) {
+  List<Widget> buildPlaceholderWidgets() {
     return [
-      ProjectImageWidget(theme, assets.getFile(1)),
+      ProjectImageWidget(assets.getFile(1)),
       ProjectCodeWidget(assets, [2, 3]),
-      ProjectImageWidget(theme, assets.getFile(4))
+      ProjectImageWidget(assets.getFile(4))
     ];
   }
 }
@@ -114,10 +114,10 @@ class _SqlServerWithXslt extends Project {
       );
 
   @override
-  List<Widget> buildPlaceholderWidgets(AppTheme theme) {
+  List<Widget> buildPlaceholderWidgets() {
     return [
-      ProjectImageWidget(theme, assets.getFile(1)),
-      ProjectImageWidget(theme, assets.getFile(2)),
+      ProjectImageWidget(assets.getFile(1)),
+      ProjectImageWidget(assets.getFile(2)),
       ProjectCodeWidget(assets, [3, 4, 5], [4, 7, 7])
     ];
   }

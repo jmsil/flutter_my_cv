@@ -42,5 +42,5 @@ abstract class Project {
 
   Project(this.title, this.description, this.info, this.assets);
 
-  List<Widget> buildPlaceholderWidgets(AppTheme theme);
+  List<Widget> buildPlaceholderWidgets();
 }

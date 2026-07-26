@@ -65,7 +65,7 @@ class _State extends AppViewerState<AppProjectViewer> {
     final AppTheme theme = context.appLayout.theme;
     int widgetPlaceholderIndex = 0;
     final List<Widget> children = [];
-    final List<Widget> placeholderWidgets = widget.project.buildPlaceholderWidgets(theme);
+    final List<Widget> placeholderWidgets = widget.project.buildPlaceholderWidgets();
     final List<String> infoLines = widget.project.info.split(Strings.splitTag);
 
     for (String infoLine in infoLines) {

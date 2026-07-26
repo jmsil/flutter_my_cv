@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:my_cv/ui/button/ink_response.dart';
 import 'package:re_editor/re_editor.dart';
 import 'package:re_highlight/languages/groovy.dart';
 import 'package:re_highlight/languages/json.dart';
@@ -11,16 +10,11 @@ import 'package:re_highlight/styles/vs2015.dart';
 
 import '../../scaffold/device.dart';
 import '../assets.dart';
-import '../container/container.dart';
-import '../hover.dart';
 import '../layout/edge_insets.dart';
-import '../layout/icons.dart';
 import '../layout/layout_provider.dart';
-import 'viewer.dart';
+import 'full_window_handler.dart';
 
 class ProjectCodeWidget extends StatelessWidget {
-  static const double editorHeight = 326;
-
   final AssetsArchive assets;
   final List<int> assetsIds;
   final List<int> horizonalFlexes;
@@ -44,10 +38,7 @@ class ProjectCodeWidget extends StatelessWidget {
             flex: horizonalFlexes.isEmpty ? 1 : horizonalFlexes[assetsIds.indexOf(id)],
             child: editorWidget
           )
-        : SizedBox(
-            height: editorHeight,
-            child: _Expandable(editorWidget)
-          );
+        : _FullWindowHandler(theme, editorWidget);
       children.add(widget);
     }
 
@@ -58,10 +49,7 @@ class ProjectCodeWidget extends StatelessWidget {
     );
 
     return isHorizontalDirection
-      ? SizedBox(
-          height: editorHeight,
-          child: _Expandable(builtWidget)
-        )
+      ? _FullWindowHandler(theme, builtWidget)
       : builtWidget;
   }
 }
@@ -107,56 +95,13 @@ class _CodeEditor extends CodeEditor {
       );
 }
 
-class _Expandable extends StatelessWidget {
-  final Widget child;
-
-  _Expandable(this.child);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppDevice.isMobileDevice()
-      ? overlayBuilder(context, true, child)
-      : AppHoverWidget(
-          child: child,
-          builder: overlayBuilder
-        );
-  }
-
-  Widget overlayBuilder(BuildContext context, bool hovered, Widget? child) {
-    final AppTheme theme = context.appLayout.theme;
-    final isInFullWindowMode = AppViewer.isInFullWindowOf(context);
-    final List<Widget> children = [ child! ];
-
-    if (hovered) {
-      Widget button = Align(
-        alignment: Alignment.topRight,
-        child: AppContainer(
-          borderRadius: const BorderRadius.only(
-            topRight: AppTheme.radius,
-            bottomLeft: AppTheme.radius
-          ),
-          isClipped: true,
-          child: AppInkResponse(
-            padding: const AppEdgeInsets.normal(),
-            effectsColor: theme.inkEffectsColor,
-            child: Icon(
-              isInFullWindowMode ? AppIcons.fullWindowExit : AppIcons.fullWindow,
-              color: theme.overElement1Color1
-            ),
-            onPressed: () => onPressed(context, isInFullWindowMode)
-          )
+class _FullWindowHandler extends SizedBox {
+  _FullWindowHandler(AppTheme theme, Widget child)
+    : super(
+        height: 326,
+        child: AppViewerFullWindowHandler(
+          iconColor: theme.overElement1Color1,
+          child: child
         )
       );
-      children.add(button);
-    }
-
-    return Stack(
-      clipBehavior: Clip.none,
-      children: children
-    );
-  }
-
-  void onPressed(BuildContext context, bool isInFullWindowMode) {
-    AppViewer.setFullWindowOf(context, isInFullWindowMode ? null : this);
-  }
 }

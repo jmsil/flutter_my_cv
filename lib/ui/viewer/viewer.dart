@@ -48,7 +48,7 @@ abstract class AppViewer extends StatefulWidget {
   }
 
   static bool isInFullWindowOf(BuildContext context) {
-    return context.getInheritedWidgetOfExactType<_Notifier>()?.notifier?.value != null;
+    return context.dependOnInheritedWidgetOfExactType<_Notifier>()?.notifier?.value != null;
   }
 
   static void setFullWindowOf(BuildContext context, Widget? widget) {
@@ -107,56 +107,56 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
     );
 
     final Widget builtFullBodyWidget = LayoutBuilder(
-      builder: (BuildContext fullBodyContext, BoxConstraints fullBodyConstraints)
-    {
-      Widget builtBodyWidget = LayoutBuilder(
-        builder: (BuildContext bodyContext, BoxConstraints bodyConstraints)
-      {
-        return _Notifier(
-          notifier: _valueNotifier,
-          child: _IndexedStack(
-            child: buildBody(bodyConstraints.maxWidth, bodyConstraints.maxHeight)
-          )
-        );
-      });
-
-      final Widget? builtBodyRightToolbarWidget =
-        buildBodyRightToolbar(fullBodyConstraints.maxHeight);
-      final Widget? builtBodyBottomToolbarWidget =
-        buildBodyBottomToolbar(fullBodyConstraints.maxWidth);
-
-      if (builtBodyRightToolbarWidget != null) {
-        builtBodyWidget = Row(
-          children: [
-            Expanded(child: builtBodyWidget),
-            Offstage(
-              offstage: isBodyVerticalDirection,
-              child: KeyedSubtree(
-                key: _builtBodyRightToolbarKey,
-                child: builtBodyRightToolbarWidget
+      builder: (BuildContext fullBodyContext, BoxConstraints fullBodyConstraints) {
+        Widget builtBodyWidget = LayoutBuilder(
+          builder: (BuildContext bodyContext, BoxConstraints bodyConstraints) {
+            return _Notifier(
+              notifier: _valueNotifier,
+              child: _IndexedStack(
+                child: buildBody(bodyConstraints.maxWidth, bodyConstraints.maxHeight)
               )
-            )
-          ]
+            );
+          }
         );
-      }
 
-      if (builtBodyBottomToolbarWidget != null) {
-        builtBodyWidget = Column(
-          children: [
-            Expanded(child: builtBodyWidget),
-            Offstage(
-              offstage: isBodyHorizontalDirection,
-              child: KeyedSubtree(
-                key: _builtBodyBottomToolbarKey,
-                child: builtBodyBottomToolbarWidget
+        final Widget? builtBodyRightToolbarWidget =
+          buildBodyRightToolbar(fullBodyConstraints.maxHeight);
+        final Widget? builtBodyBottomToolbarWidget =
+          buildBodyBottomToolbar(fullBodyConstraints.maxWidth);
+
+        if (builtBodyRightToolbarWidget != null) {
+          builtBodyWidget = Row(
+            children: [
+              Expanded(child: builtBodyWidget),
+              Offstage(
+                offstage: isBodyVerticalDirection,
+                child: KeyedSubtree(
+                  key: _builtBodyRightToolbarKey,
+                  child: builtBodyRightToolbarWidget
+                )
               )
-            )
-          ]
-        );
-      }
+            ]
+          );
+        }
 
-      return builtBodyWidget;
-    });
+        if (builtBodyBottomToolbarWidget != null) {
+          builtBodyWidget = Column(
+            children: [
+              Expanded(child: builtBodyWidget),
+              Offstage(
+                offstage: isBodyHorizontalDirection,
+                child: KeyedSubtree(
+                  key: _builtBodyBottomToolbarKey,
+                  child: builtBodyBottomToolbarWidget
+                )
+              )
+            ]
+          );
+        }
+
+        return builtBodyWidget;
+      }
+    );
 
     final Widget builtWindowContentWidget = BackdropFilter(
       key: _builtWindowContentKey,
