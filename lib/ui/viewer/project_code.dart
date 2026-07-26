@@ -124,7 +124,7 @@ class _Expandable extends StatelessWidget {
 
   Widget overlayBuilder(BuildContext context, bool hovered, Widget? child) {
     final AppTheme theme = context.appLayout.theme;
-    final isInFullScreenMode = AppViewer.isInFullScreenOf(context);
+    final isInFullWindowMode = AppViewer.isInFullWindowOf(context);
     final List<Widget> children = [ child! ];
 
     if (hovered) {
@@ -140,10 +140,10 @@ class _Expandable extends StatelessWidget {
             padding: const AppEdgeInsets.normal(),
             effectsColor: theme.inkEffectsColor,
             child: Icon(
-              isInFullScreenMode ? AppIcons.fullScreenExit : AppIcons.fullscreen,
+              isInFullWindowMode ? AppIcons.fullWindowExit : AppIcons.fullWindow,
               color: theme.overElement1Color1
             ),
-            onPressed: () => onPressed(context, isInFullScreenMode)
+            onPressed: () => onPressed(context, isInFullWindowMode)
           )
         )
       );
@@ -156,7 +156,7 @@ class _Expandable extends StatelessWidget {
     );
   }
 
-  void onPressed(BuildContext context, bool isInFullScreenMode) {
-    AppViewer.setFullScreenOf(context, isInFullScreenMode ? null : this);
+  void onPressed(BuildContext context, bool isInFullWindowMode) {
+    AppViewer.setFullWindowOf(context, isInFullWindowMode ? null : this);
   }
 }

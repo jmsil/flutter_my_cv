@@ -47,11 +47,11 @@ abstract class AppViewer extends StatefulWidget {
     );
   }
 
-  static bool isInFullScreenOf(BuildContext context) {
+  static bool isInFullWindowOf(BuildContext context) {
     return context.getInheritedWidgetOfExactType<_Notifier>()?.notifier?.value != null;
   }
 
-  static void setFullScreenOf(BuildContext context, Widget? widget) {
+  static void setFullWindowOf(BuildContext context, Widget? widget) {
     context.getInheritedWidgetOfExactType<_Notifier>()?.notifier?.value = widget;
   }
 }
@@ -268,20 +268,20 @@ class _IndexedStack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget? fullScreenWidget =
+    Widget? fullWindowWidget =
       context.dependOnInheritedWidgetOfExactType<_Notifier>()?.notifier?.value;
 
     return IndexedStack(
       clipBehavior: Clip.none,
       sizing: StackFit.expand,
-      index: fullScreenWidget == null ? 0 : 1,
+      index: fullWindowWidget == null ? 0 : 1,
       children: [
         child,
 
-        if (fullScreenWidget != null)
+        if (fullWindowWidget != null)
           Padding(
             padding: const AppEdgeInsets.normal(),
-            child: fullScreenWidget
+            child: fullWindowWidget
           )
       ]
     );
