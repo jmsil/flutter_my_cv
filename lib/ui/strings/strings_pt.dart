@@ -62,10 +62,47 @@ class StringsPt extends Strings {
   String get integrationProjectApimProxyTitle => 'API Management Proxy';
   @override
   String get integrationProjectApimProxyDescription =>
-    'Permite aplicações do usuário se conectarem ao Cloud Integration com um token JWT Firebase.';
+    'Permite aplicações do usuário final se conectarem ao Cloud Integration com um token JWT do '
+    'Firebase.';
   @override
   String get integrationProjectApimProxyInfo =>
-    '${Strings.widgetPlaceholder}';
+    '${Strings.widgetPlaceholder}'
+
+    'Aplicações do usuário final devem se autenticar em sistemas backend com credenciais do '
+    'usuário final, as quais permitem o sistema backend confiar e identificar o usuário da '
+    'requisição.\n\n'
+
+    'Este API Management Proxy aplica as seguintes políticas para confiar e identificar um '
+    'usuário final autenticado com o serviço Google Cloud Firebase Authentication:'
+
+    '${Strings.title('▪ GetFirebaseJwtClaims')}'
+    'Esta política KeyValueMapOperations lê os direitos issuer e audience configurados para a '
+    'aplicação do Firebase.\n'
+
+    '${Strings.title('▪ LookupGoogleApisJwksCache')}'
+    'Esta política LookupCache lê as chaves públicas das APIs Google anteriormente baixadas e '
+    'armazenadas em cache.\n'
+
+    '${Strings.title('▪ FetchGoogleApisJwks')}'
+    'Esta política ServiceCallout baixa as chaves públicas das APIs Google se não houver um cache '
+    'válido.\n'
+
+    '${Strings.title('▪ ExtractGoogleApisJwksMaxAge')}'
+    'Esta política ExtractVariables extrai o valor max-age do cabeçalho Cache-Control da resposta '
+    'da política anterior. Este valor é usado para determinar o prazo de expiração do cache das '
+    'chaves públicas das APIs Google.\n'
+
+    '${Strings.title('▪ PopulateGoogleApisJwksCache')}'
+    'Esta política PopulateCache salva em cache as chaves públicas das APIs Google baixadas.\n'
+
+    '${Strings.title('▪ VerifyFirebaseJwt')}'
+    'Esta política VerifyJWT verifica o token JWT do Firebase da requisição da aplicação do '
+    'usuário final. Ela valida os direitos e a assinatura com as chaves públicas das APIs Google.\n'
+
+    '${Strings.title('▪ SetHeaders')}'
+    'Esta política AssignMessage adiciona o cabeçalho User-ID com o ID do usuário final extraído '
+    'do token JWT do Firebase e remove o cabeçalho Authorization antes de encaminhar a requisição '
+    'para o Cloud Integration.';
   @override
   String get integrationProjectCalculatorTitle => 'Calculadora';
   @override
@@ -291,7 +328,8 @@ class StringsPt extends Strings {
   String get languagesTitle => 'Idiomas';
   @override
   String get languagesInfo =>
-    'Português ▪ Nativo - '
+    'Português\n'
+    '▪ Nativo - '
     'Inglês\n'
     '▪ Leitura avançada\n'
     '▪ Escrita intermediária\n'
