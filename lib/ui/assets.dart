@@ -7,28 +7,19 @@ class AppAssets {
   static late final Uint8List profilePhoto;
 
   static final GalleryAssets bciFortlevDriverAppAssets = GalleryAssets(
-    'assets/BciFortlevDriverApp/archive.zip'
-  );
-
+    'assets/BciFortlevDriverApp/archive.zip');
   static final AssetsArchive apimProxyAssets = AssetsArchive(
-    'assets/SapIntegrationSuiteLearningJourney/ApimProxy/archive.zip'
-  );
-
+    'assets/SapIntegrationSuiteLearningJourney/ApimProxy/archive.zip');
+  static final AssetsArchive iFlowProxyAssets = AssetsArchive(
+    'assets/SapIntegrationSuiteLearningJourney/IFlowProxy/archive.zip');
   static final AssetsArchive calculatorAssets = AssetsArchive(
-    'assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip'
-  );
-
+    'assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip');
   static final AssetsArchive conversionsAndFtpAssets = AssetsArchive(
-    'assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip'
-  );
-
+    'assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip');
   static final AssetsArchive exceptionHandlerAssets = AssetsArchive(
-    'assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip'
-  );
-
+    'assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip');
   static final AssetsArchive sqlServerWithXsltAssets = AssetsArchive(
-    'assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip'
-  );
+    'assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip');
 
   static Future<void> loadStartupAssets() async {
     String path = 'assets/Startup/';

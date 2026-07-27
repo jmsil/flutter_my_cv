@@ -18,6 +18,7 @@ class IntegrationLearningExperience extends ExpandableContent {
           spacing: AppLayout.normalSpacing,
           children: [
             ProjectTileWidget(theme, _ApimProxy()),
+            ProjectTileWidget(theme, _IFlowProxy()),
             ProjectTileWidget(theme, _SqlServerWithXslt()),
             ProjectTileWidget(theme, _Calculator()),
             ProjectTileWidget(theme, _ConversionsAndFtp()),
@@ -41,6 +42,24 @@ class _ApimProxy extends Project {
   List<Widget> buildPlaceholderWidgets() {
     return [
       ProjectImageWidget(assets.getFile(1))
+    ];
+  }
+}
+
+class _IFlowProxy extends Project {
+  _IFlowProxy()
+    : super(
+        StringsProvider.strings.integrationProjectIFlowProxyTitle,
+        StringsProvider.strings.integrationProjectIFlowProxyDescription,
+        StringsProvider.strings.integrationProjectIFlowProxyInfo,
+        AppAssets.iFlowProxyAssets
+      );
+
+  @override
+  List<Widget> buildPlaceholderWidgets() {
+    return [
+      ProjectImageWidget(assets.getFile(1)),
+      ProjectCodeWidget(assets, [2])
     ];
   }
 }

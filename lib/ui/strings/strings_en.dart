@@ -71,32 +71,62 @@ class StringsEn extends Strings {
     'This API Management Proxy applies the following policies to trust and identify an end-user '
     'authenticated with the Google Cloud Firebase Authentication service:'
 
-    '${Strings.title('▪ GetFirebaseJwtClaims')}'
+    '${Strings.title('▪ GetFirebaseJwtClaims', false)}'
     'This KeyValueMapOperations policy reads the issuer and audience claims configured for the '
-    'Firebase application.\n'
+    'Firebase application.'
 
     '${Strings.title('▪ LookupGoogleApisJwksCache')}'
-    'This LookupCache policy reads the Google APIs’ public keys previously fetched and cached.\n'
+    'This LookupCache policy reads the Google APIs’ public keys previously fetched and cached.'
 
     '${Strings.title('▪ FetchGoogleApisJwks')}'
-    'This ServiceCallout policy fetches the Google APIs’ public keys if there is no valid cache.\n'
+    'This ServiceCallout policy fetches the Google APIs’ public keys if there is no valid cache.'
 
     '${Strings.title('▪ ExtractGoogleApisJwksMaxAge')}'
     'This ExtractVariables policy extracts the max-age value from the Cache-Control header from '
     'the previous policy response. This value is used to determine the expiration time of the '
-    'Google APIs\’ public keys cache.\n'
+    'Google APIs\’ public keys cache.'
 
     '${Strings.title('▪ PopulateGoogleApisJwksCache')}'
-    'This PopulateCache policy populates a cache with the fetched Google APIs\' public keys.\n'
+    'This PopulateCache policy populates a cache with the fetched Google APIs\' public keys.'
 
     '${Strings.title('▪ VerifyFirebaseJwt')}'
     'This VerifyJWT policy verifies the Firebase JWT token from the end-user application request. '
-    'It validates the claims and signature against the Google APIs\' public keys.\n'
+    'It validates the claims and signature against the Google APIs\' public keys.'
 
     '${Strings.title('▪ SetHeaders')}'
     'This AssignMessage policy adds the User-ID header with the end-user ID extracted from the '
     'Firebase JWT token and removes the Authorization header before forwarding the request to '
     'Cloud Integration.';
+  @override
+  String get integrationProjectIFlowProxyTitle => 'Integration Flow Proxy';
+  @override
+  String get integrationProjectIFlowProxyDescription =>
+    'Validate incoming requests and manage iFlow routing.';
+  @override
+  String get integrationProjectIFlowProxyInfo =>
+    '${Strings.widgetPlaceholder}'
+
+    'This iFlow is the entry point for all iFlows in the package. It performs the following '
+    'operations:\n'
+    '▪ Common request settings validation;\n'
+    '▪ Destination iFlow routing via ProcessDirect based on the request path;\n'
+    '▪ Exceptions logging;\n'
+    '▪ Sensitive headers cleaning.'
+
+    '${Strings.title('Request Settings Validation')}'
+    'For each route, the following settings are validated:\n'
+    '▪ Allowed HTTP methods;\n'
+    '▪ Supported paths;\n'
+    '▪ Supported query parameters and their format;\n'
+    '▪ Public requests rejection (some iFlows cannot be called by end-user applications via the '
+    'API Management Proxy).'
+
+    '${Strings.widgetPlaceholder}'
+
+    '${Strings.title('Sensitive Headers Cleaning')}'
+    'Some sensitive headers generated during iFlows processing, such as Authorization, custom '
+    'headers using the _* naming pattern, auto-generated headers by DataStore steps, and others, '
+    'are removed before returning to the Sender.';
   @override
   String get integrationProjectCalculatorTitle => 'Calculator';
   @override

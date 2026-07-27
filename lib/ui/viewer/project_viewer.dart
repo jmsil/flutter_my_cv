@@ -15,7 +15,7 @@ class AppProjectViewer extends AppViewer {
   AppProjectViewer(this.project)
     : super(
         windowDirection: Axis.vertical,
-        windowWidth: 1680,
+        windowWidth: 1560,
         barPadding: const AppEdgeInsets.large(vertical: AppEdgeInsets.xLargeValue),
         isTransparentBody: false
       );
@@ -77,7 +77,7 @@ class _State extends AppViewerState<AppProjectViewer> {
       else if (infoLine.startsWith(Strings.titleTag)) {
         infoLine = infoLine.replaceAll(Strings.titleTag, '');
         children.add(
-          Text(infoLine, style: theme.header1OverBackgroundColor1BoldStyle)
+          Text(infoLine, style: theme.text1OverBackgroundColor1BoldStyle)
         );
         children.add(AppLayout.smallVerticalSpacer);
       }

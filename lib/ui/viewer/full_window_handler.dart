@@ -10,8 +10,6 @@ import '../layout/layout_provider.dart';
 import 'viewer.dart';
 
 class AppViewerFullWindowHandler extends StatelessWidget {
-  static const double _buttonMargin = 4;
-
   final Color iconColor;
   final Widget child;
   final Widget? fullWindowChild;
@@ -41,8 +39,10 @@ class AppViewerFullWindowHandler extends StatelessWidget {
       Widget button = Align(
         alignment: Alignment.topRight,
         child: AppContainer(
-          margin: const EdgeInsets.all(_buttonMargin),
-          borderRadius: BorderRadius.circular(AppTheme.radiusValue - _buttonMargin),
+          borderRadius: const BorderRadius.only(
+            topRight: AppTheme.radius,
+            bottomLeft: AppTheme.radius
+          ),
           isClipped: true,
           child: AppInkResponse(
             padding: const AppEdgeInsets.normal(),

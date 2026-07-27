@@ -75,34 +75,64 @@ class StringsPt extends Strings {
     'Este API Management Proxy aplica as seguintes políticas para confiar e identificar um '
     'usuário final autenticado com o serviço Google Cloud Firebase Authentication:'
 
-    '${Strings.title('▪ GetFirebaseJwtClaims')}'
+    '${Strings.title('▪ GetFirebaseJwtClaims', false)}'
     'Esta política KeyValueMapOperations lê os direitos issuer e audience configurados para a '
-    'aplicação do Firebase.\n'
+    'aplicação do Firebase.'
 
     '${Strings.title('▪ LookupGoogleApisJwksCache')}'
     'Esta política LookupCache lê as chaves públicas das APIs Google anteriormente baixadas e '
-    'armazenadas em cache.\n'
+    'armazenadas em cache.'
 
     '${Strings.title('▪ FetchGoogleApisJwks')}'
     'Esta política ServiceCallout baixa as chaves públicas das APIs Google se não houver um cache '
-    'válido.\n'
+    'válido.'
 
     '${Strings.title('▪ ExtractGoogleApisJwksMaxAge')}'
     'Esta política ExtractVariables extrai o valor max-age do cabeçalho Cache-Control da resposta '
     'da política anterior. Este valor é usado para determinar o prazo de expiração do cache das '
-    'chaves públicas das APIs Google.\n'
+    'chaves públicas das APIs Google.'
 
     '${Strings.title('▪ PopulateGoogleApisJwksCache')}'
-    'Esta política PopulateCache salva em cache as chaves públicas das APIs Google baixadas.\n'
+    'Esta política PopulateCache salva em cache as chaves públicas das APIs Google baixadas.'
 
     '${Strings.title('▪ VerifyFirebaseJwt')}'
     'Esta política VerifyJWT verifica o token JWT do Firebase da requisição da aplicação do '
-    'usuário final. Ela valida os direitos e a assinatura com as chaves públicas das APIs Google.\n'
+    'usuário final. Ela valida os direitos e a assinatura com as chaves públicas das APIs Google.'
 
     '${Strings.title('▪ SetHeaders')}'
     'Esta política AssignMessage adiciona o cabeçalho User-ID com o ID do usuário final extraído '
     'do token JWT do Firebase e remove o cabeçalho Authorization antes de encaminhar a requisição '
     'para o Cloud Integration.';
+  @override
+  String get integrationProjectIFlowProxyTitle => 'Integration Flow Proxy';
+  @override
+  String get integrationProjectIFlowProxyDescription =>
+    'Valida requisições e gerencia o roteamento para os iFlows.';
+  @override
+  String get integrationProjectIFlowProxyInfo =>
+    '${Strings.widgetPlaceholder}'
+
+    'Este iFlow é o ponto de entrada para todos os iFlows do pacote. Ele executa as seguintes '
+    'operações:\n'
+    '▪ Validação de configurações comuns de requests;\n'
+    '▪ Roteamento para o iFlow de destino via ProcessDirect baseado no caminho da requisição;\n'
+    '▪ Logs de exceções;\n'
+    '▪ Limpeza de cabeçalhos sensíveis.'
+
+    '${Strings.title('Validação de Configurações de Requests')}'
+    'Para cada rota, as seguintes configurações são validadas:\n'
+    '▪ Métodos HTTP suportados;\n'
+    '▪ Caminhos suportados;\n'
+    '▪ Parâmetros de requisição suportados e seus formatos;\n'
+    '▪ Rejeição de requisições públicas (alguns iFlows não podem ser chamados por aplicações do '
+    'usuário final via API Management Proxy).'
+
+    '${Strings.widgetPlaceholder}'
+
+    '${Strings.title('Limpeza de Cabeçalhos Sensíveis')}'
+    'Alguns cabeçalhos sensíveis gerados durante o processamento dos iFlows, como Authorization, '
+    'cabeçalhos customizados usando o padrão de nomenclatura _*, cabeçalhos auto-gerados por '
+    'etapas DataStore, e outros, são removidos antes de retornar para o Sender.';
   @override
   String get integrationProjectCalculatorTitle => 'Calculadora';
   @override
