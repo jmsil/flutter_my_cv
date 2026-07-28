@@ -19,8 +19,7 @@ class ExceptionHandlerProject extends Project {
   List<Widget> buildPlaceholderWidgets() {
     return [
       ProjectImageWidget(assets.getFile(1)),
-      ProjectCodeWidget(assets, [2, 3]),
-      ProjectImageWidget(assets.getFile(4))
+      ProjectCodeWidget(assets, [2])
     ];
   }
 }

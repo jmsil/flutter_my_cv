@@ -25,9 +25,9 @@ abstract class Strings {
   static const String layout = 'Layout';
   static const String integrationProjectApimProxyTitle = 'API Management Proxy';
   static const String integrationProjectIFlowProxyTitle = 'Integration Flow Proxy';
+  static const String integrationProjectExceptionHandlerTitle = 'Exception Handler';
   static const String integrationProjectCalculatorTitle = 'Calculator';
   static const String integrationProjectConversionsAndFtpTitle = 'Conversions and FTP';
-  static const String integrationProjectExceptionHandlerTitle = 'Exception Handler';
   static const String integrationProjectSqlServerWithXsltTitle = 'SQL Server with XSLT';
   static const String bciShortLink = 'BCI Consulting.com';
   static const String bciLink = 'https://www.bci-consulting.com';
@@ -83,12 +83,12 @@ abstract class Strings {
   String get integrationProjectApimProxyInfo;
   String get integrationProjectIFlowProxyDescription;
   String get integrationProjectIFlowProxyInfo;
+  String get integrationProjectExceptionHandlerDescription;
+  String get integrationProjectExceptionHandlerInfo;
   String get integrationProjectCalculatorDescription;
   String get integrationProjectCalculatorInfo;
   String get integrationProjectConversionsAndFtpDescription;
   String get integrationProjectConversionsAndFtpInfo;
-  String get integrationProjectExceptionHandlerDescription;
-  String get integrationProjectExceptionHandlerInfo;
   String get integrationProjectSqlServerWithXsltDescription;
   String get integrationProjectSqlServerWithXsltInfo;
   String get fortlevExperienceTitle;

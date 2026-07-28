@@ -124,6 +124,26 @@ class StringsEn extends Strings {
     'headers using the _* naming pattern, auto-generated headers by DataStore steps, and others, '
     'are removed before returning to the Sender.';
   @override
+  String get integrationProjectExceptionHandlerDescription =>
+    'Log the message\'s data in the Message Processing Log and send alert emails.';
+  @override
+  String get integrationProjectExceptionHandlerInfo =>
+    '${Strings.widgetPlaceholder}'
+
+    'This iFlow is responsible for exception handling of all iFlows in the package.\n\n'
+
+    'Logging and email sending are configured (enabled/disabled) via externalized parameters, '
+    'as well as the SMTP settings.\n\n'
+
+    'The following script, called by each iFlow, handles all the mapped exceptions. Unhandled '
+    'exceptions are propagated to the Proxy iFlow, where this iFlow catches them:'
+
+    '${Strings.widgetPlaceholder}'
+
+    'Common exceptions related to incorrect payload formats, schema validation errors, and '
+    'database conflicts are handled as user-side bad requests.\n'
+    'HTTP and SOAP exceptions are handled or propagated depending on the response code.';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consume the public web service Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
@@ -184,32 +204,6 @@ class StringsEn extends Strings {
     'XML to JSON:'
 
     '${Strings.widgetPlaceholder}'
-    '${Strings.widgetPlaceholder}';
-  @override
-  String get integrationProjectExceptionHandlerDescription =>
-    'Handle exceptions, log payloads in the Message Processing Log, and send emails.';
-  @override
-  String get integrationProjectExceptionHandlerInfo =>
-    '${Strings.widgetPlaceholder}'
-
-    'This iFlow is responsible for exception handling of all introduced iFlows.\n'
-    'Log creation and email sending can be configured (enabled/disabled) via externalized '
-    'parameters, as well as the SMTP settings.\n\n'
-
-    'Only unhandled exceptions trigger log creation and email sending. After processing, each '
-    'iFlow propagates the unhandled exception to the Sender in the Throw Unhandled step.\n\n'
-
-    'For testing purposes, the propagation of handled exceptions can be forced through the '
-    'custom header _force-raise-exception sent by the Sender.\n\n'
-
-    'The following scripts contain all the needed functions for handling mapped exceptions:'
-
-    '${Strings.widgetPlaceholder}\n'
-
-    'The second script is responsible for handling common request settings. Each iFlow defines '
-    'its settings.\n'
-    'The following example demonstrates the supported settings:'
-
     '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectSqlServerWithXsltDescription =>

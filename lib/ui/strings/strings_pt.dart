@@ -130,6 +130,26 @@ class StringsPt extends Strings {
     'cabeçalhos customizados usando o padrão de nomenclatura _*, cabeçalhos auto-gerados por '
     'etapas DataStore, e outros, são removidos antes de retornar para o Sender.';
   @override
+  String get integrationProjectExceptionHandlerDescription =>
+    'Salva dados da mensagem no Message Processing Log e envia emails de alerta.';
+  @override
+  String get integrationProjectExceptionHandlerInfo =>
+    '${Strings.widgetPlaceholder}'
+
+    'Este iFlow é responsável por manipular as exceções de todos os iFlows do pacote.\n\n'
+
+    'O log e o envio de email são configurados (habilitado/desabilitado) via parâmetros '
+    'externalizados, assim como as configurações SMTP.\n\n'
+
+    'O script a seguir, executado por cada iFlow, trata todas as exceções mapeadas. Exceções não '
+    'tratadas são propagadas até o iFlow Proxy, onde este iFlow as captura:'
+
+    '${Strings.widgetPlaceholder}'
+
+    'Exceções comuns relacionadas a formatos de payload incorretos, erros de validação de '
+    'esquemas, e conflitos de banco de dados são tratadas como má requisição do usuário.\n'
+    'Exceções HTTP e SOAP são tratadas ou propagadas dependendo do código de retorno.';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consome o web service público Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
@@ -190,33 +210,6 @@ class StringsPt extends Strings {
     'XML para JSON:'
 
     '${Strings.widgetPlaceholder}'
-    '${Strings.widgetPlaceholder}';
-  @override
-  String get integrationProjectExceptionHandlerDescription =>
-    'Trata exceções, registra payloads no Message Processing Log, e envia emails.';
-  @override
-  String get integrationProjectExceptionHandlerInfo =>
-    '${Strings.widgetPlaceholder}'
-
-    'Este iFlow é responsável por tratar as exceções de todos os iFlows apresentados.\n'
-    'A geração do log e o envio de email podem ser configurados (ativados/desativados) via '
-    'parâmetros externalizados, bem como as configurações SMTP.\n\n'
-
-    'Apenas exceções não tratadas geram log e envio de email. Após o processamento, cada iFlow '
-    'propaga a exceção não tratada para o Sender na etapa Throw Unhandled.\n\n'
-
-    'Para fins de testes, a propagação de exceções tratadas pode ser forçada através do '
-    'cabeçalho customizado _force-raise-exception enviado pelo Sender.\n\n'
-
-    'Os scripts abaixo contém todas as funções necessárias para o tratamento de exceções '
-    'mapeadas:'
-
-    '${Strings.widgetPlaceholder}\n'
-
-    'O segundo script é responsável por tratar configurações comuns de requisições. Cada iFlow '
-    'define suas configurações.\n'
-    'O exemplo abaixo demonstra as configurações suportadas:'
-
     '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectSqlServerWithXsltDescription =>

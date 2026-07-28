@@ -22,10 +22,10 @@ class IntegrationLearningExperience extends ExpandableContent {
           children: [
             ProjectTileWidget(theme, ApimProxyProject()),
             ProjectTileWidget(theme, IFlowProxyProject()),
+            ProjectTileWidget(theme, ExceptionHandlerProject()),
             ProjectTileWidget(theme, SqlServerXsltProject()),
             ProjectTileWidget(theme, CalculatorProject()),
-            ProjectTileWidget(theme, ConversionsFtpProject()),
-            ProjectTileWidget(theme, ExceptionHandlerProject())
+            ProjectTileWidget(theme, ConversionsFtpProject())
           ]
         ),
         startOpen: true
