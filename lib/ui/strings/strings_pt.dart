@@ -59,8 +59,6 @@ class StringsPt extends Strings {
   @override
   String get sapIntegrationSuiteLearningJourneyDetail => 'Desde 2023';
   @override
-  String get integrationProjectApimProxyTitle => 'API Management Proxy';
-  @override
   String get integrationProjectApimProxyDescription =>
     'Permite aplicações do usuário final se conectarem ao Cloud Integration com um token JWT do '
     'Firebase.';
@@ -104,8 +102,6 @@ class StringsPt extends Strings {
     'do token JWT do Firebase e remove o cabeçalho Authorization antes de encaminhar a requisição '
     'para o Cloud Integration.';
   @override
-  String get integrationProjectIFlowProxyTitle => 'Integration Flow Proxy';
-  @override
   String get integrationProjectIFlowProxyDescription =>
     'Valida requisições e gerencia o roteamento para os iFlows.';
   @override
@@ -134,8 +130,6 @@ class StringsPt extends Strings {
     'cabeçalhos customizados usando o padrão de nomenclatura _*, cabeçalhos auto-gerados por '
     'etapas DataStore, e outros, são removidos antes de retornar para o Sender.';
   @override
-  String get integrationProjectCalculatorTitle => 'Calculadora';
-  @override
   String get integrationProjectCalculatorDescription =>
     'Consome o web service público Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
@@ -163,8 +157,6 @@ class StringsPt extends Strings {
     'mapeamentos e ação SOAP correspondentes:'
 
     '${Strings.widgetPlaceholder}';
-  @override
-  String get integrationProjectConversionsAndFtpTitle => 'Conversões e FTP';
   @override
   String get integrationProjectConversionsAndFtpDescription =>
     'Converte o payload de/para diferentes formatos e salva o resultado em um servidor FTP.';
@@ -200,8 +192,6 @@ class StringsPt extends Strings {
     '${Strings.widgetPlaceholder}'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectExceptionHandlerTitle => 'Manipulador de Exceções';
-  @override
   String get integrationProjectExceptionHandlerDescription =>
     'Trata exceções, registra payloads no Message Processing Log, e envia emails.';
   @override
@@ -228,8 +218,6 @@ class StringsPt extends Strings {
     'O exemplo abaixo demonstra as configurações suportadas:'
 
     '${Strings.widgetPlaceholder}';
-  @override
-  String get integrationProjectSqlServerWithXsltTitle => 'SQL Server com XSLT';
   @override
   String get integrationProjectSqlServerWithXsltDescription =>
     'Conecta a um banco de dados SQL Server via JDBC e executa operações básicas.';

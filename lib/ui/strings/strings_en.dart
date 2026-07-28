@@ -57,8 +57,6 @@ class StringsEn extends Strings {
   @override
   String get sapIntegrationSuiteLearningJourneyDetail => 'Since 2023';
   @override
-  String get integrationProjectApimProxyTitle => 'API Management Proxy';
-  @override
   String get integrationProjectApimProxyDescription =>
     'Allow end-user applications to connect to Cloud Integration using a Firebase JWT token.';
   @override
@@ -98,8 +96,6 @@ class StringsEn extends Strings {
     'Firebase JWT token and removes the Authorization header before forwarding the request to '
     'Cloud Integration.';
   @override
-  String get integrationProjectIFlowProxyTitle => 'Integration Flow Proxy';
-  @override
   String get integrationProjectIFlowProxyDescription =>
     'Validate incoming requests and manage iFlow routing.';
   @override
@@ -128,8 +124,6 @@ class StringsEn extends Strings {
     'headers using the _* naming pattern, auto-generated headers by DataStore steps, and others, '
     'are removed before returning to the Sender.';
   @override
-  String get integrationProjectCalculatorTitle => 'Calculator';
-  @override
   String get integrationProjectCalculatorDescription =>
     'Consume the public web service Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
@@ -157,8 +151,6 @@ class StringsEn extends Strings {
     'the associated mappings and SOAP action:'
 
     '${Strings.widgetPlaceholder}';
-  @override
-  String get integrationProjectConversionsAndFtpTitle => 'Conversions and FTP';
   @override
   String get integrationProjectConversionsAndFtpDescription =>
     'Convert the payload from/to different formats and save the result to an FTP server.';
@@ -194,8 +186,6 @@ class StringsEn extends Strings {
     '${Strings.widgetPlaceholder}'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectExceptionHandlerTitle => 'Exception Handler';
-  @override
   String get integrationProjectExceptionHandlerDescription =>
     'Handle exceptions, log payloads in the Message Processing Log, and send emails.';
   @override
@@ -221,8 +211,6 @@ class StringsEn extends Strings {
     'The following example demonstrates the supported settings:'
 
     '${Strings.widgetPlaceholder}';
-  @override
-  String get integrationProjectSqlServerWithXsltTitle => 'SQL Server with XSLT';
   @override
   String get integrationProjectSqlServerWithXsltDescription =>
     'Connect to a SQL Server database via JDBC and perform basic operations.';

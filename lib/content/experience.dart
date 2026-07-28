@@ -8,7 +8,7 @@ import '../ui/text.dart';
 import 'bci_fortlev_xp.dart';
 import 'expandable.dart';
 import 'group.dart';
-import 'integration_learning_xp.dart';
+import 'integration_learning_xp/integration_learning_xp.dart';
 
 class ExperienceGroup extends StatelessWidget {
   @override
