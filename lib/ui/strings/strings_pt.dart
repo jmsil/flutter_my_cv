@@ -314,8 +314,9 @@ class StringsPt extends Strings {
   String get fortlevExperienceInfo =>
     'Atuei no desenvolvimento do aplicativo "Mão Dupla" para gestão de Ordens de Frete para a '
     'companhia Fortlev.\n'
-    'O aplicativo tem como objetivo automatizar as operações entre os gestores do setor de Carga '
-    'e Transporte e Transportadoras e motoristas parceiros.\n\n'
+    'O aplicativo se integra com o módulo SAP TM (Transport Management) para automatizar as '
+    'operações entre os gestores do setor de Carga e Transporte e as Transportadoras e motoristas '
+    'parceiros.\n\n'
 
     'Como Analista Desenvolvedor, também contribuí com levantamentos funcionais e técnicos em '
     'colaboração com os gestores e usuários.\n\n'
