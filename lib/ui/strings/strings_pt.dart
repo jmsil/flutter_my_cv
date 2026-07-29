@@ -229,6 +229,29 @@ class StringsPt extends Strings {
 
     'O Sender faz uma requisição GET com o período via parâmetros de consulta na URL.';
   @override
+  String get integrationProjectSqlServerWithXsltDescription =>
+    'Conecta a um banco de dados SQL Server via JDBC e executa operações básicas.';
+  @override
+  String get integrationProjectSqlServerWithXsltInfo =>
+    '${Strings.widgetPlaceholder}'
+
+    'Este iFlow utiliza XSLT para transformar uma requisição no formato JSON para o formato XML '
+    'requerido pelo adaptador JDBC.\n\n'
+
+    'As operações suportadas são:\n'
+    '▪ GET - SELECT;\n'
+    '▪ POST - INSERT;\n'
+    '▪ PATCH - UPDATE.\n\n'
+
+    'Através do cabeçalho CamelHttpMethod é possível configurar o esquema de validação do payload '
+    'e o mapeamento XSLT correspondentes:'
+
+    '${Strings.widgetPlaceholder}\n'
+
+    'O exemplo a seguir demonstra a implementação da operação SELECT:'
+
+    '${Strings.widgetPlaceholder}';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consome o web service público Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
@@ -289,31 +312,6 @@ class StringsPt extends Strings {
     'XML para JSON:'
 
     '${Strings.widgetPlaceholder}'
-    '${Strings.widgetPlaceholder}';
-  @override
-  String get integrationProjectSqlServerWithXsltDescription =>
-    'Conecta a um banco de dados SQL Server via JDBC e executa operações básicas.';
-  @override
-  String get integrationProjectSqlServerWithXsltInfo =>
-    '${Strings.widgetPlaceholder}'
-
-    'Este iFlow utiliza XSLT para transformar uma requisição no formato JSON para o formato XML '
-    'requerido pelo adaptador JDBC.\n\n'
-
-    'As operações suportadas são:\n'
-    '▪ GET - SELECT;\n'
-    '▪ POST - INSERT;\n'
-    '▪ PATCH - UPDATE.\n\n'
-
-    '${_unsupportedMethodsPhrase}\n\n'
-
-    'Através do cabeçalho CamelHttpMethod é possível configurar o esquema de validação do payload '
-    'e o mapeamento XSLT correspondentes:'
-
-    '${Strings.widgetPlaceholder}\n'
-
-    'O exemplo a seguir demonstra a implementação da operação SELECT:'
-
     '${Strings.widgetPlaceholder}';
   @override
   String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';

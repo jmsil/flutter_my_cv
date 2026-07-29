@@ -20,12 +20,12 @@ class AppAssets {
     'assets/SapIntegrationSuiteLearningJourney/GoogleFirebaseAuthUsers/archive.zip');
   static final AssetsArchive interStatementOauth2MtlsAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/InterStatementOAuth2Mtls/archive.zip');
+  static final AssetsArchive sqlServerWithXsltAssets = AssetsArchive(
+    'assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip');
   static final AssetsArchive calculatorAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip');
   static final AssetsArchive conversionsAndFtpAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip');
-  static final AssetsArchive sqlServerWithXsltAssets = AssetsArchive(
-    'assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip');
 
   static Future<void> loadStartupAssets() async {
     String path = 'assets/Startup/';

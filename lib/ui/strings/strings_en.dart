@@ -222,6 +222,29 @@ class StringsEn extends Strings {
 
     'The Sender makes a GET request with the period via URL query parameters.';
   @override
+  String get integrationProjectSqlServerWithXsltDescription =>
+    'Connect to a SQL Server database via JDBC and perform basic operations.';
+  @override
+  String get integrationProjectSqlServerWithXsltInfo =>
+    '${Strings.widgetPlaceholder}'
+
+    'This iFlow uses XSLT to transform a JSON request into the XML format required by the '
+    'JDBC adapter.\n\n'
+
+    'The supported operations are:\n'
+    '▪ GET - SELECT;\n'
+    '▪ POST - INSERT;\n'
+    '▪ PATCH - UPDATE.\n\n'
+
+    'By reading the CamelHttpMethod header, it is possible to configure the associated payload '
+    'validation schema and the XSLT mapping:'
+
+    '${Strings.widgetPlaceholder}\n'
+
+    'The following example demonstrates the implementation of the SELECT operation:'
+
+    '${Strings.widgetPlaceholder}';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consume the public web service Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
@@ -282,31 +305,6 @@ class StringsEn extends Strings {
     'XML to JSON:'
 
     '${Strings.widgetPlaceholder}'
-    '${Strings.widgetPlaceholder}';
-  @override
-  String get integrationProjectSqlServerWithXsltDescription =>
-    'Connect to a SQL Server database via JDBC and perform basic operations.';
-  @override
-  String get integrationProjectSqlServerWithXsltInfo =>
-    '${Strings.widgetPlaceholder}'
-
-    'This iFlow uses XSLT to transform a JSON request into the XML format required by the '
-    'JDBC adapter.\n\n'
-
-    'The supported operations are:\n'
-    '▪ GET - SELECT;\n'
-    '▪ POST - INSERT;\n'
-    '▪ PATCH - UPDATE.\n\n'
-
-    '${_unsupportedMethodsPhrase}\n\n'
-
-    'By reading the CamelHttpMethod header, it is possible to configure the associated payload '
-    'validation schema and the XSLT mapping:'
-
-    '${Strings.widgetPlaceholder}\n'
-
-    'The following example demonstrates the implementation of the SELECT operation:'
-
     '${Strings.widgetPlaceholder}';
   @override
   String get fortlevExperienceTitle => 'Flutter Mobile Application Development';

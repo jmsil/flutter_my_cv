@@ -26,9 +26,9 @@ flutter:
     - assets/SapIntegrationSuiteLearningJourney/OAuth2TokensHandler/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/GoogleFirebaseAuthUsers/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/InterStatementOAuth2Mtls/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip
-    - assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip
     - assets/Startup/
   fonts:
     - family: Icons
