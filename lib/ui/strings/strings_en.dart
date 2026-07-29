@@ -144,6 +144,34 @@ class StringsEn extends Strings {
     'database conflicts are handled as user-side bad requests.\n'
     'HTTP and SOAP exceptions are handled or propagated depending on the response code.';
   @override
+  String get integrationProjectOAuth2TokensHandlerDescription =>
+    'Generate, cache, and manage the expiration time of OAuth2 tokens.';
+  @override
+  String get integrationProjectOAuth2TokensHandlerInfo =>
+    '${Strings.widgetPlaceholder}'
+
+    'This iFlow handles OAuth2 tokens\' lifecycle for the following scenarios:\n'
+    '▪ OAuth2 servers that require Client Credentials and mTLS as authentication for token '
+    'generation;\n'
+    '▪ Google APIs OAuth2 servers that require a signed JWT as authentication for token '
+    'generation.'
+
+    '${Strings.title('Client Credentials and mTLS')}'
+    'At the moment of this solution\'s development, the HTTP Receiver adapter does not allow '
+    'configuring the OAuth2 Client Credentials and Client Certificate authentication methods '
+    'simultaneously.\n'
+    'The same limitation applies to the official SDK\'s built-in function for handling OAuth2 '
+    'tokens\' lifecycle.\n'
+    'This solution generates a request body from a deployed OAuth2 Client Credentials artifact '
+    'and configures the HTTP Receiver adapter with the Client Certificate authentication method.'
+
+    '${Strings.title('Google APIs OAuth2 with Signed JWT')}'
+    'This solution generates a request body with the signed JWT using a deployed Google APIs '
+    'Service Key that contains the private key.\n\n'
+
+    'The following script contains the main methods for the whole solution:'
+    '${Strings.widgetPlaceholder}';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consume the public web service Calculator (http://www.dneonline.com/calculator.asmx).';
   @override

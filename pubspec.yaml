@@ -22,6 +22,7 @@ flutter:
     - assets/BciFortlevDriverApp/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/ApimProxy/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/IFlowProxy/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/OAuth2TokensHandler/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip

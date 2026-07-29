@@ -150,6 +150,35 @@ class StringsPt extends Strings {
     'esquemas, e conflitos de banco de dados são tratadas como má requisição do usuário.\n'
     'Exceções HTTP e SOAP são tratadas ou propagadas dependendo do código de retorno.';
   @override
+  String get integrationProjectOAuth2TokensHandlerDescription =>
+    'Gera, armazena em cache, e gerencia o prazo de expiração de tokens OAuth2.';
+  @override
+  String get integrationProjectOAuth2TokensHandlerInfo =>
+    '${Strings.widgetPlaceholder}'
+
+    'Este iFlow gerencia o ciclo de vida de tokens OAuth2 para os seguintes cenários:\n'
+    '▪ Servidores OAuth2 que requerem autenticação Client Credentials e mTLS para geração de '
+    'tokens;\n'
+    '▪ Servidores Google APIs OAuth2 que requerem um JWT assinado como autenticação para geração '
+    'de tokens.'
+
+    '${Strings.title('Client Credentials e mTLS')}'
+    'No momento do desenvolvimento desta solução, o adaptador HTTP Receiver não permite a '
+    'configuração dos métodos de autenticação OAuth2 Client Credentials e Client Certificate '
+    'simultaneamente\n'
+    'A mesma limitação se aplica à função built-in do SDK oficial para gerenciamento de ciclo de '
+    'vida de tokens OAuth2.\n'
+    'Esta solução gera um corpo de requisição a partir de um artefato OAuth2 Client Credentials '
+    'publicado e configura o adaptador HTTP Receiver com o método de autenticação '
+    'Client Certificate.'
+
+    '${Strings.title('Google APIs OAuth2 com JWT Assinado')}'
+    'Esta solução gera um corpo de requisição com o JWT assinado usando uma Google APIs Service '
+    'Key publicada contendo a chave privada.\n\n'
+
+    'O script a seguir contém os principais métodos para a solução completa:'
+    '${Strings.widgetPlaceholder}';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consome o web service público Calculator (http://www.dneonline.com/calculator.asmx).';
   @override

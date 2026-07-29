@@ -12,12 +12,14 @@ class AppAssets {
     'assets/SapIntegrationSuiteLearningJourney/ApimProxy/archive.zip');
   static final AssetsArchive iFlowProxyAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/IFlowProxy/archive.zip');
+  static final AssetsArchive exceptionHandlerAssets = AssetsArchive(
+    'assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip');
+  static final AssetsArchive oauth2TokensHandlerAssets = AssetsArchive(
+    'assets/SapIntegrationSuiteLearningJourney/OAuth2TokensHandler/archive.zip');
   static final AssetsArchive calculatorAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip');
   static final AssetsArchive conversionsAndFtpAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip');
-  static final AssetsArchive exceptionHandlerAssets = AssetsArchive(
-    'assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip');
   static final AssetsArchive sqlServerWithXsltAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip');
 
