@@ -34,6 +34,7 @@ class IntegrationLearningExperience extends ExpandableContent {
             ProjectTileWidget(theme, CalculatorProject())
           ]
         ),
+        infoText: StringsProvider.strings.integrationProjectsScriptCollectionInfo,
         startOpen: true
       );
 }

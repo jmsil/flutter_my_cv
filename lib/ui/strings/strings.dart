@@ -102,6 +102,7 @@ abstract class Strings {
   String get integrationProjectConversionsAndFtpInfo;
   String get integrationProjectCalculatorDescription;
   String get integrationProjectCalculatorInfo;
+  String get integrationProjectsScriptCollectionInfo;
   String get fortlevExperienceTitle;
   String get fortlevExperienceDetail;
   String get fortlevExperienceInfo;

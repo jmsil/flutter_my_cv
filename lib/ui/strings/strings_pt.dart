@@ -304,6 +304,9 @@ class StringsPt extends Strings {
 
     '${Strings.widgetPlaceholder}';
   @override
+  String get integrationProjectsScriptCollectionInfo =>
+    '*Você pode encontrar a coleção de scripts usada nestes projetos no meu GitHub.';
+  @override
   String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
   @override
   String get fortlevExperienceDetail => 'BCI/Fortlev ▪ Junho/2021 - Julho/2023';
