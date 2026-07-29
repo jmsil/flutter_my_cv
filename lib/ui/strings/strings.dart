@@ -32,8 +32,8 @@ abstract class Strings {
   static const String integrationProjectInterStatementOauth2MtlsTitle =
     'Inter Statement with OAuth2 and mTLS';
   static const String integrationProjectSqlServerWithXsltTitle = 'SQL Server with XSLT';
-  static const String integrationProjectCalculatorTitle = 'Calculator';
   static const String integrationProjectConversionsAndFtpTitle = 'Conversions and FTP';
+  static const String integrationProjectCalculatorTitle = 'Calculator';
   static const String bciShortLink = 'BCI Consulting.com';
   static const String bciLink = 'https://www.bci-consulting.com';
   static const String fortlevShortLink = 'Fortlev.com';
@@ -98,10 +98,10 @@ abstract class Strings {
   String get integrationProjectInterStatementOauth2MtlsInfo;
   String get integrationProjectSqlServerWithXsltDescription;
   String get integrationProjectSqlServerWithXsltInfo;
-  String get integrationProjectCalculatorDescription;
-  String get integrationProjectCalculatorInfo;
   String get integrationProjectConversionsAndFtpDescription;
   String get integrationProjectConversionsAndFtpInfo;
+  String get integrationProjectCalculatorDescription;
+  String get integrationProjectCalculatorInfo;
   String get fortlevExperienceTitle;
   String get fortlevExperienceDetail;
   String get fortlevExperienceInfo;

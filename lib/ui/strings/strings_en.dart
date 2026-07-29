@@ -1,13 +1,10 @@
 import 'strings.dart';
 
 class StringsEn extends Strings {
-  final String _badRequestComplement = 'return 400 (Bad Request)';
   final String _unsupportedEndpointsPhrase =
     'Unsupported endpoints return 404 (Not Found).';
   final String _unsupportedMethodsPhrase =
     'Unsupported methods return 405 (Method Not Allowed).';
-  final String _unsupportedMediaTypesPhrase =
-    'Unsupported media types return 415 (Unsupported Media Type).';
   @override
   String get appName => 'Welcome to My Online Curriculum';
   @override
@@ -245,6 +242,34 @@ class StringsEn extends Strings {
 
     '${Strings.widgetPlaceholder}';
   @override
+  String get integrationProjectConversionsAndFtpDescription =>
+    'Convert the payload from/to different formats and save the result to an FTP server.';
+  @override
+  String get integrationProjectConversionsAndFtpInfo =>
+    '${Strings.widgetPlaceholder}'
+
+    'This iFlow implements the most common conversions. The Content-Type header defines the '
+    'source format. The Accept header defines the target format.\n\n'
+
+    'The supported conversions are:\n'
+    '▪ POST - text/csv to application/xml;\n'
+    '▪ POST - application/json to application/xml;\n'
+    '▪ POST - application/xml to text/csv;\n'
+    '▪ POST - application/xml to application/json.\n\n'
+
+    'The result is saved to an FTP server configured via externalized parameters.\n\n'
+
+    'For demonstration purposes, the conversions between XML and JSON formats include namespace '
+    'mappings:'
+
+    '${Strings.title('▪ JSON to XML', false)}'
+    '${Strings.widgetPlaceholder}'
+    '${Strings.widgetPlaceholder}'
+
+    '${Strings.title('▪ XML to JSON')}'
+    '${Strings.widgetPlaceholder}'
+    '${Strings.widgetPlaceholder}';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consume the public web service Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
@@ -271,40 +296,6 @@ class StringsEn extends Strings {
     'By reading the CamelHttpPath header, it is possible to identify the operation and configure '
     'the associated mappings and SOAP action:'
 
-    '${Strings.widgetPlaceholder}';
-  @override
-  String get integrationProjectConversionsAndFtpDescription =>
-    'Convert the payload from/to different formats and save the result to an FTP server.';
-  @override
-  String get integrationProjectConversionsAndFtpInfo =>
-    '${Strings.widgetPlaceholder}'
-
-    'This iFlow implements the most common conversions. The Content-Type header defines the '
-    'source format. The Accept header defines the target format.\n\n'
-
-    'The supported conversions are:\n'
-    '▪ POST - text/csv to application/xml;\n'
-    '▪ POST - application/json to application/xml;\n'
-    '▪ POST - application/xml to text/csv;\n'
-    '▪ POST - application/xml to application/json.\n\n'
-
-    '${_unsupportedMethodsPhrase}\n'
-    '${_unsupportedMediaTypesPhrase}\n'
-    'Unsupported conversions ${_badRequestComplement}.\n\n'
-
-    'The result is saved to an FTP server configured via externalized parameters.\n\n'
-
-    'For demonstration purposes, the conversions between XML and JSON formats include namespace '
-    'mappings.\n\n'
-
-    'JSON to XML:'
-
-    '${Strings.widgetPlaceholder}'
-    '${Strings.widgetPlaceholder}\n'
-
-    'XML to JSON:'
-
-    '${Strings.widgetPlaceholder}'
     '${Strings.widgetPlaceholder}';
   @override
   String get fortlevExperienceTitle => 'Flutter Mobile Application Development';

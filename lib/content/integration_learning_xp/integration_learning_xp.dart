@@ -30,8 +30,8 @@ class IntegrationLearningExperience extends ExpandableContent {
             ProjectTileWidget(theme, GoogleFirebaseAuthUsersProject()),
             ProjectTileWidget(theme, InterStatementOauth2MtlsProject()),
             ProjectTileWidget(theme, SqlServerXsltProject()),
-            ProjectTileWidget(theme, CalculatorProject()),
-            ProjectTileWidget(theme, ConversionsFtpProject())
+            ProjectTileWidget(theme, ConversionsFtpProject()),
+            ProjectTileWidget(theme, CalculatorProject())
           ]
         ),
         startOpen: true
