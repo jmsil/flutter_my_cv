@@ -118,6 +118,11 @@ class StringsPt extends Strings {
 
     '${Strings.widgetPlaceholder}'
 
+    'Requisições que não correspondem às configurações de rotas ou que a rota rejeita chamadas '
+    'públicas retornam 404 (Not Found).\n'
+    'Métodos HTTP não suportados pela configuração da rota retornam 405 (Method Not Allowed).\n'
+    'Parâmetros de consulta incorretos retornam 400 (Bad Request).'
+
     '${Strings.title('Limpeza de Cabeçalhos Sensíveis')}'
     'Alguns cabeçalhos sensíveis gerados durante o processamento dos iFlows, como Authorization, '
     'cabeçalhos customizados usando o padrão de nomenclatura _*, cabeçalhos auto-gerados por '
@@ -217,8 +222,9 @@ class StringsPt extends Strings {
 
     'Este iFlow implementa uma integração de API que requer autorização OAuth2 e Mutual TLS '
     'handshake.\n'
-    'O iFlow OAuth2 Tokens Handler define o cabeçalho Authorization. mTLS é configurado '
-    'diretamente no adaptador HTTP Receiver com o método de autenticação Client Certificate.\n\n'
+    'O iFlow OAuth2 Tokens Handler configura o cabeçalho Authorization.\n'
+    'O handshake mTLS é configurado no adaptador HTTP Receiver com o método de autenticação '
+    'Client Certificate.\n\n'
 
     'O Sender faz uma requisição GET com o período nos parâmetros de consulta da URL.';
   @override

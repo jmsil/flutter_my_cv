@@ -112,6 +112,11 @@ class StringsEn extends Strings {
 
     '${Strings.widgetPlaceholder}'
 
+    'Requests that do not match any configured route or that the route rejects public calls '
+    'return 404 (Not Found).\n'
+    'HTTP methods not supported by the route settings return 405 (Method Not Allowed).\n'
+    'Incorrect query parameters return 400 (Bad Request).'
+
     '${Strings.title('Sensitive Headers Cleaning')}'
     'Some sensitive headers generated during iFlows processing, such as Authorization, custom '
     'headers using the _* naming pattern, auto-generated headers by DataStore steps, and others, '
@@ -210,8 +215,9 @@ class StringsEn extends Strings {
 
     'This iFlow implements an API integration that requires OAuth2 authorization and a Mutual TLS '
     'handshake.\n'
-    'The iFlow OAuth2 Tokens Handler sets the Authorization header. mTLS is configured directly '
-    'in the HTTP Receiver adapter using the Client Certificate authentication method.\n\n'
+    'The iFlow OAuth2 Tokens Handler sets the Authorization header.\n'
+    'The mTLS handshake is configured in the HTTP Receiver adapter using the Client Certificate '
+    'authentication method.\n\n'
 
     'The Sender makes a GET request with the period via URL query parameters.';
   @override
