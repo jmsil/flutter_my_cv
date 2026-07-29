@@ -12,7 +12,7 @@ class OAuth2TokensHandlerProject extends Project {
         Strings.integrationProjectOAuth2TokensHandlerTitle,
         StringsProvider.strings.integrationProjectOAuth2TokensHandlerDescription,
         StringsProvider.strings.integrationProjectOAuth2TokensHandlerInfo,
-        AppAssets.oauth2TokensHandlerAssets
+        AppAssets.oAuth2TokensHandlerAssets
       );
 
   @override

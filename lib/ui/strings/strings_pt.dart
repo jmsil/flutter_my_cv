@@ -201,9 +201,9 @@ class StringsPt extends Strings {
     '${Strings.title('▪ Google Firebase Auth Users Async')}'
     '${Strings.widgetPlaceholder}'
 
-    'Este iFlow permite chamadas assíncronas ao iFlow principal armazenando a requisição em uma '
+    'Este iFlow processa o iFlow principal de forma assíncrona armazenando a requisição em uma '
     'fila JMS e retornando imediatamente para o Sender.\n'
-    'A integração real é processada mais tarde por outro iFlow.'
+    'A real integração é processada mais tarde por outro iFlow.'
 
     '${Strings.title('▪ Google Firebase Auth Users Async Queue')}'
     '${Strings.widgetPlaceholder}'
@@ -215,6 +215,19 @@ class StringsPt extends Strings {
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow retorna todas respostas armazenadas pendentes e as remove do armazenamento.';
+  @override
+  String get integrationProjectInterStatementOauth2MtlsDescription =>
+    'Consulta extrato bancário por período da minha conta empresarial do Banco Inter.';
+  @override
+  String get integrationProjectInterStatementOauth2MtlsInfo =>
+    '${Strings.widgetPlaceholder}'
+
+    'Este iFlow implementa uma integração de API que requer autorização OAuth2 e Mutual TLS '
+    'handshake.\n'
+    'O iFlow OAuth2 Tokens Handler define o cabeçalho Authorization. mTLS é configurado '
+    'diretamente no adaptador HTTP Receiver com o método de autenticação Client Certificate.\n\n'
+
+    'O Sender faz uma requisição GET com o período via parâmetros de consulta na URL.';
   @override
   String get integrationProjectCalculatorDescription =>
     'Consome o web service público Calculator (http://www.dneonline.com/calculator.asmx).';

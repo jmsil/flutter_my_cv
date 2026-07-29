@@ -11,6 +11,7 @@ import 'conversions_ftp.dart';
 import 'exception_handler.dart';
 import 'google_firebase_auth_users.dart';
 import 'iflow_proxy.dart';
+import 'inter_statement_oauth2_mtls.dart';
 import 'oauth2_tokens_handler.dart';
 import 'sql_server_xslt.dart';
 
@@ -27,6 +28,7 @@ class IntegrationLearningExperience extends ExpandableContent {
             ProjectTileWidget(theme, ExceptionHandlerProject()),
             ProjectTileWidget(theme, OAuth2TokensHandlerProject()),
             ProjectTileWidget(theme, GoogleFirebaseAuthUsersProject()),
+            ProjectTileWidget(theme, InterStatementOauth2MtlsProject()),
             ProjectTileWidget(theme, SqlServerXsltProject()),
             ProjectTileWidget(theme, CalculatorProject()),
             ProjectTileWidget(theme, ConversionsFtpProject())

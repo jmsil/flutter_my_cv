@@ -82,6 +82,7 @@ class _State extends AppViewerState<AppProjectViewer> {
         children.add(AppLayout.smallVerticalSpacer);
       }
       else if (infoLine.isNotEmpty) {
+        infoLine = infoLine.replaceAll('\n▪', '\n    ▪');
         children.add(
           Text(infoLine, style: theme.text1OverBackgroundColor1Style)
         );

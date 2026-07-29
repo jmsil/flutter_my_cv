@@ -29,6 +29,8 @@ abstract class Strings {
   static const String integrationProjectOAuth2TokensHandlerTitle = 'OAuth2 Tokens Handler';
   static const String integrationProjectGoogleFirebaseAuthUsersTitle =
     'Google Firebase Auth Users';
+  static const String integrationProjectInterStatementOauth2MtlsTitle =
+    'Inter Statement with OAuth2 and mTLS';
   static const String integrationProjectCalculatorTitle = 'Calculator';
   static const String integrationProjectConversionsAndFtpTitle = 'Conversions and FTP';
   static const String integrationProjectSqlServerWithXsltTitle = 'SQL Server with XSLT';
@@ -92,6 +94,8 @@ abstract class Strings {
   String get integrationProjectOAuth2TokensHandlerInfo;
   String get integrationProjectGoogleFirebaseAuthUsersDescription;
   String get integrationProjectGoogleFirebaseAuthUsersInfo;
+  String get integrationProjectInterStatementOauth2MtlsDescription;
+  String get integrationProjectInterStatementOauth2MtlsInfo;
   String get integrationProjectCalculatorDescription;
   String get integrationProjectCalculatorInfo;
   String get integrationProjectConversionsAndFtpDescription;
