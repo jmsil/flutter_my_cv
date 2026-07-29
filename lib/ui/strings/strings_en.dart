@@ -172,6 +172,43 @@ class StringsEn extends Strings {
     'The following script contains the main methods for the whole solution:'
     '${Strings.widgetPlaceholder}';
   @override
+  String get integrationProjectGoogleFirebaseAuthUsersDescription =>
+    'Manage end-users in the Google Firebase Authentication service.';
+  @override
+  String get integrationProjectGoogleFirebaseAuthUsersInfo =>
+    'This solution is intended to replicate users from the SAP system (e.g., Business Partners) '
+    'to the Google Firebase Authentication service so they can sign in to end-user applications '
+    'that implement the Firebase Authentication solution.\n\n'
+
+    'It is composed of the following iFlows:'
+
+    '${Strings.title('▪ Google Firebase Auth Users', false)}'
+    '${Strings.widgetPlaceholder}'
+
+    'This is the main iFlow which performs the actual integration. It supports the following '
+    'operations:\n'
+    '▪ POST - creates a new user by providing its ID and email;\n'
+    '▪ PATCH - updates a user by providing its ID, email, and status (enabled/disabled);\n'
+    '▪ DELETE - deletes a user by providing its ID.'
+
+    '${Strings.title('▪ Google Firebase Auth Users Async')}'
+    '${Strings.widgetPlaceholder}'
+
+    'This iFlow allows calling the main iFlow asynchronously by storing the request in a JMS '
+    'queue and returning immediately to the Sender.\n'
+    'The actual integration is processed later by another iFlow.'
+
+    '${Strings.title('▪ Google Firebase Auth Users Async Queue')}'
+    '${Strings.widgetPlaceholder}'
+
+    'This iFlow processes the JMS queue of asynchronous requests, calls the main iFlow, and '
+    'stores the response for later consumption.'
+
+    '${Strings.title('▪ Google Firebase Auth Users Async Response')}'
+    '${Strings.widgetPlaceholder}'
+
+    'This iFlow returns all pending stored responses and clears them.';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consume the public web service Calculator (http://www.dneonline.com/calculator.asmx).';
   @override

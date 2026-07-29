@@ -27,6 +27,8 @@ abstract class Strings {
   static const String integrationProjectIFlowProxyTitle = 'Integration Flow Proxy';
   static const String integrationProjectExceptionHandlerTitle = 'Exception Handler';
   static const String integrationProjectOAuth2TokensHandlerTitle = 'OAuth2 Tokens Handler';
+  static const String integrationProjectGoogleFirebaseAuthUsersTitle =
+    'Google Firebase Auth Users';
   static const String integrationProjectCalculatorTitle = 'Calculator';
   static const String integrationProjectConversionsAndFtpTitle = 'Conversions and FTP';
   static const String integrationProjectSqlServerWithXsltTitle = 'SQL Server with XSLT';
@@ -88,6 +90,8 @@ abstract class Strings {
   String get integrationProjectExceptionHandlerInfo;
   String get integrationProjectOAuth2TokensHandlerDescription;
   String get integrationProjectOAuth2TokensHandlerInfo;
+  String get integrationProjectGoogleFirebaseAuthUsersDescription;
+  String get integrationProjectGoogleFirebaseAuthUsersInfo;
   String get integrationProjectCalculatorDescription;
   String get integrationProjectCalculatorInfo;
   String get integrationProjectConversionsAndFtpDescription;

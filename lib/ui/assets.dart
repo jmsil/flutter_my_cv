@@ -16,6 +16,8 @@ class AppAssets {
     'assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip');
   static final AssetsArchive oauth2TokensHandlerAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/OAuth2TokensHandler/archive.zip');
+  static final AssetsArchive googleFirebaseAuthUsersAssets = AssetsArchive(
+    'assets/SapIntegrationSuiteLearningJourney/GoogleFirebaseAuthUsers/archive.zip');
   static final AssetsArchive calculatorAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip');
   static final AssetsArchive conversionsAndFtpAssets = AssetsArchive(

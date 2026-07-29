@@ -179,6 +179,43 @@ class StringsPt extends Strings {
     'O script a seguir contém os principais métodos para a solução completa:'
     '${Strings.widgetPlaceholder}';
   @override
+  String get integrationProjectGoogleFirebaseAuthUsersDescription =>
+    'Gerencia usuários finais no serviço Google Firebase Authentication.';
+  @override
+  String get integrationProjectGoogleFirebaseAuthUsersInfo =>
+    'Esta solução tem o objetivo de replicar usuários do sistema SAP (e.g., Business Partners) '
+    'para o serviço Google Firebase Authentication de modo que eles possam se autenticar em '
+    'aplicações do usuário final que implementam a solução Firebase Authentication.\n\n'
+
+    'Ela é composta pelos seguintes iFlows:'
+
+    '${Strings.title('▪ Google Firebase Auth Users', false)}'
+    '${Strings.widgetPlaceholder}'
+
+    'Este é o iFlow principal, o qual executa a real integração. Ele suporta as seguintes '
+    'operações:\n'
+    '▪ POST - cria um novo usuário fornecendo seu ID e email;\n'
+    '▪ PATCH - atualiza um usuário fornecendo seu ID, email, e status (habilitado/desabilitado);\n'
+    '▪ DELETE - exclui um usuário fornecendo seu ID.'
+
+    '${Strings.title('▪ Google Firebase Auth Users Async')}'
+    '${Strings.widgetPlaceholder}'
+
+    'Este iFlow permite chamadas assíncronas ao iFlow principal armazenando a requisição em uma '
+    'fila JMS e retornando imediatamente para o Sender.\n'
+    'A integração real é processada mais tarde por outro iFlow.'
+
+    '${Strings.title('▪ Google Firebase Auth Users Async Queue')}'
+    '${Strings.widgetPlaceholder}'
+
+    'Este iFlow processa a fila JMS de requisições assíncronas, chama o iFlow principal, e '
+    'armazena a resposta para futuro consumo.'
+
+    '${Strings.title('▪ Google Firebase Auth Users Async Response')}'
+    '${Strings.widgetPlaceholder}'
+
+    'Este iFlow retorna todas respostas armazenadas pendentes e as remove do armazenamento.';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consome o web service público Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
