@@ -1,10 +1,6 @@
 import 'strings.dart';
 
 class StringsEn extends Strings {
-  final String _unsupportedEndpointsPhrase =
-    'Unsupported endpoints return 404 (Not Found).';
-  final String _unsupportedMethodsPhrase =
-    'Unsupported methods return 405 (Method Not Allowed).';
   @override
   String get appName => 'Welcome to My Online Curriculum';
   @override
@@ -271,30 +267,27 @@ class StringsEn extends Strings {
     '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectCalculatorDescription =>
-    'Consume the public web service Calculator (http://www.dneonline.com/calculator.asmx).';
+    'Consume the public webservice Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
   String get integrationProjectCalculatorInfo =>
     '${Strings.widgetPlaceholder}'
 
-    'This iFlow implements a dynamic endpoint to support the four operations offered by the web '
-    'service.\n\n'
+    'This iFlow dynamically implements the four operations available at the public SOAP '
+    'webservice Calculator.\n'
+    'The operation is passed via the URL path.\n'
+    'The parameters are passed via URL query parameters.\n\n'
 
-    'The supported endpoints are:\n'
-    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/add;\n'
-    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/sub;\n'
-    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/mult;\n'
-    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/div.\n\n'
+    'The four supported operations are:\n'
+    '▪ GET - /add?paramA&paramB;\n'
+    '▪ GET - /sub?paramA&paramB;\n'
+    '▪ GET - /mul?paramA&paramB;\n'
+    '▪ GET - /div?paramA&paramB.\n\n'
 
-    '${_unsupportedEndpointsPhrase}\n'
-    '${_unsupportedMethodsPhrase}\n\n'
-
-    'The parameters are sent via URL in the format ?paramA=<value>&paramB=<value> and mapped '
-    'to the SOAP request:'
+    'The URL path determines the SoapAction header and the mappings:'
 
     '${Strings.widgetPlaceholder}\n'
 
-    'By reading the CamelHttpPath header, it is possible to identify the operation and configure '
-    'the associated mappings and SOAP action:'
+    'The URL query parameters are mapped to the SOAP request:'
 
     '${Strings.widgetPlaceholder}';
   @override

@@ -1,10 +1,6 @@
 import 'strings.dart';
 
 class StringsPt extends Strings {
-  final String _unsupportedEndpointsPhrase =
-    'Endpoints não suportados retornam 404 (Not Found).';
-  final String _unsupportedMethodsPhrase =
-    'Métodos não suportados retornam 405 (Method Not Allowed).';
   @override
   String get appName => 'Bem-vindo(a) ao Meu Currículo Online';
   @override
@@ -224,7 +220,7 @@ class StringsPt extends Strings {
     'O iFlow OAuth2 Tokens Handler define o cabeçalho Authorization. mTLS é configurado '
     'diretamente no adaptador HTTP Receiver com o método de autenticação Client Certificate.\n\n'
 
-    'O Sender faz uma requisição GET com o período via parâmetros de consulta na URL.';
+    'O Sender faz uma requisição GET com o período nos parâmetros de consulta da URL.';
   @override
   String get integrationProjectSqlServerWithXsltDescription =>
     'Conecta a um banco de dados SQL Server via JDBC e executa operações básicas.';
@@ -278,30 +274,27 @@ class StringsPt extends Strings {
     '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectCalculatorDescription =>
-    'Consome o web service público Calculator (http://www.dneonline.com/calculator.asmx).';
+    'Consome o webservice público Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
   String get integrationProjectCalculatorInfo =>
     '${Strings.widgetPlaceholder}'
 
-    'Este iFlow implementa um endpoint dinâmico para atender às quatro operações oferecidas pelo '
-    'web service.\n\n'
+    'Este iFlow implementa dinamicamente as quatro operações disponíveis no webservice SOAP '
+    'público Calculator.\n'
+    'A operação é informada no caminho da URL.\n'
+    'Os parâmetros são informados nos parâmetros de consulta da URL.\n\n'
 
-    'Os endpoints suportados são:\n'
-    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/add;\n'
-    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/sub;\n'
-    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/mult;\n'
-    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/div.\n\n'
+    'As quatro operações suportadas são:\n'
+    '▪ GET - /add?paramA&paramB;\n'
+    '▪ GET - /sub?paramA&paramB;\n'
+    '▪ GET - /mul?paramA&paramB;\n'
+    '▪ GET - /div?paramA&paramB.\n\n'
 
-    '${_unsupportedEndpointsPhrase}\n'
-    '${_unsupportedMethodsPhrase}\n\n'
-
-    'Os parâmetros são enviados via URL no formato ?paramA=<value>&paramB=<value> e mapeados '
-    'para a requisição SOAP:'
+    'O caminho da URL determina o cabeçalho SoapAction e os mapeamentos:'
 
     '${Strings.widgetPlaceholder}\n'
 
-    'Através do cabeçalho CamelHttpPath é possível identificar a operação e configurar os '
-    'mapeamentos e ação SOAP correspondentes:'
+    'Os parâmetros de consulta da URL são mapeados para a requisição SOAP:'
 
     '${Strings.widgetPlaceholder}';
   @override
