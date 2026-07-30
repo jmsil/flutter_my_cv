@@ -298,7 +298,7 @@ class StringsEn extends Strings {
     '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectsScriptCollectionInfo =>
-    '*You can find the script collection used in these projects on by GitHub.';
+    '*You can find the script collection of this project on my GitHub.';
   @override
   String get fortlevExperienceTitle => 'Flutter Mobile Application Development';
   @override
