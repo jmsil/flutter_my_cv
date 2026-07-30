@@ -30,20 +30,23 @@ abstract class AppViewer extends StatefulWidget {
   AppViewerState createState();
 
   static void show(BuildContext context, AppViewer viewer) {
-    showGeneralDialog<void>(
-      context: context,
-      barrierLabel: '',
-      barrierDismissible: true,
-      barrierColor: Colors.black.withValues(alpha: 0.7),
-      transitionDuration: AppTheme.animationDuration,
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        opaque: AppDevice.isMobileDevice(),
+        barrierLabel: '',
+        barrierDismissible: true,
+        barrierColor: Colors.black.withValues(alpha: 0.7),
+        transitionDuration: AppTheme.animationDuration,
+        reverseTransitionDuration: AppTheme.animationDuration,
 
-      transitionBuilder: (transCtx, transAnim, transSecAnim, transChild) {
-        return FadeUpwardsPageTransitionsBuilder().buildTransitions(
-          null, transCtx, transAnim, transSecAnim, transChild
-        );
-      },
+        transitionsBuilder: (transCtx, transAnim, transSecAnim, transChild) {
+          return FadeUpwardsPageTransitionsBuilder().buildTransitions(
+            null, transCtx, transAnim, transSecAnim, transChild
+          );
+        },
 
-      pageBuilder: (pageCtx, pageAnim, pageSecAnim) => viewer
+        pageBuilder: (pageCtx, pageAnim, pageSecAnim) => viewer
+      )
     );
   }
 
@@ -84,6 +87,9 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
     final Size screenSize = context.screenSize;
+    final bool isMobileDevice = AppDevice.isMobileDevice();
+    final bool isFloatingWindow =
+      screenSize.width >= 720 && screenSize.height >= 480 && ! isMobileDevice;
 
     final bool showBarBackground =
       isWindowVerticalDirection && layout.showTopbarBackground
@@ -101,7 +107,9 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
         width: isWindowHorizontalDirection ? widget.barSize : null,
         height: isWindowVerticalDirection ? widget.barSize : null,
         padding: widget.barPadding,
-        color: barBackgroundColor.withValues(alpha: 0.6),
+        color: isMobileDevice
+          ? barBackgroundColor
+          : barBackgroundColor.withValues(alpha: 0.6),
         child: buildBar(showBarBackground)
       )
     );
@@ -158,28 +166,32 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       }
     );
 
-    final Widget builtWindowContentWidget = BackdropFilter(
-      key: _builtWindowContentKey,
-      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-      child: Flex(
-        direction: widget.windowDirection,
-        children: [
-          builtBarWidget,
-          Expanded(
-            child: AppContainer(
-              color: widget.isTransparentBody
-                ? theme.backgroundColor.withValues(alpha: 0.88)
-                : theme.backgroundColor,
-              child: builtFullBodyWidget
-            )
+    Widget builtWindowContentWidget = Flex(
+      direction: widget.windowDirection,
+      children: [
+        builtBarWidget,
+        Expanded(
+          child: AppContainer(
+            color: widget.isTransparentBody && ! isMobileDevice
+              ? theme.backgroundColor.withValues(alpha: 0.88)
+              : theme.backgroundColor,
+            child: builtFullBodyWidget
           )
-        ]
-      )
+        )
+      ]
     );
+
+    if ( ! isMobileDevice) {
+      builtWindowContentWidget = BackdropFilter(
+        key: _builtWindowContentKey,
+        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+        child: builtWindowContentWidget
+      );
+    }
 
     WidgetsBinding.instance.addPostFrameCallback(_setCompactModeAndBodyDirection);
 
-    return screenSize.width >= 720 && screenSize.height >= 480
+    return isFloatingWindow
       ? Center(
           child: AppContainer(
             width: widget.windowWidth,
