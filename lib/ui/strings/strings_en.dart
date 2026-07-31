@@ -380,7 +380,9 @@ class StringsEn extends Strings {
     'It also included: Digital Systems, Operating Systems, Data Structure & Algorithms, and an '
     'introduction to programming languages such as C and Java.';
   @override
-  String get coursesAndBooksTitle => 'Relevant Courses and Books';
+  String get knowledgeImprovementsTitle => 'Knowledge Improvements';
+  @override
+  String get certificationsTitle => 'Certifications';
   @override
   String get coursesTitle => 'Courses';
   @override
@@ -395,9 +397,7 @@ class StringsEn extends Strings {
   @override
   String get courseSapCloudIntegrationImmersionTitle => 'SAP Cloud Integration Immersion';
   @override
-  String get courseSapCloudIntegrationImmersionDetail => 'Moovi Education ▪ 05/2025 ▪ 16 hours';
-  @override
-  String get verifyCertificate => 'Verify certificate';
+  String get verifyCertification => 'Verify certification';
   @override
   String get languagesTitle => 'Languages';
   @override

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../content/courses_books.dart';
 import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/items.dart';
+import '../content/knowledge_improvements.dart';
 import '../ui/scroller.dart';
 import 'appbar/compact_appbar.dart';
 import 'sidebar/sidebar.dart';
@@ -32,7 +32,7 @@ class _State extends State<CompactScaffold> {
             CompactAppbar(openDrawer),
             ExperienceGroup(),
             EducationGroup(),
-            CoursesAndBooksGroup(),
+            KnowledgeImprovementsGroup(),
             ItemsGroup.languages(),
             ItemsGroup.availability()
           ]

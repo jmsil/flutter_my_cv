@@ -7,39 +7,68 @@ import '../ui/text.dart';
 import 'expandable.dart';
 import 'group.dart';
 
-class CoursesAndBooksGroup extends StatelessWidget {
+class KnowledgeImprovementsGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Widget coursesWidget = ExpandableContent(
+    final Widget builtCertificationsWidget = ExpandableContent(
+      headerTitle: StringsProvider.strings.certificationsTitle,
+      infoWidget: Column(
+        spacing: AppLayout.normalSpacing,
+        children: [
+          _Item(
+            Strings.certificationCcpiTitle,
+            Strings.certificationCcpiDetail,
+            Strings.certificationCcpiLink
+          ),
+          _Item(
+            Strings.courseSapAdvancedEventMeshTitle,
+            Strings.mooviEducationCoursesDetail,
+            Strings.courseSapAdvancedEventMeshCertificateLink
+          ),
+          _Item(
+            Strings.courseSapApiManagementTitle,
+            Strings.mooviEducationCoursesDetail,
+            Strings.courseSapApiManagementCertificateLink
+          ),
+          _Item(
+            Strings.courseSapCloudIntegration20Title,
+            Strings.mooviEducationCoursesDetail,
+            Strings.courseSapCloudIntegration20CertificateLink
+          )
+        ]
+      )
+    );
+
+    final Widget builtCoursesWidget = ExpandableContent(
       headerTitle: StringsProvider.strings.coursesTitle,
       infoWidget: Column(
         spacing: AppLayout.normalSpacing,
         children: [
           _Item(
             Strings.courseSapAdvancedEventMeshTitle,
-            Strings.mooviEducation,
-            Strings.courseSapAdvancedEventMeshCertificateLink
+            Strings.courseSapAdvancedEventMeshDetail
           ),
           _Item(
             Strings.courseSapApiManagementTitle,
-            Strings.mooviEducation,
-            Strings.courseSapApiManagementCertificateLink
+            Strings.courseSapApiManagementDetail
           ),
           _Item(
             Strings.courseSapCloudIntegration20Title,
-            Strings.mooviEducation,
-            Strings.courseSapCloudIntegration20CertificateLink
+            Strings.courseSapCloudIntegration20Detail
           ),
           _Item(
             StringsProvider.strings.courseSapCloudIntegrationImmersionTitle,
-            StringsProvider.strings.courseSapCloudIntegrationImmersionDetail
+            Strings.courseSapCloudIntegrationImmersionDetail
           ),
-          _Item(StringsProvider.strings.courseOracleTitle, Strings.courseOracleDetail)
+          _Item(
+            StringsProvider.strings.courseOracleTitle,
+            Strings.courseOracleDetail
+          )
         ]
       )
     );
 
-    final Widget booksWidget = ExpandableContent(
+    final Widget builtBooksWidget = ExpandableContent(
       headerTitle: StringsProvider.strings.booksTitle,
       infoWidget: Column(
         spacing: AppLayout.normalSpacing,
@@ -58,12 +87,14 @@ class CoursesAndBooksGroup extends StatelessWidget {
 
     return ContentGroup(
       icon: AppIcons.studying,
-      title: StringsProvider.strings.coursesAndBooksTitle,
+      title: StringsProvider.strings.knowledgeImprovementsTitle,
       hasHorizontalPadding: false,
       children: [
-        coursesWidget,
+        builtCertificationsWidget,
         AppLayout.smallVerticalSpacer,
-        booksWidget
+        builtCoursesWidget,
+        AppLayout.smallVerticalSpacer,
+        builtBooksWidget
       ]
     );
   }
@@ -80,14 +111,14 @@ class _Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
-    Widget composedDetailWidget = Text(detail, style: theme.text1OverBackgroundColor1ItalicStyle);
+    Widget builtDetailWidget = Text(detail, style: theme.text1OverBackgroundColor1ItalicStyle);
 
     if (certificateLink != null) {
-      composedDetailWidget = Wrap(
+      builtDetailWidget = Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
-          composedDetailWidget,
-          AppLink(text: StringsProvider.strings.verifyCertificate, link: certificateLink)
+          builtDetailWidget,
+          AppLink(text: StringsProvider.strings.verifyCertification, link: certificateLink)
         ]
       );
     }
@@ -102,7 +133,7 @@ class _Item extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title, style: theme.text1OverBackgroundColor1BoldStyle),
-              composedDetailWidget
+              builtDetailWidget
             ]
           )
         )

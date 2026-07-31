@@ -56,18 +56,26 @@ abstract class Strings {
   static const String booksCleanCodeArchDetail = 'Robert C. Martin';
   static const String bookEnterpriseIntegrationPatternsTitle = 'Enterprise Integration Patterns';
   static const String bookEnterpriseIntegrationPatternsDetail = 'Gregor Hohpe & Bobby Woolf';
-  static const String mooviEducation = 'Moovi Education';
-  static const String _mooviEducationCertificateHost = 'https://moovi.curseduca.pro/verify/';
   static const String courseOracleDetail = '2010';
+  static const String certificationCcpiTitle = 'SAP Integration Developer C_CPI';
+  static const String certificationCcpiDetail = 'SAP';
+  static const String certificationCcpiLink =
+    'https://www.credly.com/badges/76ba4a5b-f8c8-430d-a088-a887e6b90d04/public_url';
+  static const String courseSapCloudIntegrationImmersionDetail = 'Moovi Education ▪ 05/2025';
   static const String courseSapCloudIntegration20Title = 'SAP Cloud Integration 2.0';
+  static const String courseSapCloudIntegration20Detail = 'Moovi Education ▪ 06/2025';
   static const String courseSapCloudIntegration20CertificateLink =
     '${_mooviEducationCertificateHost}d39e6da5e22b2a29ae86168057db8b2c67be7ac8';
   static const String courseSapApiManagementTitle = 'SAP API Management';
+  static const String courseSapApiManagementDetail = 'Moovi Education ▪ 06/2025';
   static const String courseSapApiManagementCertificateLink =
     '${_mooviEducationCertificateHost}54f002745e63e1413e492e1a0d0414df4358c946';
   static const String courseSapAdvancedEventMeshTitle = 'SAP Advanced Event Mesh';
+  static const String courseSapAdvancedEventMeshDetail = 'Moovi Education ▪ 12/2025';
   static const String courseSapAdvancedEventMeshCertificateLink =
     '${_mooviEducationCertificateHost}dd05be54712a1ed6487e3a00511c26c7505cc76c';
+  static const String mooviEducationCoursesDetail = 'Moovi Education';
+  static const String _mooviEducationCertificateHost = 'https://moovi.curseduca.pro/verify/';
 
   String get appName;
   String get longRoles;
@@ -119,15 +127,15 @@ abstract class Strings {
   String get educationUniversityTitle;
   String get educationUniversityDetail;
   String get educationUniversityInfo;
-  String get coursesAndBooksTitle;
+  String get knowledgeImprovementsTitle;
+  String get certificationsTitle;
   String get coursesTitle;
   String get booksTitle;
   String get bookDelphiBibleTitle;
   String get bookGoogleAndroidTitle;
   String get courseOracleTitle;
   String get courseSapCloudIntegrationImmersionTitle;
-  String get courseSapCloudIntegrationImmersionDetail;
-  String get verifyCertificate;
+  String get verifyCertification;
   String get languagesTitle;
   String get languagesInfo;
   String get availabilityTitle;
