@@ -50,10 +50,6 @@ abstract class AppViewer extends StatefulWidget {
     );
   }
 
-  static bool isInFullWindowOf(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<_Notifier>()?.notifier?.value != null;
-  }
-
   static void setFullWindowOf(BuildContext context, Widget? widget) {
     context.getInheritedWidgetOfExactType<_Notifier>()?.notifier?.value = widget;
   }

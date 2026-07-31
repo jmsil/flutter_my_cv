@@ -32,7 +32,6 @@ class AppViewerFullWindowHandler extends StatelessWidget {
 
   Widget overlayBuilder(BuildContext context, bool hovered, Widget? child) {
     final AppTheme theme = context.appLayout.theme;
-    final isInFullWindowMode = AppViewer.isInFullWindowOf(context);
     final List<Widget> children = [ child! ];
 
     if (hovered) {
@@ -48,10 +47,10 @@ class AppViewerFullWindowHandler extends StatelessWidget {
             padding: const AppEdgeInsets.normal(),
             effectsColor: theme.inkEffectsColor,
             child: Icon(
-              isInFullWindowMode ? AppIcons.fullWindowExit : AppIcons.fullWindow,
+              fullWindowChild == null ? AppIcons.fullWindowExit : AppIcons.fullWindow,
               color: iconColor
             ),
-            onPressed: () => onPressed(context, isInFullWindowMode)
+            onPressed: () => AppViewer.setFullWindowOf(context, fullWindowChild)
           )
         )
       );
@@ -61,13 +60,6 @@ class AppViewerFullWindowHandler extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: children
-    );
-  }
-
-  void onPressed(BuildContext context, bool isInFullWindowMode) {
-    AppViewer.setFullWindowOf(
-      context,
-      isInFullWindowMode ? null : fullWindowChild ?? this
     );
   }
 }

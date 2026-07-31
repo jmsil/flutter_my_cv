@@ -17,9 +17,9 @@ import 'full_window_handler.dart';
 class ProjectCodeWidget extends StatelessWidget {
   final AssetsArchive assets;
   final List<int> assetsIds;
-  final List<int> horizonalFlexes;
+  final List<int> horizontalFlexes;
 
-  ProjectCodeWidget(this.assets, this.assetsIds, [this.horizonalFlexes = const []]);
+  ProjectCodeWidget(this.assets, this.assetsIds, [this.horizontalFlexes = const []]);
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +28,21 @@ class ProjectCodeWidget extends StatelessWidget {
     final List<Widget> children = [];
 
     final bool isHorizontalDirection =
-      screenWidth / assetsIds.length >= 400 ||
-      assetsIds.length == 1;
+      assetsIds.length == 1 ||
+      screenWidth / assetsIds.length >= 400;
 
     for (int id in assetsIds) {
       Widget editorWidget = _CodeEditor(theme, assets.getFile(id));
       Widget widget = isHorizontalDirection
         ? Expanded(
-            flex: horizonalFlexes.isEmpty ? 1 : horizonalFlexes[assetsIds.indexOf(id)],
+            flex: horizontalFlexes.isEmpty ? 1 : horizontalFlexes[assetsIds.indexOf(id)],
             child: editorWidget
           )
-        : _FullWindowHandler(theme, editorWidget);
+        : _FullWindowHandler(
+            theme,
+            editorWidget,
+            _FullWindowHandler(theme, editorWidget, null)
+          );
       children.add(widget);
     }
 
@@ -49,7 +53,11 @@ class ProjectCodeWidget extends StatelessWidget {
     );
 
     return isHorizontalDirection
-      ? _FullWindowHandler(theme, builtWidget)
+      ? _FullWindowHandler(
+          theme,
+          builtWidget,
+          _FullWindowHandler(theme, builtWidget, null)
+        )
       : builtWidget;
   }
 }
@@ -96,12 +104,13 @@ class _CodeEditor extends CodeEditor {
 }
 
 class _FullWindowHandler extends SizedBox {
-  _FullWindowHandler(AppTheme theme, Widget child)
+  _FullWindowHandler(AppTheme theme, Widget child, Widget? fullWindowChild)
     : super(
         height: 326,
         child: AppViewerFullWindowHandler(
           iconColor: theme.overElement1Color1,
-          child: child
+          child: child,
+          fullWindowChild: fullWindowChild
         )
       );
 }
