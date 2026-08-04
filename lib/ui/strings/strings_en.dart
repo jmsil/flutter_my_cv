@@ -272,6 +272,22 @@ class StringsEn extends Strings {
     '${Strings.widgetPlaceholder}'
     '${Strings.widgetPlaceholder}';
   @override
+  String get integrationProjectMappingsDescription => 'Map hierarchical and flat data trees.';
+  @override
+  String get integrationProjectMappingsInfo =>
+    '${Strings.widgetPlaceholder}'
+    'This iFlow applies context handling and functions to map the following scenarios:'
+
+    '${Strings.title('▪ Hierarchical tree to flat tree:', false)}'
+    '${Strings.widgetPlaceholder}\n'
+    'The following example demonstrates the payload and the mapping result (not sorted):'
+    '${Strings.widgetPlaceholder}'
+
+    '${Strings.title('▪ Flat tree to hierarchical tree:')}'
+    '${Strings.widgetPlaceholder}\n'
+    'The following example demonstrates the payload and the mapping result (sorted):'
+    '${Strings.widgetPlaceholder}';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consume the public webservice Calculator (http://www.dneonline.com/calculator.asmx).';
   @override

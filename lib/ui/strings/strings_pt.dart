@@ -279,6 +279,23 @@ class StringsPt extends Strings {
     '${Strings.widgetPlaceholder}'
     '${Strings.widgetPlaceholder}';
   @override
+  String get integrationProjectMappingsDescription =>
+    'Mapeia árvores de dados hierárquicas e planas.';
+  @override
+  String get integrationProjectMappingsInfo =>
+    '${Strings.widgetPlaceholder}'
+    'Este iFlow aplica manipulação de contexto e funções para mapear os seguintes cenários:'
+
+    '${Strings.title('▪ Árvore hierárquica para árvore plana:', false)}'
+    '${Strings.widgetPlaceholder}\n'
+    'O exemplo a seguir demonstra o payload e o resultado do mapeamento (não ordenado):'
+    '${Strings.widgetPlaceholder}'
+
+    '${Strings.title('▪ Árvore plana para árvore hierárquica:')}'
+    '${Strings.widgetPlaceholder}\n'
+    'O exemplo a seguir demonstra o payload e o resultado do mapeamento (ordenado):'
+    '${Strings.widgetPlaceholder}';
+  @override
   String get integrationProjectCalculatorDescription =>
     'Consome o webservice público Calculator (http://www.dneonline.com/calculator.asmx).';
   @override

@@ -24,6 +24,8 @@ class AppAssets {
     'assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip');
   static final AssetsArchive conversionsAndFtpAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip');
+  static final AssetsArchive mappingsAssets = AssetsArchive(
+    'assets/SapIntegrationSuiteLearningJourney/Mappings/archive.zip');
   static final AssetsArchive calculatorAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip');
 

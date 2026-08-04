@@ -33,6 +33,7 @@ abstract class Strings {
     'Inter Statement with OAuth2 and mTLS';
   static const String integrationProjectSqlServerWithXsltTitle = 'SQL Server with XSLT';
   static const String integrationProjectConversionsAndFtpTitle = 'Conversions and FTP';
+  static const String integrationProjectMappingsTitle = 'Mappings';
   static const String integrationProjectCalculatorTitle = 'Calculator';
   static const String bciShortLink = 'BCI Consulting.com';
   static const String bciLink = 'https://www.bci-consulting.com';
@@ -108,6 +109,8 @@ abstract class Strings {
   String get integrationProjectSqlServerWithXsltInfo;
   String get integrationProjectConversionsAndFtpDescription;
   String get integrationProjectConversionsAndFtpInfo;
+  String get integrationProjectMappingsDescription;
+  String get integrationProjectMappingsInfo;
   String get integrationProjectCalculatorDescription;
   String get integrationProjectCalculatorInfo;
   String get integrationProjectsScriptCollectionInfo;
