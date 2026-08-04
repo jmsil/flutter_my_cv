@@ -38,13 +38,11 @@ class AppViewerFullWindowHandler extends StatelessWidget {
       Widget button = Align(
         alignment: Alignment.topRight,
         child: AppContainer(
-          borderRadius: const BorderRadius.only(
-            topRight: AppTheme.radius,
-            bottomLeft: AppTheme.radius
-          ),
+          margin: const AppEdgeInsets.small(),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
           isClipped: true,
           child: AppInkResponse(
-            padding: const AppEdgeInsets.normal(),
+            padding: const AppEdgeInsets.small(),
             effectsColor: theme.inkEffectsColor,
             child: Icon(
               fullWindowChild == null ? AppIcons.fullWindowExit : AppIcons.fullWindow,
