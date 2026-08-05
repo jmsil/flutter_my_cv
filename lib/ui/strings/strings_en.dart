@@ -106,15 +106,12 @@ class StringsEn extends Strings {
     'For each route, the following settings are validated:\n'
     '▪ Allowed HTTP methods;\n'
     '▪ Supported paths;\n'
-    '▪ Supported query parameters and their format;\n'
-    '▪ Public requests rejection (some iFlows cannot be called by end-user applications via the '
-    'API Management Proxy).'
+    '▪ Supported query parameters and their format.'
 
     '${Strings.widgetPlaceholder}'
 
-    'Requests that do not match any configured route or that the route rejects public calls '
-    'return 404 (Not Found).\n'
-    'HTTP methods not supported by the route settings return 405 (Method Not Allowed).\n'
+    'Requests that do not match any configured route return 404 (Not Found).\n'
+    'Unsupported HTTP methods return 405 (Method Not Allowed).\n'
     'Incorrect query parameters return 400 (Bad Request).'
 
     '${Strings.title('Sensitive Headers Cleaning')}'

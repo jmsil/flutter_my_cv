@@ -112,15 +112,12 @@ class StringsPt extends Strings {
     'Para cada rota, as seguintes configurações são validadas:\n'
     '▪ Métodos HTTP suportados;\n'
     '▪ Caminhos suportados;\n'
-    '▪ Parâmetros de requisição suportados e seus formatos;\n'
-    '▪ Rejeição de requisições públicas (alguns iFlows não podem ser chamados por aplicações do '
-    'usuário final via API Management Proxy).'
+    '▪ Parâmetros de requisição suportados e seus formatos.'
 
     '${Strings.widgetPlaceholder}'
 
-    'Requisições que não correspondem às configurações de rotas ou que a rota rejeita chamadas '
-    'públicas retornam 404 (Not Found).\n'
-    'Métodos HTTP não suportados pela configuração da rota retornam 405 (Method Not Allowed).\n'
+    'Requisições que não correspondem às configurações de rotas retornam 404 (Not Found).\n'
+    'Métodos HTTP não suportados retornam 405 (Method Not Allowed).\n'
     'Parâmetros de consulta incorretos retornam 400 (Bad Request).'
 
     '${Strings.title('Limpeza de Cabeçalhos Sensíveis')}'
