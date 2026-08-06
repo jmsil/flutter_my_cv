@@ -66,7 +66,12 @@ class StringsPt extends Strings {
     'Este API Management Proxy aplica as seguintes políticas para confiar e identificar um '
     'usuário final autenticado com o serviço Google Cloud Firebase Authentication:'
 
-    '${Strings.title('▪ GetFirebaseJwtClaims', false)}'
+    '${Strings.title('▪ ForbidResources', false)}'
+    'Esta política RaiseFault proíbe o acesso a recursos administrativos. Neste cenário, as '
+    'operações Google Firebase Auth Users não podem ser chamadas por uma aplicação do usuário '
+    'final.'
+
+    '${Strings.title('▪ GetFirebaseJwtClaims')}'
     'Esta política KeyValueMapOperations lê os direitos issuer e audience configurados para a '
     'aplicação do Firebase.'
 
@@ -101,7 +106,7 @@ class StringsPt extends Strings {
   String get integrationProjectIFlowProxyInfo =>
     '${Strings.widgetPlaceholder}'
 
-    'Este iFlow é o ponto de entrada para todos os iFlows do pacote. Ele executa as seguintes '
+    'Este iFlow é o ponto de entrada para todos os iFlows do projeto. Ele executa as seguintes '
     'operações:\n'
     '▪ Validação de configurações comuns de requests;\n'
     '▪ Roteamento para o iFlow de destino via ProcessDirect baseado no caminho da requisição;\n'

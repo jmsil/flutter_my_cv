@@ -62,7 +62,11 @@ class StringsEn extends Strings {
     'This API Management Proxy applies the following policies to trust and identify an end-user '
     'authenticated with the Google Cloud Firebase Authentication service:'
 
-    '${Strings.title('▪ GetFirebaseJwtClaims', false)}'
+    '${Strings.title('▪ ForbidResources', false)}'
+    'This RaiseFault policy forbids access to administrative resources. In this scenario, the '
+    'Google Firebase Auth Users operations cannot be called from an end-user application.'
+
+    '${Strings.title('▪ GetFirebaseJwtClaims')}'
     'This KeyValueMapOperations policy reads the issuer and audience claims configured for the '
     'Firebase application.'
 
@@ -95,7 +99,7 @@ class StringsEn extends Strings {
   String get integrationProjectIFlowProxyInfo =>
     '${Strings.widgetPlaceholder}'
 
-    'This iFlow is the entry point for all iFlows in the package. It performs the following '
+    'This iFlow is the entry point for all iFlows of the project. It performs the following '
     'operations:\n'
     '▪ Common request settings validation;\n'
     '▪ Destination iFlow routing via ProcessDirect based on the request path;\n'
