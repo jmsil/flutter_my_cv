@@ -45,8 +45,7 @@ class CompactAppbar extends StatelessWidget {
           child: ProfilePhoto(onPressed: onPressed)
         ),
         MainProfileInfo.nameAndRoles(
-          style: MainProfileInfoStyle.compact,
-          isOverBackground: false,
+          style: MainProfileInfoStyle.compactAppbar,
           isShortRoles: screenWidth <= 430
         )
       ]

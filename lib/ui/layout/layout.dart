@@ -17,10 +17,7 @@ class AppLayout {
   static final AppLayout left = AppLayout(
     showTopbarBackground: false,
     showSidebarBackground: true,
-    theme: AppTheme(
-      text2FontSize: 18,
-      header2FontSize: 20
-    )
+    theme: AppTheme()
   );
 
   static final AppLayout top = AppLayout(

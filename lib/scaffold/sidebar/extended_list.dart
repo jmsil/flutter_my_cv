@@ -74,8 +74,7 @@ class _Profile extends AppbarAnimatedContainer {
                     bottomFactor: 1,
                     child: AppbarAnimatedOpacity(
                       MainProfileInfo.nameAndRoles(
-                        style: MainProfileInfoStyle.compact,
-                        isOverBackground: false,
+                        style: MainProfileInfoStyle.compactAppbar,
                         isShortRoles: true,
                         softWrap: false
                       )

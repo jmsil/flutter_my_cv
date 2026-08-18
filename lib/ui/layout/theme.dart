@@ -11,9 +11,6 @@ class AppTheme {
   static const BorderRadius circleBorderRadius = BorderRadius.all(Radius.circular(999999));
 
   AppTheme({
-    this.text2FontSize = 17,
-    this.header2FontSize = 18,
-
     Color? backgroundColor,
     Color? overBackgroundColor1,
     Color? overBackgroundColor2,
@@ -54,8 +51,10 @@ class AppTheme {
 
   final double text1FontSize = 15;
   final double header1FontSize = 16;
-  final double text2FontSize;
-  final double header2FontSize;
+  final double text2FontSize = 17;
+  final double header2FontSize = 18;
+  final double text3FontSize = 18;
+  final double header3FontSize = 20;
 
   final Color backgroundColor;
   final Color overBackgroundColor1;
@@ -88,31 +87,37 @@ class AppTheme {
     fontSize: text1FontSize, color: overBackgroundColor2);
   late final TextStyle text1OverBackgroundColor2BoldStyle = TextStyle(
     fontSize: text1FontSize, color: overBackgroundColor2, fontWeight: FontWeight.bold);
-  late final TextStyle header1OverBackgroundColor1BoldStyle = TextStyle(
-    fontSize: header1FontSize, color: overBackgroundColor1, fontWeight: FontWeight.bold);
-  late final TextStyle text2OverBackgroundColor1Style = TextStyle(
-    fontSize: text2FontSize, color: overBackgroundColor1);
-  late final TextStyle header2OverBackgroundColor1BoldStyle = TextStyle(
-    fontSize: header2FontSize, color: overBackgroundColor1, fontWeight: FontWeight.bold);
-
   late final TextStyle text1OverElement1Color1Style = TextStyle(
     fontSize: text1FontSize, color: overElement1Color1);
   late final TextStyle text1OverElement1Color1BoldStyle = TextStyle(
     fontSize: text1FontSize, color: overElement1Color1, fontWeight: FontWeight.bold);
-  late final TextStyle header1OverElement1Color1BoldStyle = TextStyle(
-    fontSize: header1FontSize, color: overElement1Color1, fontWeight: FontWeight.bold);
-  late final TextStyle text2OverElement1Color1Style = TextStyle(
-    fontSize: text2FontSize, color: overElement1Color1);
-  late final TextStyle header2OverElement1Color1BoldStyle = TextStyle(
-    fontSize: header2FontSize, color: overElement1Color1, fontWeight: FontWeight.bold);
-
-  late final TextStyle header1OverElement3Color1BoldStyle = TextStyle(
-    fontSize: header1FontSize, color: overElement3Color1, fontWeight: FontWeight.bold);
-
   late final TextStyle text1OverSectionColor1Style = TextStyle(
     fontSize: text1FontSize, color: overSectionColor1);
   late final TextStyle text1OverSectionColor3Style = TextStyle(
     fontSize: text1FontSize, color: overSectionColor3);
+
+  late final TextStyle header1OverBackgroundColor1BoldStyle = TextStyle(
+    fontSize: header1FontSize, color: overBackgroundColor1, fontWeight: FontWeight.bold);
+  late final TextStyle header1OverElement1Color1BoldStyle = TextStyle(
+    fontSize: header1FontSize, color: overElement1Color1, fontWeight: FontWeight.bold);
+  late final TextStyle header1OverElement3Color1BoldStyle = TextStyle(
+    fontSize: header1FontSize, color: overElement3Color1, fontWeight: FontWeight.bold);
   late final TextStyle header1OverSectionColor2BoldStyle = TextStyle(
     fontSize: header1FontSize, color: overSectionColor2, fontWeight: FontWeight.bold);
+
+  late final TextStyle text2OverBackgroundColor1Style = TextStyle(
+    fontSize: text2FontSize, color: overBackgroundColor1);
+  late final TextStyle text2OverElement1Color1Style = TextStyle(
+    fontSize: text2FontSize, color: overElement1Color1);
+
+  late final TextStyle header2OverBackgroundColor1BoldStyle = TextStyle(
+    fontSize: header2FontSize, color: overBackgroundColor1, fontWeight: FontWeight.bold);
+  late final TextStyle header2OverElement1Color1BoldStyle = TextStyle(
+    fontSize: header2FontSize, color: overElement1Color1, fontWeight: FontWeight.bold);
+
+  late final TextStyle text3OverBackgroundColor1Style = TextStyle(
+    fontSize: text3FontSize, color: overBackgroundColor1);
+
+  late final TextStyle header3OverBackgroundColor1BoldStyle = TextStyle(
+    fontSize: header3FontSize, color: overBackgroundColor1, fontWeight: FontWeight.bold);
 }

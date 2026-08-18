@@ -18,6 +18,9 @@ class ExtendedAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
+    final MainProfileInfoStyle mainProfileInfoStyle = layout.showTopbarBackground
+      ? MainProfileInfoStyle.extendedAppbarElement
+      : MainProfileInfoStyle.extendedAppbarBackground;
 
     final Widget builtWidget = Row(
       children: [
@@ -31,17 +34,13 @@ class ExtendedAppbar extends StatelessWidget {
               children: [
                 Expanded(flex: 1, child: const SizedBox()),
                 MainProfileInfo.nameAndRoles(
-                  style: MainProfileInfoStyle.expanded,
-                  isOverBackground: ! layout.showTopbarBackground,
+                  style: mainProfileInfoStyle,
                   isShortRoles: false
                 ),
                 Expanded(flex: 2, child: const SizedBox()),
                 Expanded(
                   flex: 16,
-                  child: MainProfileInfo.professionalSummary(
-                    style: MainProfileInfoStyle.expanded,
-                    isOverBackground: ! layout.showTopbarBackground
-                  )
+                  child: MainProfileInfo.professionalSummary(style: mainProfileInfoStyle)
                 )
               ]
             )

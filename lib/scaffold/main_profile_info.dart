@@ -4,27 +4,19 @@ import '../ui/divider.dart';
 import '../ui/layout/layout_provider.dart';
 import '../ui/strings/strings_provider.dart';
 
-enum MainProfileInfoStyle {
-  compact, normal, expanded;
-
-  bool get isCompact => this == compact;
-  bool get isNormal => this == normal;
-  bool get isExpanded => this == expanded;
-}
+enum MainProfileInfoStyle { compactAppbar, extendedAppbarBackground, extendedAppbarElement, body }
 
 class MainProfileInfo extends StatelessWidget {
   final IconData? icon;
   final String title;
   final String info;
   final MainProfileInfoStyle style;
-  final bool isOverBackground;
   final bool softWrap;
   final bool hasIntrinsicWidth;
 
   MainProfileInfo.nameAndRoles({
     required this.style,
     required bool isShortRoles,
-    required this.isOverBackground,
     this.softWrap = true
   })
     : icon = null,
@@ -36,8 +28,7 @@ class MainProfileInfo extends StatelessWidget {
 
   MainProfileInfo.professionalSummary({
     this.icon,
-    required this.style,
-    required this.isOverBackground
+    required this.style
   })
     : title = StringsProvider.strings.professionalSummaryTitle,
       info = StringsProvider.strings.professionalSummaryInfo,
@@ -47,26 +38,35 @@ class MainProfileInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
+    final double verticalSpacing;
+    final TextStyle titleStyle;
+    final TextStyle infoStyle;
 
-    final titleStyle = isOverBackground
-      ? style.isCompact
-        ? theme.header1OverBackgroundColor1BoldStyle
-        : theme.header2OverBackgroundColor1BoldStyle
-      : style.isCompact
-        ? theme.header1OverElement1Color1BoldStyle
-        : theme.header2OverElement1Color1BoldStyle;
-
-    final infoStyle = isOverBackground
-      ? style.isCompact
-        ? theme.text1OverBackgroundColor1Style
-        : theme.text2OverBackgroundColor1Style
-      : style.isCompact
-        ? theme.text1OverElement1Color1Style
-        : theme.text2OverElement1Color1Style;
+    switch (style) {
+      case MainProfileInfoStyle.compactAppbar:
+        verticalSpacing = AppLayout.shortSpacing;
+        titleStyle = theme.header1OverElement1Color1BoldStyle;
+        infoStyle = theme.text1OverElement1Color1Style;
+        break;
+      case MainProfileInfoStyle.extendedAppbarBackground:
+        verticalSpacing = AppLayout.smallSpacing;
+        titleStyle = theme.header2OverBackgroundColor1BoldStyle;
+        infoStyle = theme.text2OverBackgroundColor1Style;
+        break;
+      case MainProfileInfoStyle.extendedAppbarElement:
+        verticalSpacing = AppLayout.smallSpacing;
+        titleStyle = theme.header2OverElement1Color1BoldStyle;
+        infoStyle = theme.text2OverElement1Color1Style;
+        break;
+      case MainProfileInfoStyle.body:
+        verticalSpacing = AppLayout.normalSpacing;
+        titleStyle = theme.header3OverBackgroundColor1BoldStyle;
+        infoStyle = theme.text3OverBackgroundColor1Style;
+    }
 
     Widget builtTitleWidget = Text(title, style: titleStyle, softWrap: softWrap);
 
-    if ( ! style.isCompact && icon != null) {
+    if (style != MainProfileInfoStyle.compactAppbar && icon != null) {
       builtTitleWidget = Row(
         spacing: titleStyle.fontSize!,
         children: [
@@ -78,7 +78,10 @@ class MainProfileInfo extends StatelessWidget {
 
     Widget builtInfoWidget = Text(info, style: infoStyle, softWrap: softWrap);
 
-    if (style.isExpanded) {
+    if (
+      style == MainProfileInfoStyle.extendedAppbarBackground ||
+      style == MainProfileInfoStyle.extendedAppbarElement)
+    {
       builtInfoWidget = Expanded(
         child: Align(
           alignment: Alignment.bottomLeft,
@@ -88,11 +91,7 @@ class MainProfileInfo extends StatelessWidget {
     }
 
     final Widget builtWidget = Column(
-      spacing: style.isCompact
-        ? AppLayout.shortSpacing
-        : style.isNormal
-            ? AppLayout.normalSpacing
-            : AppLayout.smallSpacing,
+      spacing: verticalSpacing,
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [

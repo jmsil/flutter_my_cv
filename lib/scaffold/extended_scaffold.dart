@@ -66,8 +66,7 @@ class ExtendedScaffold extends StatelessWidget {
               padding: const AppEdgeInsets.xLarge(top: AppEdgeInsets.normalValue),
               child: MainProfileInfo.professionalSummary(
                 icon: AppIcons.summary,
-                style: MainProfileInfoStyle.normal,
-                isOverBackground: true
+                style: MainProfileInfoStyle.body
               )
             ),
             Expanded(child: builtWidget)
