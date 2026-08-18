@@ -111,8 +111,8 @@ class StringsPt extends Strings {
 
     'Este iFlow é o ponto de entrada para todos os iFlows do projeto. Ele executa as seguintes '
     'operações:\n'
-    '▪ Validação de configurações comuns de requests;\n'
-    '▪ Roteamento para o iFlow de destino via ProcessDirect baseado no caminho da requisição;\n'
+    '▪ Validação de configurações de requests;\n'
+    '▪ Roteamento de iFlow via ProcessDirect baseado no caminho da requisição;\n'
     '▪ Logs de exceções;\n'
     '▪ Limpeza de cabeçalhos sensíveis.'
 
@@ -120,7 +120,7 @@ class StringsPt extends Strings {
     'Para cada rota, as seguintes configurações são validadas:\n'
     '▪ Métodos HTTP suportados;\n'
     '▪ Caminhos suportados;\n'
-    '▪ Parâmetros de requisição suportados e seus formatos.'
+    '▪ Parâmetros de consulta suportados.'
 
     '${Strings.widgetPlaceholder}'
 
@@ -131,7 +131,15 @@ class StringsPt extends Strings {
     '${Strings.title('Limpeza de Cabeçalhos Sensíveis')}'
     'Alguns cabeçalhos sensíveis gerados durante o processamento dos iFlows, como Authorization, '
     'cabeçalhos customizados usando o padrão de nomenclatura _*, cabeçalhos auto-gerados por '
-    'etapas DataStore, e outros, são removidos antes de retornar para o Sender.';
+    'etapas DataStore, e outros, são removidos antes de retornar para o Sender.'
+
+    '${Strings.title('Tratamento de Exceções')}'
+    'O tratamento de exceções consiste em rotear exceções para o iFlow Exception Handler.\n\n'
+
+    'O script a seguir trata exceções de iFlows não publicados, exceções do proxy, e exceções '
+    'de iFlows internos:'
+
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectExceptionHandlerDescription =>
     'Salva dados da mensagem no Message Processing Log e envia emails de alerta.';

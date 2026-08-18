@@ -104,8 +104,8 @@ class StringsEn extends Strings {
 
     'This iFlow is the entry point for all iFlows of the project. It performs the following '
     'operations:\n'
-    '▪ Common request settings validation;\n'
-    '▪ Destination iFlow routing via ProcessDirect based on the request path;\n'
+    '▪ Request settings validation;\n'
+    '▪ iFlow routing via ProcessDirect based on the request path;\n'
     '▪ Exceptions logging;\n'
     '▪ Sensitive headers cleaning.'
 
@@ -113,7 +113,7 @@ class StringsEn extends Strings {
     'For each route, the following settings are validated:\n'
     '▪ Allowed HTTP methods;\n'
     '▪ Supported paths;\n'
-    '▪ Supported query parameters and their format.'
+    '▪ Supported query parameters.'
 
     '${Strings.widgetPlaceholder}'
 
@@ -124,7 +124,15 @@ class StringsEn extends Strings {
     '${Strings.title('Sensitive Headers Cleaning')}'
     'Some sensitive headers generated during iFlows processing, such as Authorization, custom '
     'headers using the _* naming pattern, auto-generated headers by DataStore steps, and others, '
-    'are removed before returning to the Sender.';
+    'are removed before returning to the Sender.'
+
+    '${Strings.title('Exception Handling')}'
+    'The exception handling consists of routing exceptions to the Exception Handler iFlow.\n\n'
+
+    'The following script handles undeployed iFlow exceptions, proxy exceptions, and internal '
+    'iFlow exceptions:'
+
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectExceptionHandlerDescription =>
     'Log the message\'s data in the Message Processing Log and send alert emails.';
