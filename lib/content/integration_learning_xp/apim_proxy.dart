@@ -4,6 +4,7 @@ import '../../ui/assets.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_image.dart';
+import '../../ui/viewer/project_swagger.dart';
 
 class ApimProxyProject extends Project {
   ApimProxyProject()
@@ -17,7 +18,8 @@ class ApimProxyProject extends Project {
   @override
   List<Widget> buildPlaceholderWidgets() {
     return [
-      ProjectImageWidget(assets.getFile(1))
+      ProjectImageWidget(assets.getFile(1)),
+      ProjectSwaggerWidget()
     ];
   }
 }

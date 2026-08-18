@@ -91,7 +91,10 @@ class StringsEn extends Strings {
     '${Strings.title('▪ SetHeaders')}'
     'This AssignMessage policy adds the User-ID header with the end-user ID extracted from the '
     'Firebase JWT token and removes the Authorization header before forwarding the request to '
-    'Cloud Integration.';
+    'Cloud Integration.\n\n'
+
+    'The resources are documented in the API Management following the OpenAPI specification:'
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectIFlowProxyDescription =>
     'Validate incoming requests and manage iFlow routing.';

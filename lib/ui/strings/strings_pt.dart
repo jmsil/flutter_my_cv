@@ -98,7 +98,10 @@ class StringsPt extends Strings {
     '${Strings.title('▪ SetHeaders')}'
     'Esta política AssignMessage adiciona o cabeçalho User-ID com o ID do usuário final extraído '
     'do token JWT do Firebase e remove o cabeçalho Authorization antes de encaminhar a requisição '
-    'para o Cloud Integration.';
+    'para o Cloud Integration.'
+
+    'Os recursos estão documentados no API Management seguindo a especificação OpenAPI:'
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectIFlowProxyDescription =>
     'Valida requisições e gerencia o roteamento para os iFlows.';
