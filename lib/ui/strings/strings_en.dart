@@ -179,7 +179,8 @@ class StringsEn extends Strings {
     'This solution generates a request body with the signed JWT using a deployed Google APIs '
     'Service Key that contains the private key.\n\n'
 
-    'The following script contains the main methods for the whole solution:'
+    'The following scripts are the core of the solution. They implement the tokens and security '
+    'artifacts handling:'
     '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectGoogleFirebaseAuthUsersDescription =>

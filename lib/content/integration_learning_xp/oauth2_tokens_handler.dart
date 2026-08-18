@@ -19,7 +19,7 @@ class OAuth2TokensHandlerProject extends Project {
   List<Widget> buildPlaceholderWidgets() {
     return [
       ProjectImageWidget(assets.getFile(1)),
-      ProjectCodeWidget(assets, [2])
+      ProjectCodeWidget(assets, [2, 3])
     ];
   }
 }

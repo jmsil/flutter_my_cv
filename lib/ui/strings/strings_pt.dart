@@ -187,7 +187,8 @@ class StringsPt extends Strings {
     'Esta solução gera um corpo de requisição com o JWT assinado usando uma Google APIs Service '
     'Key publicada contendo a chave privada.\n\n'
 
-    'O script a seguir contém os principais métodos para a solução completa:'
+    'Os scripts a seguir são o centro da solução. Eles implementam o tratamento dos tokens e dos '
+    'artefatos de segurança:'
     '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectGoogleFirebaseAuthUsersDescription =>
