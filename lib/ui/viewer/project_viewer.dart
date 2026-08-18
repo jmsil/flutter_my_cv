@@ -30,8 +30,8 @@ class _State extends AppViewerState<AppProjectViewer> {
     final AppTheme theme = context.appLayout.theme;
 
     final TextStyle titleStyle = showBackground
-      ? theme.header1OverElement1Color1BoldStyle
-      : theme.header1OverBackgroundColor1BoldStyle;
+      ? theme.header2OverElement1Color1BoldStyle
+      : theme.header2OverBackgroundColor1BoldStyle;
 
     final TextStyle descriptionStyle = showBackground
       ? theme.text1OverElement1Color1Style
@@ -43,7 +43,6 @@ class _State extends AppViewerState<AppProjectViewer> {
         Icon(AppIcons.webhook, size: 64, color: titleStyle.color),
         Expanded(
           child: Column(
-            spacing: AppLayout.smallSpacing,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(widget.project.title, style: titleStyle),
