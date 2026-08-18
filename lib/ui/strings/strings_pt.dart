@@ -147,7 +147,7 @@ class StringsPt extends Strings {
   String get integrationProjectExceptionHandlerInfo =>
     '${Strings.widgetPlaceholder}'
 
-    'Este iFlow é responsável por manipular as exceções de todos os iFlows do pacote.\n\n'
+    'Este iFlow é responsável por manipular as exceções de todo o projeto.\n\n'
 
     'O log e o envio de email são configurados (habilitado/desabilitado) via parâmetros '
     'externalizados, assim como as configurações SMTP.\n\n'
@@ -205,9 +205,10 @@ class StringsPt extends Strings {
 
     'Este é o iFlow principal, o qual executa a real integração. Ele suporta as seguintes '
     'operações:\n'
-    '▪ POST - cria um novo usuário fornecendo seu ID e email;\n'
-    '▪ PATCH - atualiza um usuário fornecendo seu ID, email, e status (habilitado/desabilitado);\n'
-    '▪ DELETE - exclui um usuário fornecendo seu ID.'
+    '▪ POST / - cria um novo usuário informando seu ID e email;\n'
+    '▪ PATCH / - atualiza um usuário informando seu ID, email, e status '
+    '(habilitado/desabilitado);\n'
+    '▪ DELETE /{userId} - exclui um usuário informando seu ID.'
 
     '${Strings.title('▪ Google Firebase Auth Users Async')}'
     '${Strings.widgetPlaceholder}'
@@ -234,12 +235,13 @@ class StringsPt extends Strings {
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow implementa uma integração de API que requer autorização OAuth2 e Mutual TLS '
-    'handshake.\n'
-    'O iFlow OAuth2 Tokens Handler configura o cabeçalho Authorization.\n'
+    'handshake.\n\n'
+    'O iFlow OAuth2 Tokens Handler configura o cabeçalho Authorization.\n\n'
     'O handshake mTLS é configurado no adaptador HTTP Receiver com o método de autenticação '
     'Client Certificate.\n\n'
 
-    'O Sender faz uma requisição GET com o período nos parâmetros de consulta da URL.';
+    'A requisição tem o seguinte formato:'
+    'GET /?start-date={T_DATE}&end-date={T_DATE}.';
   @override
   String get integrationProjectSqlServerWithXsltDescription =>
     'Conecta a um banco de dados SQL Server via JDBC e executa operações básicas.';
@@ -251,12 +253,12 @@ class StringsPt extends Strings {
     'requerido pelo adaptador JDBC.\n\n'
 
     'As operações suportadas são:\n'
-    '▪ GET - SELECT;\n'
-    '▪ POST - INSERT;\n'
-    '▪ PATCH - UPDATE.\n\n'
+    '▪ POST /search - SELECT operation;\n'
+    '▪ POST / - INSERT operation;\n'
+    '▪ PATCH / - UPDATE operation.\n\n'
 
-    'Através do cabeçalho CamelHttpMethod é possível configurar o esquema de validação do payload '
-    'e o mapeamento XSLT correspondentes:'
+    'O esquema de validação XML e o mapeamento XSLT são configurados pelos cabeçalhos '
+    'CamelHttpMethod e CamelHttpPath:'
 
     '${Strings.widgetPlaceholder}\n'
 
@@ -270,14 +272,15 @@ class StringsPt extends Strings {
   String get integrationProjectConversionsAndFtpInfo =>
     '${Strings.widgetPlaceholder}'
 
-    'Este iFlow implementa as conversões mais comuns. O cabeçalho Content-Type define o formato '
-    'de origem. O cabeçalho Accept define o formato de destino.\n\n'
+    'Este iFlow implementa as conversões mais comuns.\n'
+    'O cabeçalho Content-Type define o formato de origem.\n'
+    'O cabeçalho Accept define o formato de destino.\n\n'
 
     'As conversões suportadas são:\n'
-    '▪ POST - text/csv para application/xml;\n'
-    '▪ POST - application/json para application/xml;\n'
-    '▪ POST - application/xml para text/csv;\n'
-    '▪ POST - application/xml para application/json.\n\n'
+    '▪ POST / - text/csv > application/xml;\n'
+    '▪ POST / - application/json > application/xml;\n'
+    '▪ POST / - application/xml > text/csv;\n'
+    '▪ POST / - application/xml > application/json.\n\n'
 
     'O resultado é salvo em um servidor FTP configurado via parâmetros externalizados.\n\n'
 
@@ -316,21 +319,19 @@ class StringsPt extends Strings {
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow implementa dinamicamente as quatro operações disponíveis no webservice SOAP '
-    'público Calculator.\n'
-    'A operação é informada no caminho da URL.\n'
-    'Os parâmetros são informados nos parâmetros de consulta da URL.\n\n'
+    'público Calculator.\n\n'
 
     'As quatro operações suportadas são:\n'
-    '▪ GET - /add?paramA&paramB;\n'
-    '▪ GET - /sub?paramA&paramB;\n'
-    '▪ GET - /mul?paramA&paramB;\n'
-    '▪ GET - /div?paramA&paramB.\n\n'
+    '▪ GET /?operation=Add&paramA={T_INT}&paramB={T_INT};\n'
+    '▪ GET /?operation=Subtract&paramA={T_INT}&paramB={T_INT};\n'
+    '▪ GET /?operation=Multiply&paramA={T_INT}&paramB={T_INT};\n'
+    '▪ GET /?operation=Divide&paramA={T_INT}&paramB={T_INT}.\n\n'
 
-    'O caminho da URL determina o cabeçalho SoapAction e os mapeamentos:'
+    'O parâmetro operation configura o cabeçalho SoapAction e os mapeamentos:'
 
     '${Strings.widgetPlaceholder}\n'
 
-    'Os parâmetros de consulta da URL são mapeados para a requisição SOAP:'
+    'Os parâmetros paramA e paramB são mapeados para os parâmetros da requisição SOAP:'
 
     '${Strings.widgetPlaceholder}';
   @override

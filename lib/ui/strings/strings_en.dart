@@ -140,7 +140,7 @@ class StringsEn extends Strings {
   String get integrationProjectExceptionHandlerInfo =>
     '${Strings.widgetPlaceholder}'
 
-    'This iFlow is responsible for exception handling of all iFlows in the package.\n\n'
+    'This iFlow is responsible for exception handling of the whole project.\n\n'
 
     'Logging and email sending are configured (enabled/disabled) via externalized parameters, '
     'as well as the SMTP settings.\n\n'
@@ -197,9 +197,9 @@ class StringsEn extends Strings {
 
     'This is the main iFlow which performs the actual integration. It supports the following '
     'operations:\n'
-    '▪ POST - creates a new user by providing its ID and email;\n'
-    '▪ PATCH - updates a user by providing its ID, email, and status (enabled/disabled);\n'
-    '▪ DELETE - deletes a user by providing its ID.'
+    '▪ POST / - creates a new user by providing its ID and email;\n'
+    '▪ PATCH / - updates a user by providing its ID, email, and status (enabled/disabled);\n'
+    '▪ DELETE /{userId} - deletes a user by providing its ID.'
 
     '${Strings.title('▪ Google Firebase Auth Users Async')}'
     '${Strings.widgetPlaceholder}'
@@ -225,13 +225,14 @@ class StringsEn extends Strings {
   String get integrationProjectInterStatementOauth2MtlsInfo =>
     '${Strings.widgetPlaceholder}'
 
-    'This iFlow implements an API integration that requires OAuth2 authorization and a Mutual TLS '
-    'handshake.\n'
-    'The iFlow OAuth2 Tokens Handler sets the Authorization header.\n'
+    'This iFlow implements an API integration that requires OAuth2 authorization and Mutual TLS '
+    'handshake.\n\n'
+    'The iFlow OAuth2 Tokens Handler sets the Authorization header.\n\n'
     'The mTLS handshake is configured in the HTTP Receiver adapter using the Client Certificate '
     'authentication method.\n\n'
 
-    'The Sender makes a GET request with the period via URL query parameters.';
+    'The request has the following form:\n'
+    'GET /?start-date={T_DATE}&end-date={T_DATE}.';
   @override
   String get integrationProjectSqlServerWithXsltDescription =>
     'Connect to a SQL Server database via JDBC and perform basic operations.';
@@ -243,12 +244,12 @@ class StringsEn extends Strings {
     'JDBC adapter.\n\n'
 
     'The supported operations are:\n'
-    '▪ GET - SELECT;\n'
-    '▪ POST - INSERT;\n'
-    '▪ PATCH - UPDATE.\n\n'
+    '▪ POST /search - Operação SELECT;\n'
+    '▪ POST / - Operação INSERT;\n'
+    '▪ PATCH / - Operação UPDATE.\n\n'
 
-    'By reading the CamelHttpMethod header, it is possible to configure the associated payload '
-    'validation schema and the XSLT mapping:'
+    'The XML validator schema and XSLT mapping are configured by the CamelHttpMethod and '
+    'CamelHttpPath headers:'
 
     '${Strings.widgetPlaceholder}\n'
 
@@ -262,14 +263,15 @@ class StringsEn extends Strings {
   String get integrationProjectConversionsAndFtpInfo =>
     '${Strings.widgetPlaceholder}'
 
-    'This iFlow implements the most common conversions. The Content-Type header defines the '
-    'source format. The Accept header defines the target format.\n\n'
+    'This iFlow implements the most common conversions.\n'
+    'The Content-Type header defines the source format.\n'
+    'The Accept header defines the target format.\n\n'
 
     'The supported conversions are:\n'
-    '▪ POST - text/csv to application/xml;\n'
-    '▪ POST - application/json to application/xml;\n'
-    '▪ POST - application/xml to text/csv;\n'
-    '▪ POST - application/xml to application/json.\n\n'
+    '▪ POST / - text/csv > application/xml;\n'
+    '▪ POST / - application/json > application/xml;\n'
+    '▪ POST / - application/xml > text/csv;\n'
+    '▪ POST / - application/xml > application/json.\n\n'
 
     'The result is saved to an FTP server configured via externalized parameters.\n\n'
 
@@ -307,21 +309,19 @@ class StringsEn extends Strings {
     '${Strings.widgetPlaceholder}'
 
     'This iFlow dynamically implements the four operations available at the public SOAP '
-    'webservice Calculator.\n'
-    'The operation is passed via the URL path.\n'
-    'The parameters are passed via URL query parameters.\n\n'
+    'webservice Calculator.\n\n'
 
-    'The four supported operations are:\n'
-    '▪ GET - /add?paramA&paramB;\n'
-    '▪ GET - /sub?paramA&paramB;\n'
-    '▪ GET - /mul?paramA&paramB;\n'
-    '▪ GET - /div?paramA&paramB.\n\n'
+    'The supported operations are:\n'
+    '▪ GET /?operation=Add&paramA={T_INT}&paramB={T_INT};\n'
+    '▪ GET /?operation=Subtract&paramA={T_INT}&paramB={T_INT};\n'
+    '▪ GET /?operation=Multiply&paramA={T_INT}&paramB={T_INT};\n'
+    '▪ GET /?operation=Divide&paramA={T_INT}&paramB={T_INT}.\n\n'
 
-    'The URL path determines the SoapAction header and the mappings:'
+    'The operation parameter defines the SoapAction header and the mappings:'
 
     '${Strings.widgetPlaceholder}\n'
 
-    'The URL query parameters are mapped to the SOAP request:'
+    'The paramA and paramB parameters are mapped to the SOAP request parameters:'
 
     '${Strings.widgetPlaceholder}';
   @override
