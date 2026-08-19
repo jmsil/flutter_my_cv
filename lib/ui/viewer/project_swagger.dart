@@ -34,15 +34,15 @@ class _State extends State<ProjectSwaggerWidget> {
           Web.Element element = document.createElement('style');
           element.textContent =
             'html, body, .swagger-ui {'
-            '  background: transparent !important;'
-            '  background-color: transparent !important;'
+            '  background: transparent;'
+            '  background-color: transparent;'
             '}'
             '.swagger-ui .info .title {'
-            '  font-size: 20px !important;'
+            '  font-size: 20px;'
             '}'
             '.swagger-ui .opblock-tag {'
-            '  font-size: 16px !important;'
-            '  font-weight: normal !important;'
+            '  font-size: 16px;'
+            '  font-weight: normal;'
             '}'
             '.swagger-ui .info {'
             '  margin: 0px'
@@ -50,6 +50,11 @@ class _State extends State<ProjectSwaggerWidget> {
             '.swagger-ui .info .title small {'
             '  margin: 0 0 0 10px;'
             '  top: 4px;'
+            '}'
+            '.swagger-ui .scheme-container {'
+            '  box-shadow:  0 0 0 0;'
+            '  margin: 0px;'
+            '  padding: 0px 0px 20px 0px;'
             '}';
           document.head?.appendChild(element);
         });
@@ -85,7 +90,7 @@ class _FullWindowHandler extends AppViewerFullWindowHandler {
     : super(
         iconColor: theme.overBackgroundColor2,
         child: AppContainer(
-          height: fullWindowChild == null ? null : 530,
+          height: fullWindowChild == null ? null : 600,
           padding: const EdgeInsets.all(64),
           color: theme.overBackgroundColor3,
           borderColor: theme.overBackgroundColor2.withValues(alpha: 0.16),
