@@ -27,19 +27,21 @@ class StringsPt extends Strings {
   String get aboutAndExpectationsTitle => 'Sobre Mim e Expectativas';
   @override
   String get aboutAndExpectationsInfo =>
-    'Apreciador de ilustração digital para jogos e apaixonado pela arte da música.\n\n'
+    'Apaixonado por ilustração digital para jogos e pela arte da música.\n\n'
 
-    'Sempre interessado em aprender mais sobre qualquer assunto. Sobre desenvolvimento, priorizo '
-    'fontes como livros, documentações oficiais, e artigos.\n\n'
+    'Sou um eterno aprendiz, sempre motivado a dominar novos assuntos. Quando o tema é '
+    'desenvolvimento de software, priorizo fontes de alta qualidade, como livros '
+    'técnicos, documentações oficiais e artigos especializados.\n\n'
 
-    'Busco sempre dar o meu melhor em tudo o que faço, mantendo um alto nível de comprometimento '
-    'com a qualidade do produto final. Valorizo legibilidade e performance e, por isso, escolhi o '
-    'Flutter como meu framework de desenvolvimento multiplataforma.\n\n'
+    'Busco sempre a excelência em tudo o que faço, mantendo um forte compromisso com a '
+    'qualidade do produto final. Valorizo muito a legibilidade do código e a '
+    'performance — e foi por isso que escolhi o Flutter como meu framework '
+    'multiplataforma.\n\n'
 
-    'Espero ter a oportunidade de participar de projetos de desenvolvimento de aplicações e/ou '
-    'integrações de sistemas com base nas minhas habilidades técnicas apresentadas. Enquanto '
-    'contribuo com meus conhecimentos, também espero aprimorar-me pessoal e tecnicamente com '
-    'meus colegas de equipe.';
+    'Estou em busca de oportunidades para colaborar em projetos de desenvolvimento de '
+    'aplicativos e integração de sistemas, onde possa aplicar minhas habilidades '
+    'técnicas. Quero gerar valor para o negócio e, ao mesmo tempo, continuar evoluindo '
+    'tanto pessoal quanto profissionalmente junto com a equipe.';
   @override
   String get madeWithFlutter => 'Feito com Flutter  🩵';
   @override

@@ -26,18 +26,19 @@ class StringsEn extends Strings {
   String get aboutAndExpectationsTitle => 'About Me and Expectations';
   @override
   String get aboutAndExpectationsInfo =>
-    'A lover of digital illustration for games and passionate about the art of music.\n\n'
+    'Passionate about digital illustration for games and the art of music.\n\n'
 
-    'Always interested in learning more about any subject. When it comes to development, I '
-    'prioritize sources such as books, official documentation, and articles.\n\n'
+    'I am a lifelong learner who loves diving deep into new topics. When it comes to software '
+    'development, I prioritize high-quality sources such as books, official documentation, '
+    'and technical articles.\n\n'
 
-    'I always strive to do my best in everything I do, maintaining a high level of commitment '
-    'to the quality of the final product. I value readability and performance, and that\'s why I '
-    'chose Flutter as my cross-platform development framework.\n\n'
+    'I always strive for excellence, maintaining a strong commitment to the quality of the '
+    'final product. I deeply value code readability and performance, which is why I chose '
+    'Flutter as my preferred cross-platform framework.\n\n'
 
-    'I hope to have the opportunity to participate in application development and/or system '
-    'integration projects based on my demonstrated technical skills. While contributing my '
-    'knowledge, I also hope to improve personally and technically alongside my teammates.';
+    'I am looking forward to contributing to application development and system integration '
+    'projects where I can leverage my technical skills. I am excited to bring value to a '
+    'team while continuing to grow both personally and professionally alongside my peers.';
   @override
   String get madeWithFlutter => 'Made with Flutter  🩵';
   @override
